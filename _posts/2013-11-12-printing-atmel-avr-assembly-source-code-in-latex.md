@@ -109,8 +109,8 @@ Now, in my tex file, I configured the listings module to use this definition:
 		numberstyle=\tiny\color{Blue}, % Line numbers are blue and small
 		stepnumber=5 % Line numbers go in steps of 5
 		}
-	
-	% Creates a new command to include an asm script, 
+
+	% Creates a new command to include an asm script,
 	% the first parameter is the filename of the program (without .asm),
 	% the second parameter is the caption
 	\newcommand{\avrasm}[2]{
@@ -121,4 +121,4 @@ Now, in my tex file, I configured the listings module to use this definition:
 
 Now, I can just place a main.asm file in the same directory, and call it with `\avrasm{main}{comment}`. The output looks like this:
 
-![AVR ASM listings example](assets/avrasm.png)
+![AVR ASM listings example]({{ BASE_PATH }}/images/avrasm.png)
