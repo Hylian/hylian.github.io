@@ -102,7 +102,7 @@ Now, in my tex file, I configured the listings module to use this definition:
 		keywordstyle=\color{Blue}\bf, % Instructions in blue, bold
 		keywordstyle=[2]\color{Orange}, % Registers and ports in orange
 		keywordstyle=[3]\color{Purple}, % Directives in purple
-		commentstyle=\usefont{T1}{pcr}{m}{sl}\color{MyDarkGreen}\small, % Comments small dark green courier font
+		commentstyle=\usefont{T1}{pcr}{m}{sl}\color{MyDarkGreen}\small,
 		tabsize=5, % 5 spaces per tab
 		numbers=left, % Line numbers on left
 		firstnumber=1, % Line numbers start with line 1
@@ -110,7 +110,9 @@ Now, in my tex file, I configured the listings module to use this definition:
 		stepnumber=5 % Line numbers go in steps of 5
 		}
 	
-	% Creates a new command to include an asm script, the first parameter is the filename of the program (without .asm), the second parameter is the caption
+	% Creates a new command to include an asm script, 
+	% the first parameter is the filename of the program (without .asm),
+	% the second parameter is the caption
 	\newcommand{\avrasm}[2]{
 	\begin{itemize}
 	\item[]\lstinputlisting[caption=#2,label=#1]{#1.asm}
