@@ -1,7 +1,7 @@
 ---
 layout: page
 title: hyliantech
-tagline: electronics and things
+tagline: electronics and other things
 ---
 {% include JB/setup %}
 
