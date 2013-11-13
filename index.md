@@ -18,7 +18,7 @@ Projects
 
 <ul>
     {% assign pages_list = site.pages %}
-    {% assign group = 'project' %}
+    {% assign group = 'projects' %}
     {% include JB/pages_list %}
 </ul>
 

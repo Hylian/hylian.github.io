@@ -2,7 +2,7 @@
 layout: page
 title: "Quadrotor"
 description: "Quadrotor created from scratch"
-group: project
+group: projects
 ---
 {% include JB/setup %}
 

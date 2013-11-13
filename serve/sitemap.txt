@@ -4,6 +4,7 @@ http://hylian.github.io/atom.xml
 http://hylian.github.io/categories.html
 http://hylian.github.io/index.html
 http://hylian.github.io/pages.html
+http://hylian.github.io/projects/evalbot.html
 http://hylian.github.io/projects/quadrotor.html
 http://hylian.github.io/projects.html
 http://hylian.github.io/rss.xml
