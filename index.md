@@ -11,4 +11,4 @@ About Me
 
 I'm an ECE and CS student at Carnegie Mellon University.
 
-This site is a log of the various thoughts I have and projects I am working on.
+This site logs various thoughts I have and the projects I am working on.
