@@ -1,6 +1,6 @@
 ---
 layout: page
 title: "Quadrotor"
-description: "A flying robot built from scratch"
+description: ""
 ---
 {% include JB/setup %}
