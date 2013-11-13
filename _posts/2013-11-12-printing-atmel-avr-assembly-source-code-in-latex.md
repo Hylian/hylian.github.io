@@ -13,7 +13,7 @@ Here's how it works:
 
 The [listings](https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings) module in LaTeX allows for printing of source code for a variety of different languages, but AVR Assembly is not one of them. I needed to go ahead and define the language highlighting myself. Assembly is fairly simple, so I just needed to define keywords for all the instructions and registers.
 
-I found a set of keywords defined by Nils Michelsen online, and edited it so that we can highlight instructions, registers, and directives separately:
+I found a set of keywords defined by Nils Michelsen online, and edited it so that I could highlight instructions, registers, and directives separately:
 
 	%%
 	%% AVRASM definition (c) 2005 Nils Michelsen
