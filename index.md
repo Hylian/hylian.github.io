@@ -5,8 +5,8 @@ tagline: electronics and other things
 ---
 {% include JB/setup %}
 
-About Me
-========
+Edward Shin
+===========
 
 
 I'm an ECE and CS student at Carnegie Mellon University.
