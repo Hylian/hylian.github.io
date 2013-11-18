@@ -19,8 +19,8 @@ This project is funded by the CMU Robotics Club.
 
 Posts
 -----
-{% assign posts_collate = site.categories.evalbot %}
+{% assign posts_list = site.categories.evalbot %}
 <html>
-{% include JB/posts_collate %}
+{% include JB/posts_list %}
 </html>
 
