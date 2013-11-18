@@ -6,4 +6,9 @@ group: projects
 ---
 {% include JB/setup %}
 
-testing one two three
+[GitHub](https://github.com/Hylian/quadrotor)
+
+Posts
+=====
+{% assign posts_collate = site.tags.jekyll %}
+{% include JB/posts_collate %}

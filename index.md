@@ -10,7 +10,6 @@ Edward Shin
 
 
 I'm an ECE and CS student at Carnegie Mellon University.
-
 This site logs my various thoughts and projects.
 
 Projects
