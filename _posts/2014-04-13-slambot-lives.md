@@ -15,5 +15,5 @@ Next step is to code the MSP430 to handle passing off the LIDAR data to the Stel
 
 ![PCB]({{ BASE_PATH }}/images/slambotpcb.png)
 
-![Assembled SLAMbot]({{ BASE_PATH }}/images/slambot1.jpg)
+![Assembled SLAMbot]({{ BASE_PATH }}/images/slambot1.JPG)
 
