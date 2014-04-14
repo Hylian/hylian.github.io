@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "SLAMbot Lives\!"
+title: "SLAMbot Lives!"
 description: ""
 category: "slambot"
 tags: []
