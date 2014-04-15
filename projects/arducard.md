@@ -24,11 +24,7 @@ Features
 * Battery charging over USB
 * 2.7" e-Paper display
 * 5 edge-mounted interrupt-triggered tactile buttons
-
-Dimensions
-----------
-
-80 mm x 45 mm x 5 mm
+* Size: 80 mm x 45 mm x 5 mm
 
 Applications
 ------------
@@ -37,14 +33,6 @@ Applications
 * Store barcodes for rewards cards, etc.
 * Store QR codes
 * USB text terminal for Raspberry Pi
-* ...
-
-Interested?
------------
-
-Tweet me at [@inwardshed](https://twitter.com/inwardshed) or e-mail at [edshin95@gmail.com](mailto:edshin95@gmail.com) if you're interested in assembling a PCB/contributing.
-
-
 
 Posts
 -----
