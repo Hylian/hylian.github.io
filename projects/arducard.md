@@ -1,7 +1,56 @@
 ---
 layout: page
-title: "Arducard"
+title: "arducard"
 description: ""
 group: projects
 ---
 {% include JB/setup %}
+
+arducard
+========
+
+An open-source Arduino derivative e-paper dev device.
+
+[GitHub](https://github.com/Hylian/arducard)
+
+Features
+-----
+
+* ATmega32U4 (Same as the Arduino Leonardo)
+* USB transceiver
+* DS1343 Real-Time Clock
+* 128KB FRAM
+* LiR2016 Coin-cell Li-Ion battery
+* Battery charging over USB
+* 2.7" e-Paper display
+* 5 edge-mounted interrupt-triggered tactile buttons
+
+Dimensions
+----------
+
+80 mm x 45 mm x 5 mm
+
+Applications
+------------
+
+* Google Auth Time-OTP 
+* Store barcodes for rewards cards, etc.
+* Store QR codes
+* USB text terminal for Raspberry Pi
+* ...
+
+Interested?
+-----------
+
+Tweet me at [@inwardshed](https://twitter.com/inwardshed) or e-mail at [edshin95@gmail.com](mailto:edshin95@gmail.com) if you're interested in assembling a PCB/contributing.
+
+
+
+Posts
+-----
+{% assign posts_list = site.categories.arducard %}
+<html>
+{% include JB/posts_list %}
+</html>
+
+
