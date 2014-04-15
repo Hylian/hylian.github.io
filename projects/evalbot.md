@@ -19,7 +19,7 @@ This project is funded by the CMU Robotics Club.
 
 Posts
 -----
-{% assign posts_list = site.categories.evalbot %}
+{% assign posts_list = site.categories.slambot %}
 <html>
 {% include JB/posts_list %}
 </html>
