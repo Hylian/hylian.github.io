@@ -9,7 +9,7 @@ group: projects
 arducard
 ========
 
-![Arducard Prototype]({{ BASE_PATH }}/images/arducard1.JPG)
+![Arducard Prototype]({{ BASE_PATH }}/images/arducard1.jpg)
 
 An open-source Arduino derivative e-paper dev device.
 
