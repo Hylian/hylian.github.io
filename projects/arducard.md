@@ -9,6 +9,8 @@ group: projects
 arducard
 ========
 
+![Arducard Prototype]({{ BASE_PATH }}/images/arducard1.JPG)
+
 An open-source Arduino derivative e-paper dev device.
 
 [GitHub](https://github.com/Hylian/arducard)
@@ -29,7 +31,7 @@ Features
 Applications
 ------------
 
-* Google Auth Time-OTP 
+* Google Auth Time-OTP
 * Store barcodes for rewards cards, etc.
 * Store QR codes
 * USB text terminal for Raspberry Pi
