@@ -9,6 +9,8 @@ group: projects
 SLAMbot: SLAM with a TI Stellaris Evalbot and XV-11 LIDAR
 =========================================================
 
+![Assembled SLAMbot]({{ BASE_PATH }}/images/slambot1.JPG)
+
 Description
 -----------
 The TI Evalbot is a cute little robotic dev board from Texas Instruments that uses their Stellaris ARM processor as a core. The Neato XV-11 is a robotic vacuum cleaner that has an inexpensive laser distance sensor which can be removed. This project combines the two to perform Simultaneous Localization and Mapping (SLAM) and autonomous navigation.
