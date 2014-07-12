@@ -18,7 +18,7 @@ html, body {
 body {
   background-color: white;
   /*font: 13.34px helvetica, arial, clean, sans-serif;*/
-  font-family: 13.34 px 'Lato', sans-serif;
+  font: 13.34 px 'Lato', sans-serif;
   *font-size: small;
   text-align: center;
 }
