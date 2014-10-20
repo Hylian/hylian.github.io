@@ -11,10 +11,10 @@ pygments: true
 # so be sure to set them if your theme uses them.
 #
 title : hyliantech
-tagline: a personal site about electronics and other things
+tagline: embedded electronics and more
 author :
   name : Edward Shin
-  email : edshin95@gmail.com
+  email : contact [at] edwardsh.in
   twitter : inwardshed
   github : Hylian
 
@@ -83,7 +83,7 @@ JB :
   # Set 'provider' to false to turn commenting off globally.
   #
   comments :
-    provider : disqus
+    provider : false
     disqus :
       short_name : hyliantech
     livefyre :
