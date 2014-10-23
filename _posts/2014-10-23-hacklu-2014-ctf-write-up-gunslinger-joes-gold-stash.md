@@ -56,7 +56,7 @@ Inside the module, there is a function called "fuqstring" which is very similar 
 
 The array byte_2DD is the character array "123456789012445678". So, we just calculate the inverse of (a ^ (b-4)), which is (a ^ b)+4, for every character in the string. I wrote a simple C program for this purpose.
 
-![fuqstring]({{ BASE_PATH }}/images/joe/7.png)
+![fuqstring]({{ BASE_PATH }}/images/joe/7.PNG)
 
 {% highlight C %}
 #include <stdio.h>
