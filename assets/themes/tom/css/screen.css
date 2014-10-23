@@ -92,9 +92,7 @@ ul.posts {
 }
 
 .title {
-  color: #a00;
-  font-weight: bold;
-  margin-bottom: 2em;
+  color: #a00; font-weight: bold; margin-bottom: 2em;
 }
 
   .site .title a {
@@ -163,7 +161,7 @@ ul.posts {
 
   #post pre {
     border: 1px solid #ddd;
-    background-color: #eef;
+    background-color: #f9f9f9;
     padding: 0 .4em;
   }
 
@@ -174,8 +172,8 @@ ul.posts {
 
   #post code {
     border: 1px solid #ddd;
-    background-color: #eef;
-    font-size: 85%;
+    background-color: #f9f9f9;
+    /*font-size: 85%;*/
     padding: 0 .2em;
   }
 
@@ -187,12 +185,35 @@ ul.posts {
 
   #post pre.terminal {
     border: 1px solid black;
-    background-color: #333;
+    background-color: #f9f9f9;
     color: white;
   }
 
   #post pre.terminal code {
-    background-color: #333;
+    background-color: #f9f9f9;
+  }
+
+  #post blockquote {
+    background: #f9f9f9;
+    border-left: 10px solid #ccc;
+    margin: 1.5em 10px;
+    padding: 0.5em 10px;
+    quotes: "\201C""\201D""\2018""\2019";
+  }
+
+  /*
+  #post blockquote:before {
+    color: #ccc;
+    content: open-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
+  }
+  */
+  
+  #post blockquote p {
+    display: inline;
   }
 
 #related {
