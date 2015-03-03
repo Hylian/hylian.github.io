@@ -13,9 +13,9 @@ The keyboard connector uses Microsoft's [HID over I2C interface](https://msdn.mi
 
 The interface is essentially the same as the USB HID spec, but implemented over an I2C transport and one interrupt pin. This means our keyboard needs to act as an I2C slave and assert an interrupt signal to the PC whenever data is available.
 
-I took the connector from my ![previous Touch Cover teardown](http://edwardsh.in/cover/2014/10/19/microsoft-touch-cover-mini-teardown/) and sanded down the flat cable until the copper was exposed. I then soldered this to a working Touch Cover with some pins to probe the lines.
+I took the connector from my [previous Touch Cover teardown]({{ BASE PATH }}/cover/2014/10/19/microsoft-touch-cover-mini-teardown/) and sanded down the flat cable until the copper was exposed. I then soldered this to a working Touch Cover with some pins to probe the lines.
 
-![Breakout Cable]({{ BASE_PATH }}/images/touchpinout/cable.jpg)
+![Breakout Cable]({{ BASE PATH }}/images/touchpinout/cable.jpg)
 
 Here's what I found after hooking it up to an oscilloscope:
 
