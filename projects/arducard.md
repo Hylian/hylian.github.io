@@ -11,14 +11,14 @@ arducard
 
 ![Arducard Prototype]({{ BASE_PATH }}/images/arducard1.jpg)
 
-An open-source Arduino derivative e-paper dev device.
+An open-source e-paper development device.
 
 [GitHub](https://github.com/Hylian/arducard)
 
 Features
 -----
 
-* ATmega32U4 (Same as the Arduino Leonardo)
+* ATmega32U4 (Same as in the Arduino Leonardo)
 * USB transceiver
 * DS1343 Real-Time Clock
 * 128KB FRAM
