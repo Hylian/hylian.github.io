@@ -27,7 +27,7 @@ Individual keys were glued to the fabric of the cover to make sure they connecte
 
 ![Connector]({{ BASE_PATH }}/images/touchcover/cover5.jpg) 
 
-The Touch Cover is a silicone membrane keyboard, not a purely capacitive one as I had initially thought. Here, the top membrane layer is removed. As pressure is applied to the pads, they touch the capacitive traces underneath, triggering a keypress.
+The Touch Cover uses force sensitive resistors to detect keypresses. Here, the top membrane layer is removed. As pressure is applied to the pads, they short the squiggly traces underneath, changing the resistance of the line.
 
 ![Membrane]({{ BASE_PATH }}/images/touchcover/cover6.jpg) 
 
