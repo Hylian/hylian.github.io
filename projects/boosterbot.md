@@ -9,13 +9,15 @@ group: projects
 BoosterBot
 ========
 
-![Arducard Prototype]({{ BASE_PATH }}/images/boosterbot/boosterbot-robot.jpg)
+![BoosterBot Photo]({{ BASE_PATH }}/images/boosterbot/boosterbot-robot.jpg)
 
 A BoosterPack that turns your TI Launchpad into a fully functional robot!
 
 The BoosterBot attaches underneath any 40-pin Launchpad to give it batteries, wheels, and access to a bunch of sensors; perfect for anyone who wants to get started with MSP430 and robotics, or just wants an easy to use robotics platform to build off of.
 
 It comes with line sensors and an IR distance sensor to support lots of cool demos out of the box!
+
+[Purchase on Tindie](https://www.tindie.com/products/HylianSavior/boosterbot/)
 
 [Website](http://boosterbot.in)
 
