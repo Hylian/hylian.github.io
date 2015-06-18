@@ -38,7 +38,7 @@ Unfortunately, the fab missed the cutout I specified for the reverse-mounted ATt
 
 ![Missed Cutout]({{ BASE_PATH }}/images/card/card6.jpg)
 
-Minus the missed cutout, I was very satisfied with how the boards came out. With more options and flexible pricing in comparison to FusionPCB, DirtyPCBs will likely be me go-to fab service in the future.
+Minus the missed cutout, I was very satisfied with how the boards came out. With more options and flexible pricing in comparison to FusionPCB, DirtyPCBs will likely be my go-to fab service in the future.
 
 As for the business cards, I will have to figure out what went wrong and order another batch. The full project source can be found on my GitHub [here](https://github.com/hylian/card).
 
