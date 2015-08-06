@@ -13,13 +13,18 @@ BoosterBot
 
 <iframe width="705" height="400" src="https://www.youtube.com/embed/C60c98HO0_U" frameborder="0" allowfullscreen> </iframe>
 
-A BoosterPack that turns your TI Launchpad into a fully functional robot!
+A BoosterPack that turns your TI LaunchPad into a fully functional robot!
+-------------------------------------------------------------------------
 
-The BoosterBot attaches underneath any 40-pin Launchpad to give it batteries, wheels, and access to a bunch of sensors; perfect for anyone who wants to get started with MSP430 and robotics, or just wants an easy to use robotics platform to build off of.
+2nd Place Winner of the 2014 Texas Instruments Intern Design Contest
 
-It comes with line sensors and an IR distance sensor to support lots of cool demos out of the box!
+BoosterBot attaches underneath any 40-pin LaunchPad to give it batteries, wheels, and access to
+distance and line tracking sensors; perfect for anyone who wants to get started with the MSP430 and
+robotics, or just wants an easy-to-use robotics platform to build off of.
 
 [Purchase on Tindie](https://www.tindie.com/products/HylianSavior/boosterbot/)
+
+[Bill of Materials](https://docs.google.com/spreadsheets/d/1mRRuciIq44UwTY0NZKw7sUpmjOIC4nQgimvoF12DIwo/pubhtml)
 
 [Website](http://boosterbot.in)
 
@@ -30,12 +35,24 @@ It comes with line sensors and an IR distance sensor to support lots of cool dem
 Features
 --------
 
-* Micro Metal Gearmotors from Pololu
-* Powered by 3xAAA batteries
-* Five QRE1113 Reflectance sensors for line following and maze solving
-* Header for a Sharp IR distance sensor
-* Header for a servo
-* Compatible with other BoosterPacks, including the FuelTank battery BoosterPack and AIR module BoosterPack
+* Distance sensing with a Sharp IR distance sensor
+* Line tracking with five QRE1113 reflectance sensors
+* Differential steering with Micro Metal Gearmotors
+* Built-in Power with a 3xAAA battery holder
+* FuelTank BoosterPack support for a larger capacity battery with USB charging
+* Servo Header supports one servo motor
+
+Compatibility
+-------------
+
+BoosterBot adheres to the 40-pin BoosterPack standard, meaning it should be compatible with most 40-pin LaunchPads.
+
+However, it has only been tested with the MSP430F5529 LaunchPad.
+
+Software Support
+----------------
+
+BoosterBot supports Arduino code using the Energia library. There are code examples for line tracking, distance tracking, and wireless communication using Bluetooth and the AIR BoosterPack to get you started.
 
 Posts
 -----
