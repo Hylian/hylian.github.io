@@ -7,7 +7,7 @@ tags: [keyboard]
 ---
 {% include JB/setup %}
 
-I spent this semester pulling together the parts to build an ErgoDox, and recently completed my build over winter break. The ErgoDox is an open-source, split key, mechanical keyboard. I chose to build an ErgoDox because it uses Cherry MX keys, has multiple thumb keys, and made for a nice DIY project. ErgoDox kits occasionally go on sale on Massdrop, but I tried to save some cash by sourcing all the components individually.
+The ErgoDox is an open-source, split key, mechanical keyboard. I spent this semester pulling together the parts to build my own, and recently completed my build over winter break. I decided to build an ErgoDox because it uses Cherry MX keys, has multiple thumb keys, and made for a nice DIY project. ErgoDox kits occasionally go on sale on Massdrop, but I tried to save some cash by sourcing all the components individually.
 
 Electronics
 ===========
