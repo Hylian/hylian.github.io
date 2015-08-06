@@ -11,6 +11,8 @@ arducard
 
 ![Arducard Prototype]({{ BASE_PATH }}/images/arducard1.jpg)
 
+![Arducard Front]({{ BASE_PATH }}/images/arducard2.jpg)
+
 An open-source e-paper development device.
 
 [GitHub](https://github.com/Hylian/arducard)
