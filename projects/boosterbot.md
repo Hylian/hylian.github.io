@@ -3,13 +3,15 @@ layout: page
 title: "BoosterBot"
 description: ""
 group: projects
----
+--- 
 {% include JB/setup %}
 
 BoosterBot
 ========
 
 ![BoosterBot Photo]({{ BASE_PATH }}/images/boosterbot/boosterbot-robot.jpg)
+
+<iframe width="705" height="400" src="https://www.youtube.com/embed/C60c98HO0_U" frameborder="0" allowfullscreen> </iframe>
 
 A BoosterPack that turns your TI Launchpad into a fully functional robot!
 
