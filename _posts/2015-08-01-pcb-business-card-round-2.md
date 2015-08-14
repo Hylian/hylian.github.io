@@ -11,6 +11,9 @@ tags: []
 
 ![Back]({{ BASE_PATH }}/images/card2/back.jpg)
 
+**Update:** The error with the pads ended up being the fault of the fab, and DirtyPCBs has very 
+generously reordered my board with the correct specifications.
+
 My last order of my capacitive touch PCB business cards had some unfortunate bugs, like a missed
 cutout for the reverse-mounted ATtiny and a short from power to ground.
 
