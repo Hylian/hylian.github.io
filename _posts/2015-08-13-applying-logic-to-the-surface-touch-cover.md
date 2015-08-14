@@ -13,7 +13,7 @@ Thanks to Saleae's generous student discount, I was finally able to purchase a L
 analyzer and start probing at the Surface Touch Cover. I hooked it up to my previous breakout board
 and recorded the signals on the pins at power-on and while pressing various keys.
 
-After some analysis, it turns out my hypothesis about the protocol in my previous post was completely wrong! 
+After some analysis, it turns out my hypothesis about the protocol in my previous post was off the mark.
 Instead of HID over I2C, the keyboard uses duplex serial communication, and thankfully so, as serial is much easier to
 analyze and implement than the HID over I2C spec.
 
@@ -34,9 +34,14 @@ Some observations:
 
 * All packets share a common header format that describes the type of information being sent.
 * Both the Surface and the Keyboard count the number of packets sent and transmit the index of the current packet.
+* There seems to be a call/response type system, where a call packet will be met with a response
+validation packet.
 * Both the Surface and the Keyboard have two different "types" of packets, with separate counter
 values: one begins at `0`, and the other begins at `0x1E4`. These correspond to different header values, 
 and are color-coded as yellow/orange or green/navy based on channel.
+* `0` packets are transactions initiated by the computer, and `0x1E4` packets are initiated by the
+keyboard
+* Response packets seem to be of payload size 0
 * The size of the payload in bytes is transmitted in the header. There is an overhead of +10 bytes
 for the total transmission size including header and prologue. (1 byte = 9-bit transmission)
 * Every packet ends with a two byte prologue that does some sort of validity checking. Every 10 byte
