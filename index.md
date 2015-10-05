@@ -11,7 +11,7 @@ Edward Shin
 
 I'm an Electrical and Computer Engineering student at Carnegie Mellon University.
 
-My main interests are Embedded Systems, Digital Design, and Reverse Engineering.
+My main interests are Embedded Systems, Digital Design, and IC Design.
 
 Projects
 ========
