@@ -72,6 +72,36 @@ ul.posts {
     font-size: 80%;
   }
 
+.container {
+  position: relative;
+  overflow: hidden;
+  margin: 100px auto;
+  width: 800px;
+  height: 500px;
+  -webkit-box-shadow: 10px 10px 10px rgba(0,0,0,0.3);
+  box-shadow: 10px 10px 10px rgba(0,0,0,0.3);
+}
+
+.container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -60;
+}
+
+.container li img {
+  position: absolute;
+  top: 0;
+  left: 800px;
+  z-index: -50;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+
 /*****************************************************************************/
 /*
 /* Site

@@ -21,7 +21,7 @@ This definition goes into the 'lstlang.sty' file within the listings module.
 
 Now, in my tex file, I configured the listings module to use this definition:
 
-{% highlight lagda %}
+{% highlight latex %}
 \definecolor{MyDarkGreen}{rgb}{0.0,0.4,0.0} % This is the color used for comments
 \lstloadlanguages{AVR}%
 \lstset{language=AVR, % AVR 8-bit Assembler
