@@ -7,6 +7,10 @@ tags: [microsoft, hid over i2c, keyboard]
 ---
 {% include JB/setup %}
 
+*THIS INFORMATION IS INCORRECT!*
+
+Take a look at the more recent post for a correct description of the protocol
+
 I created a breakout board for the keyboard connector of my Surface to probe for the pinout and logic levels of the interface.
 
 The keyboard connector uses Microsoft's [HID over I2C interface](https://msdn.microsoft.com/en-us/library/windows/hardware/Dn642101.aspx). There is also a useful Texas Instruments appnote on it [here](http://www.ti.com/lit/an/slaa569/slaa569.pdf).
