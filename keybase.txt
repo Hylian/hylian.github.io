@@ -1,0 +1,68 @@
+==================================================================
+https://keybase.io/cascode
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://edwardsh.in
+  * I am cascode (https://keybase.io/cascode) on keybase.
+  * I have a public key with fingerprint F14B 1EB6 9756 F297 3A56  C110 A1FD 931F F069 17F0
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "01015cd98a111aa13380b6b0a0ff1984a85d9d3f81744d01434c7ce0938a4b2560510a",
+            "fingerprint": "f14b1eb69756f2973a56c110a1fd931ff06917f0",
+            "host": "keybase.io",
+            "key_id": "a1fd931ff06917f0",
+            "kid": "01015cd98a111aa13380b6b0a0ff1984a85d9d3f81744d01434c7ce0938a4b2560510a",
+            "uid": "b73c094fb746d1207db2ca406b63cf19",
+            "username": "cascode"
+        },
+        "service": {
+            "hostname": "edwardsh.in",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1454696445,
+    "expire_in": 157680000,
+    "prev": "12defbc2df2f67c11875bbeac4995688e5ad40ebf55769f69dd70e88a57e60d7",
+    "seqno": 4,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.49
+Comment: https://keybase.io/crypto
+
+yMIjAnicrZJrSBVBGIaPmVqCdJEgMMKWqCgvM7uzO7uHLpQYFJEQFBjVaW6rW7Z7
+2j1aJgeKqEi6UERIUCBJRXSFIrGsYxRdiTIIM7J+aHcz7IZFl1mpf/1s/gzzzfO+
+834fcy0nPZKdll6ypaNt3qyWtDtt+6ojS869/FGnUI/XKtE6ZbUY3EQVF0Eittrh
+SlQBEECdccskEEJCoKaZgBoUEGDb0DIRMXVucc02IUaIA4g0xDATwNJMgqiqG0CH
+gCgFiu24FcKP+46bkLY2RBQKalhYN2zVwhrRDQYlCW1uadC2gWFBbAMprPSCUCHD
+URKIIseTNXmIDcb7B/+fc1cP2lGsMWAhm2JkcKgCzKnKCAIGNTQmDUMwEL5L1ghJ
+MxIwjwslWaDIYo3DRDjXsJE/gODriM+DyiLHlcq47yU85lXJi8pEIh4NdYnaeAiu
+EzT2xyJGHZfLIUpBjfADx3OVKJQkSzihJ0Q6MiwDIb1AEevjji9iTkjo2DCBXOEz
+okZaQpULmzKV26ptYDl0E+uUCsKQZemGaQqdcAQEtXUptWzD4hwDYZpEx8IAHCth
+U2tdT4kiGZNUSMvAqXBJotqXHV9NLRsaScuOZGYMCT9XJHv4yL9f7nl91i8vf8bk
+D72vyrL6dqX6v0SKqs6/GgoyyvbQ1uLogbM56Mykjp1z8xbsvL2ttavnwsGB+I/k
+4e4bn26dXzWzdHlKvbxg4ucN/lKcav2KVawHqZ+PD+0nTcfat/Z3Prj2uKD9aOXF
+S8PKT2TsnZ0smVX8piez9OGU43OOjVrZM3NgUQpcKR9bO3z+67fJ5pbN73P2HVnR
+5TbsLuzcNI6u9e/Xj3+x8CNCyzO704rZtxtNJ7ccXXwzf/eYhuxlzeeUe/judJcN
+vGsYvfRpX/dGOqMub8KO61Ojz1j/9iNVv7JS7bXTcrc3jhCZo0ZsazxQyicXPm1K
+fm/uwON6T+U/WWy1+o9O5/4GMl1D+Q==
+=CZzE
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/cascode
+
+==================================================================
