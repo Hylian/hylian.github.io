@@ -26,11 +26,9 @@ robotics, or just wants an easy-to-use robotics platform to build off of.
 
 [Bill of Materials](https://docs.google.com/spreadsheets/d/1mRRuciIq44UwTY0NZKw7sUpmjOIC4nQgimvoF12DIwo/pubhtml)
 
-[Website](http://boosterbot.in)
+[Website](http://boosterbot.herokuapp.com)
 
 [GitHub](https://github.com/Hylian/BoosterBot)
-
-[Hackaday](https://hackaday.io/project/1845-BoosterBot)
 
 Features
 --------
