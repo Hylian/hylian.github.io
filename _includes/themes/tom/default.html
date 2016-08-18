@@ -21,10 +21,9 @@
     <div class="title">
       <a href="{{ HOME_PATH }}">{{ site.title }}</a>
 
-      <a class="extra" href="{{ BASE_PATH }}{{ site.JB.archive_path }}">archive</a>
+      <!-- <a class="extra" href="{{ BASE_PATH }}{{ site.JB.archive_path }}">archive</a> -->
       <!-- <a class="extra" href="{{ BASE_PATH }}{{ site.JB.categories_path }}">Categories</a> -->
       <!--  <a class="extra" href="{{ BASE_PATH }}{{ site.JB.tags_path }}">Tags</a> -->
-      <a class="extra" href="{{ BASE_PATH }}/cv">cv</a>
     </div>
 
     {{ content }}
@@ -33,13 +32,13 @@
       <div class="contact">
         <p>
           {{ site.author.name }}<br />
-          {{ site.tagline }}<br />
+          {{ site.author.email }}<br />
         </p>
       </div>
       <div class="contact">
         <p>
-          <a href="http://github.com/{{ site.author.github }}/">github.com/{{ site.author.github }}</a><br />
-          {{ site.author.email }}<br />
+          <a href="http://github.com/{{ site.author.github }}/">github</a><br />
+          <a href="http://linkedin.com/in/edward-shin">linkedin</a><br />
         </p>
       </div>
   </div>
