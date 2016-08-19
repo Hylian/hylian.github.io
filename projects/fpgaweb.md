@@ -11,8 +11,6 @@ FPGA on the Web
 
 ![Website Screenshot]({{ BASE_PATH }}/images/fpgaweb/fpgascreenshot.png)
 
-[GitHub](https://github.com/build18-fpga-on-the-web)
-
 [Build18 Wiki](http://build18.org/wiki/index.php/FPGA_on_the_Web!)
 
 Winner, Faculty Choice Award, Build18 Hackathon 2015
