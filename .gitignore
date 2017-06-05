@@ -1,5 +1,7 @@
 _site/*
 _theme_packages/*
+_serve/*
+serve/*
 
 Thumbs.db
 .DS_Store
