@@ -1,8 +1,10 @@
 ---
+layout: page
 title: "arducard"
 description: ""
 date: "2014-03-13"
 ---
+
 {% include JB/setup %}
 
 arducard
@@ -25,7 +27,7 @@ Features
 * 128KB FRAM
 * LiR2016 Coin-cell Li-Ion battery
 * Battery charging over USB
-* 2.7" e-Paper display
+* 2.7 inch e-Paper display
 * 5 edge-mounted interrupt-triggered tactile buttons
 * Size: 80 mm x 45 mm x 5 mm
 
@@ -36,12 +38,3 @@ Applications
 * Store barcodes for rewards cards, etc.
 * Store QR codes
 * USB text terminal for Raspberry Pi
-
-Posts
------
-{% assign posts_list = site.categories.arducard %}
-<html>
-{% include JB/posts_list %}
-</html>
-
-
