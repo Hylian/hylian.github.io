@@ -7,6 +7,8 @@ tags: []
 ---
 {% include JB/setup %}
 
+![Header 01]({{ BASE_PATH }}/images/lights/header.jpg)
+
 Background
 ----------
 
