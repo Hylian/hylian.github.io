@@ -1,6 +1,6 @@
 ---
 layout: page
-title: hyliantech
+title: edwardsh.in
 tagline: electronics and other things
 ---
 {% include JB/setup %}
