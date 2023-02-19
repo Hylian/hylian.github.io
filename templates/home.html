@@ -1,20 +1,57 @@
 {% extends "index.html" %}
 
 {% block nav %}
-<ul id="breadcrumbs">
-  {% for parent in section.ancestors %}
-  {% set s = get_section(path=parent, include_pages=false) %}
-  <li><a href="{{s.permalink}}">{{s.title}}</a>&nbsp;&#8594;&nbsp; </li>
+  <ul id="breadcrumbs">
+    {% for parent in section.ancestors %}
+    {% set s = get_section(path=parent, include_pages=false) %}
+    <li><a href="{{s.permalink}}">{{s.title}}</a>&nbsp;&#8594;&nbsp; </li>
+    {% endfor %}
+    <li>{{ section.title }}</li>
+    <li>&nbsp;&#8594;&nbsp;latest post</li>
+  </ul>
+  <ul id="breadcrumbs">
+    {% for tax in config.taxonomies %}
+    <li>/<a href="/{{tax.name}}/">{{tax.name}}</a>&nbsp;</li> 
+    {% endfor %}
+  </ul>
+  {{ macro::tree() }}
+
+  {% set projects = get_section(path="projects/_index.md") %}
+  {% set projects_pages = projects.pages %}
+  {% set tech = get_section(path="tech/_index.md") %}
+  {% set tech_pages = tech.pages %}
+  {% set dev = get_section(path="dev/_index.md") %}
+  {% set dev_pages = dev.pages %}
+  {% set all_pages = projects_pages | concat(with=tech_pages) | concat(with=dev_pages) | sort(attribute="date") %}
+  {% set post = all_pages | last %}
+
+  {% set_global header_count = 0 %}
+  {% for h2 in post.toc %}
+    {% set_global header_count = header_count + 1 %}
+    {% for h3 in h2.children %}
+      {% set_global header_count = header_count + 1 %}
+      {% for h4 in h3.children %}
+        {% set_global header_count = header_count + 1 %}
+      {% endfor %}
+    {% endfor %}
   {% endfor %}
-  <li>{{ section.title }}</li>
-  <li>&nbsp;&#8594;&nbsp;latest post</li>
-</ul>
-<ul id="breadcrumbs">
-  {% for tax in config.taxonomies %}
-  <li>/<a href="/{{tax.name}}/">{{tax.name}}</a>&nbsp;</li> 
+
+  {% if header_count > 0 %}
+      <ul id="toc">
+        <li><a href="{{ post.permalink | safe }}">⬆ Top</a>
+        {% for h2 in post.toc %}
+          <li><a href="{{ h2.permalink | safe }}">{{ h2.title }}</a>
+          {% if h2.children %}<ul>        
+            {% for h3 in h2.children %}
+            <li><a href="{{ h3.permalink | safe }}">{{ h3.title }}</a></li>
+          {% endfor %}
+         </ul>
+  {% endif %}
+        </li>
   {% endfor %}
-</ul>
-{{ macro::tree() }}
+      </ul>
+  {% endif %}
+
 {% endblock nav %}
 
 {% block content %}
