@@ -1,4 +1,4 @@
-base_url = "https://edwardsh.in"
+base_url = "edwardsh.in"
 compile_sass = true
 build_search_index = true
 title = "tokilabs"
