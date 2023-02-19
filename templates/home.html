@@ -1,7 +1,23 @@
 {% extends "index.html" %}
 
+{% block nav %}
+<ul id="breadcrumbs">
+  {% for parent in section.ancestors %}
+  {% set s = get_section(path=parent, include_pages=false) %}
+  <li><a href="{{s.permalink}}">{{s.title}}</a>&nbsp;&#8594;&nbsp; </li>
+  {% endfor %}
+  <li>{{ section.title }}</li>
+  <li>&nbsp;&#8594;&nbsp;latest post</li>
+</ul>
+<ul id="breadcrumbs">
+  {% for tax in config.taxonomies %}
+  <li>/<a href="/{{tax.name}}/">{{tax.name}}</a>&nbsp;</li> 
+  {% endfor %}
+</ul>
+{{ macro::tree() }}
+{% endblock nav %}
+
 {% block content %}
-    <em><sub>latest post</sub></em>
     {% set projects = get_section(path="projects/_index.md") %}
     {% set projects_pages = projects.pages %}
     {% set tech = get_section(path="tech/_index.md") %}
@@ -18,7 +34,7 @@
 
       {% set post_section = post.ancestors | last %}
       {% set s = get_section(path=post_section, include_pages=false) %}
-      &nbsp;&nbsp;<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAaElEQVRIx2NgGOqAEcZgZefQb25suIBPcW19g8Hvnz8ukmwBKzuHQHNjw3tiNFRUVDCSZAExLicX1NY3ODJ2dHT8ZxgF+OKA1kHERGsfjFowasGoBaMWEGNBbX2DI60Mr61vkBr69QEAFDIY9Yz1owAAAAAASUVORK5CYII=" style="object-position: 0 2px; width: 16px; height: 16px" />&nbsp;<a href="{{ s.permalink | safe }}">{{ s.title  }}</a>
+      &nbsp;&nbsp;&nbsp;&nbsp;<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAaElEQVRIx2NgGOqAEcZgZefQb25suIBPcW19g8Hvnz8ukmwBKzuHQHNjw3tiNFRUVDCSZAExLicX1NY3ODJ2dHT8ZxgF+OKA1kHERGsfjFowasGoBaMWEGNBbX2DI60Mr61vkBr69QEAFDIY9Yz1owAAAAAASUVORK5CYII=" style="object-position: 0 2px; width: 16px; height: 16px" />&nbsp;<a href="{{ s.permalink | safe }}">{{ s.title  }}</a>
 
       {% if post.taxonomies.tags %}
         <ul>

@@ -30,43 +30,48 @@
             <li>/<a href="/{{tax.name}}/">{{tax.name}}</a>&nbsp;</li> 
           {% endfor %}
         </ul>
-          {{ macro::tree() }}
+        {{ macro::tree() }}
       {% endblock nav %}
       </nav>
 
       <main>
-      {% block content %}
+        <div id="premain">
+          {% block premain %}
+          {% endblock premain %}
+        </div>
 
-        {% set_global header_count = 0 %}
-        {% for h2 in section.toc %}
-          {% set_global header_count = header_count + 1 %}
-          {% for h3 in h2.children %}
+        {% block content %}
+
+          {% set_global header_count = 0 %}
+          {% for h2 in section.toc %}
             {% set_global header_count = header_count + 1 %}
-            {% for h4 in h3.children %}
+            {% for h3 in h2.children %}
               {% set_global header_count = header_count + 1 %}
+              {% for h4 in h3.children %}
+                {% set_global header_count = header_count + 1 %}
+              {% endfor %}
             {% endfor %}
           {% endfor %}
-        {% endfor %}
 
-        {% if header_count > 4 %}
-            <ul id="toc">
-              {% for h2 in section.toc %}
-                <li><a href="{{ h2.permalink | safe }}">{{ h2.title }}</a>
-                {% if h2.children %}<ul>        
-                  {% for h3 in h2.children %}
-                  <li><a href="{{ h3.permalink | safe }}">{{ h3.title }}</a></li>
-                {% endfor %}
+          {% if header_count > 4 %}
+              <ul id="toc">
+                {% for h2 in section.toc %}
+                  <li><a href="{{ h2.permalink | safe }}">{{ h2.title }}</a>
+                  {% if h2.children %}<ul>        
+                    {% for h3 in h2.children %}
+                    <li><a href="{{ h3.permalink | safe }}">{{ h3.title }}</a></li>
+                  {% endfor %}
+                </ul>
+          {% endif %}
+                </li>
+          {% endfor %}
               </ul>
-        {% endif %}
-              </li>
-        {% endfor %}
-            </ul>
-        {% endif %}
+          {% endif %}
 
-        <article>
-        {{ section.content | safe }}
-        </article>
-      {% endblock content %}
+          <article>
+          {{ section.content | safe }}
+          </article>
+        {% endblock content %}
       </main>
 
     </body>

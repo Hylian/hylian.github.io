@@ -13,3 +13,4 @@ Thumbs.db
 *.swp
 
 public/*
+static/processed_images/*
