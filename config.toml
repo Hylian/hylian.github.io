@@ -1,0 +1,11 @@
+base_url = "https://edwardsh.in"
+compile_sass = true
+build_search_index = true
+title = "tokilabs"
+
+taxonomies = [
+]
+
+[markdown]
+highlight_code = true
+highlight_theme = "kronuz"

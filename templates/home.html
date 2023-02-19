@@ -1,0 +1,37 @@
+{% extends "index.html" %}
+
+{% block content %}
+    <em><sub>latest post</sub></em>
+    {% set projects = get_section(path="projects/_index.md") %}
+    {% set projects_pages = projects.pages %}
+    {% set tech = get_section(path="tech/_index.md") %}
+    {% set tech_pages = tech.pages %}
+    {% set all_pages = projects_pages | concat(with=tech_pages) | sort(attribute="date") %}
+    {% set post = all_pages | last %}
+
+    <h1>{{ post.title }}</h1><em>{{ post.description | safe }}</em> 
+
+    <div id="taxonomies">
+      {% if post.date %}
+        <date>{{ post.date | date(format="%Y.%m.%d") }}</date>
+      {% endif %}   
+
+      {% set post_section = post.ancestors | last %}
+      {% set s = get_section(path=post_section, include_pages=false) %}
+      &nbsp;&nbsp;<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAaElEQVRIx2NgGOqAEcZgZefQb25suIBPcW19g8Hvnz8ukmwBKzuHQHNjw3tiNFRUVDCSZAExLicX1NY3ODJ2dHT8ZxgF+OKA1kHERGsfjFowasGoBaMWEGNBbX2DI60Mr61vkBr69QEAFDIY9Yz1owAAAAAASUVORK5CYII=" style="object-position: 0 2px; width: 16px; height: 16px" />&nbsp;<a href="{{ s.permalink | safe }}">{{ s.title  }}</a>
+
+      {% if post.taxonomies.tags %}
+        <ul>
+        {% for tag in post.taxonomies.tags %}
+          <li><a href="{{ get_taxonomy_url(kind="tags", name=tag) | safe }}" >#{{ tag }}</a></li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+
+
+    <article>
+      {{ post.content | safe }}
+    </article>
+{% endblock content %}
+
