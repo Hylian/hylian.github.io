@@ -10,6 +10,16 @@
     url('atkinsonhyperlegible-regular-webfont.woff') format('woff');
 }
 
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: auto;
+  src: local('Atkinson Hyperlegible'),
+    url('ibmplexsans-regular-webfont.woff2') format('woff2'),
+    url('ibmplexsans-regular-webfont.woff') format('woff');
+}
+
 * {
 padding:0;
 margin: 0;
@@ -46,8 +56,8 @@ $theme-dark-bg-color:#262626;
 
 body {
   text-rendering: optimizeLegibility;
-  font-family: Atkinson Hyperlegible,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif;
-  font-size: 0.9375rem;
+  font-family: IBM Plex Sans,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif;
+  font-size: 1.2rem;
   line-height:1.5;
   display: flex;
   flex-flow: row wrap;
@@ -96,6 +106,8 @@ a:visited {
 }
 
 h1, h2, h3, h4, h5, h6 {
+  font-family: IBM Plex Sans,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif;
+
   .anchor {
     visibility: hidden;
     text-decoration: none;
@@ -128,7 +140,7 @@ h1 {
 }
 
 nav {
-  min-width:16rem;
+  min-width:18rem;
   max-width:40rem;
   padding: 20px 0 0 9vw;
   display: flex;
@@ -167,7 +179,7 @@ nav {
 main {
   width:48vw;
   padding: 13px 0 0 9vw;
-  max-width:55rem;
+  max-width:64rem;
   display: flex;
   flex-flow: column nowrap;
   margin-top:30px;
@@ -196,6 +208,9 @@ main {
   }
 
   article {
+    font-family: Atkinson Hyperlegible,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif;
+    font-size: 1.2rem;
+
     margin:1rem 0 0;
 
     ul, ol {
