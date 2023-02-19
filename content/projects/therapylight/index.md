@@ -21,9 +21,7 @@ I saw this paper in Nature that shows the melaopsin receptors in your eyes is hi
 
 Here are some graphs from the paper:
 
-{{ resized(img="graph1.png") }}
-
-{{ resized(img="graph2.png") }}
+{{ resize(img="graph1.png", width=400) }} {{ resize(img="graph2.png", width=400) }}
 
 I also saw this product, the Re:Timer, which seemed to match what I want. However, $200 seemed a little steep for some green lights, and you had to wear it on your face whenever you wanted to use it.
 
