@@ -4,11 +4,11 @@ date=2017-05-01
 transparent=true
 +++
 
-{{ resized(img="note.jpg") }}
-
 A small controller for the game Sound Voltex.
 
-The PCB was designed with Boldport's [PCBmodE](https://github.com/boldport/pcbmode).
+{{ resized(img="note.jpg") }}
+
+PCB designed with Boldport's [PCBmodE](https://github.com/boldport/pcbmode).
 
 ## Features
  * ATmega32U4

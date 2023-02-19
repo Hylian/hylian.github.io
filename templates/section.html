@@ -8,7 +8,7 @@
       {% set s = get_section(path=parent, include_pages=false) %}
         <li><a href="{{s.permalink}}">{{s.title}}</a>&nbsp;&#8594;&nbsp; </li>
       {% endfor %}
-        <li>{{ section.title }}</li>
+      <li>{{ section.title }}</li>
       <li>&nbsp;&#8594;&nbsp;latest post</li>
   </ul>
   {{ macro::tree() }} 

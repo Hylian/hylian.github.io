@@ -15,9 +15,19 @@
   font-style: normal;
   font-weight: 400;
   font-display: auto;
-  src: local('Atkinson Hyperlegible'),
+  src: local('IBM Plex Sans'),
     url('ibmplexsans-regular-webfont.woff2') format('woff2'),
     url('ibmplexsans-regular-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: auto;
+  src: local('IBM Plex Mono'),
+    url('ibmplexmono-regular-webfont.woff2') format('woff2'),
+    url('ibmplexmono-regular-webfont.woff') format('woff');
 }
 
 .center {
@@ -91,9 +101,14 @@ body {
   display: inline;
 }
 
+code {
+  overflow: auto;
+  font:1.2rem IBM Plex Mono, monospace;
+}
+
 pre {
   overflow: auto;
-  font:1rem Consolas, monospace;
+  font:1rem IBM Plex Mono, monospace;
   padding:1rem;
   margin:0 0 1rem 0;
   border-radius: 4px;
@@ -231,8 +246,8 @@ main {
 
   img {
     max-width:100%;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
   }
 }
 

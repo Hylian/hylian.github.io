@@ -4,9 +4,9 @@ date=2021-07-22
 transparent = true
 +++
 
-{{ resized(img="flash.jpg") }}
-
 An LED camera flash for infrared film photography.
+
+{{ resized(img="flash.jpg") }}
 
 {{ resized(img="pcb.jpg") }}
 

@@ -22,7 +22,9 @@
     {% set projects_pages = projects.pages %}
     {% set tech = get_section(path="tech/_index.md") %}
     {% set tech_pages = tech.pages %}
-    {% set all_pages = projects_pages | concat(with=tech_pages) | sort(attribute="date") %}
+    {% set dev = get_section(path="dev/_index.md") %}
+    {% set dev_pages = dev.pages %}
+    {% set all_pages = projects_pages | concat(with=tech_pages) | concat(with=dev_pages) | sort(attribute="date") %}
     {% set post = all_pages | last %}
 
     <h1>{{ post.title }}</h1><em>{{ post.description | safe }}</em> 

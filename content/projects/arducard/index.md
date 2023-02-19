@@ -4,11 +4,11 @@ date=2014-03-01
 transparent=true
 +++
 
+An open source e-paper handheld.
+
 {{ resized(img="arducard-back.jpg") }}
 
 {{ resized(img="arducard-front.jpg") }}
-
-An open source e-paper handheld.
 
 ## Features
 * ATmega32U4

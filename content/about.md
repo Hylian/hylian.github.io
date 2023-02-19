@@ -1,13 +1,13 @@
 +++
 title = "about"
-transparent=true
+weight = 100
 +++
 
 ## Edward Shin
 
 {{ resize(img="me.jpg", width=256 ) }}
 
-Firmware Engineer
+firmware engineer, photography enthusiast, plays pikachu in melee
 
 ### Skills
 

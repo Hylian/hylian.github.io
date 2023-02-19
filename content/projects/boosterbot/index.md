@@ -4,9 +4,9 @@ date=2014-08-01
 transparent=true
 +++
 
-{{ resized(img="boosterbot.jpg") }}
+A BoosterPack to turn a TI LaunchPad into a robot.
 
-A BoosterPack to turn a TI LaunchPad into a robot!
+{{ resized(img="boosterbot.jpg") }}
 
 ## Features
  * Distance sensing with a Sharp IR distance sensor
@@ -18,7 +18,6 @@ A BoosterPack to turn a TI LaunchPad into a robot!
 
 ## Compatibility
 BoosterBot adheres to the 40-pin BoosterPack standard, meaning it should be compatible with most 40-pin LaunchPads.
-
 It has been tested with the MSP430F5529 LaunchPad.
 
 ## Software Support
