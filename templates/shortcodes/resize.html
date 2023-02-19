@@ -1,0 +1,7 @@
+{% if page.colocated_path %}
+{% set resize = resize_image(format="webp", path=page.colocated_path ~ img, width=width, height=width, op="fit_width") %}
+{% else %}
+{% set resize = resize_image(format="webp", path=img, width=width, height=width, op="fit_width") %}
+{% endif %}
+
+<img src="{{ resize.url | safe }}" />

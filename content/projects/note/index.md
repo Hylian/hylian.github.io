@@ -4,7 +4,7 @@ date=2017-05-01
 transparent=true
 +++
 
-![Note](note.jpg)
+{{ resized(img="note.jpg") }}
 
 A small controller for the game Sound Voltex.
 
@@ -19,6 +19,6 @@ The PCB was designed with Boldport's [PCBmodE](https://github.com/boldport/pcbmo
  * Rubber feet inserts
  * 160 x 92 mm
 
-![PCB](pcb-render.png)
+{{ resized(img="pcb-render.png") }}
 
-![Schematic](schematic.png)
+{{ resized(img="schematic.png") }}

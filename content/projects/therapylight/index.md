@@ -4,7 +4,7 @@ date=2019-07-22
 transparent=true
 +++
 
-![Therapy Light](therapylight.jpg)
+{{ resized(img="therapylight.jpg") }}
 
 ## Background
 I suffer from Delayed Phase Sleep Disorder (DPSD), which basically means a day in my body’s circadian rhythm is significantly longer than 24 hours. This results in me going to sleep later and later until eventually it just cycles around and repeats all over again.
@@ -21,9 +21,9 @@ I saw this paper in Nature that shows the melaopsin receptors in your eyes is hi
 
 Here are some graphs from the paper:
 
-![Graph 1](graph1.png)
+{{ resized(img="graph1.png") }}
 
-![Graph 2](graph2.png)
+{{ resized(img="graph2.png") }}
 
 I also saw this product, the Re:Timer, which seemed to match what I want. However, $200 seemed a little steep for some green lights, and you had to wear it on your face whenever you wanted to use it.
 
@@ -31,7 +31,7 @@ Instead, I decided to make my own light that would mount above my bed and wake m
 
 ## Electronics
 
-![Breadboard](breadboard.jpg)
+{{ resized(img="breadboard.jpg") }}
 
 To start with, I used the Mesh Bee from Seeed Studio. This uses an NXP chipset that supports the ZigBee Pro protocol, the same as Hue bulbs. I then flashed this binary from PeeVeeOne to have it act as a Hue bulb.
 
@@ -43,13 +43,13 @@ Finally, for power, I cut the tip off an old HP 36V power brick and soldered tha
 
 ## Enclosure
 
-![Enclosure](enclosure.jpg)
+{{ resized(img="enclosure.jpg") }}
 
 I designed the enclosure to mount above my bed in OpenSCAD and laser cut it in plywood. I also laser cut a diffuser for the lights with some frosted 3mm acrylic. The whole build is pretty hacked together right now, but it does the job. I was also a bit concerned about eye strain, so I covered it with kapton tape, as some online sources seemed to suggest that kapton tape will absorb blue light.
 
 ## Results
 
-![Results](final.jpg)
+{{ resized(img="final.jpg") }}
 
 Pretty good! I can’t look directly at the lights, or they’ll leave trails in my vision for minutes after. I was able to schedule the lights in the Hue app and they woke me up in the morning. I also felt more energetic after lying under them for several minutes.
 

@@ -4,7 +4,7 @@ date=2014-08-01
 transparent=true
 +++
 
-![BoosterBot](boosterbot.jpg)
+{{ resized(img="boosterbot.jpg") }}
 
 A BoosterPack to turn a TI LaunchPad into a robot!
 

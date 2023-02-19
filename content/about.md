@@ -5,7 +5,7 @@ transparent=true
 
 ## Edward Shin
 
-![Me](me.jpg)
+{{ resize(img="me.jpg", width=256 ) }}
 
 Firmware Engineer
 
