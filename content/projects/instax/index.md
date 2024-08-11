@@ -4,10 +4,11 @@ date=2020-07-01
 transparent=true
 +++
 
-Instax Mini instant film back for the Mamiya RB67.
+### Instax Mini back for Mamiya RB67
 
-{{ resized(img="instax.jpg") }}
+{{ resized(img="instax.jpg") }} <br/>
 
-{{ resized(img="back.jpg") }}
+{{ resized(img="instax_shots.jpg") }} <br/>
 
-{{ resized(img="front.jpg") }}
+{{ resized(img="back.jpg") }} {{ resized(img="front.jpg") }}
+

@@ -4,10 +4,9 @@ date=2019-03-01
 transparent = true
 +++
 
-An air quality monitor HAT for the Raspbery Pi Zero W.
+### Air quality monitor HAT for Raspbery Pi Zero
+
+[GitHub](https://github.com/Hylian/PiAQM)
 
 {{ resized(img="piaqm.jpg") }}
 
-## Links
-
-[GitHub](https://github.com/Hylian/PiAQM)
