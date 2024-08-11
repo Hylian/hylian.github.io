@@ -230,7 +230,7 @@ h4 {
   margin: 1rem 0 0.5rem;
 }
 
-header{
+header {
   font-size: 1.3rem;
   line-height: 2.4rem;
   padding: 3rem 0rem 0rem 2rem;
@@ -369,6 +369,37 @@ main {
   }
 }
 
+header.galleryheader {
+  margin-left: 0;
+  width: 200px;
+}
+
+gallery {
+  width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  position: fixed;
+  left: 10vw;
+  scrollbar-width: none;
+  z-index: 999;
+  padding-top: 2vh;
+
+  #gallerycontainer::-webkit-scrollbar {
+    display: none;
+  }
+
+  #gallerycontainer img {
+    scroll-snap-align: center;
+    width:80%;
+    height:80vh;
+    object-fit:contain;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+  }
+
+}
+
 #taxonomies {
   display: flex;
   flex-flow: row wrap;
@@ -440,4 +471,5 @@ main {
   header { order: 1; }
   nav { order: 2; }
   main { order: 3; }
+  gallery { order: 3; }
 }
