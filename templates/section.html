@@ -2,28 +2,28 @@
 
 {% block title %} {{ config.title }} | {{ section.title }} {% endblock title %}
 
-{% block nav %}
+{% block header %}
   <ul id="breadcrumbs">
     {% for parent in section.ancestors %}
       {% set s = get_section(path=parent, include_pages=false) %}
         <li><a href="{{s.permalink}}">{{s.title}}</a>&nbsp;&#8594;&nbsp; </li>
       {% endfor %}
       <li>{{ section.title }}</li>
-      <li>&nbsp;&#8594;&nbsp;latest post</li>
   </ul>
-  {{ macro::tree() }} 
+{% endblock header %}
+
+{% block nav %}
+  {{ macro::tree() }}
 {% endblock nav %}
 
 {% block content %}
   {% set all_pages = section.pages | sort(attribute="date") %}
   {% set post = all_pages | last %}
 
-  <h1>{{ post.title }}</h1><em>{{ post.description | safe }}</em> 
-
   <div id="taxonomies">
     {% if post.date %}
       <date>{{ post.date | date(format="%Y.%m.%d") }}</date>
-    {% endif %}   
+    {% endif %}
 
     {% if post.taxonomies.tags %}
       <ul>
@@ -34,9 +34,9 @@
     {% endif %}
   </div>
 
+  <h1>{{ post.title }}</h1><em>{{ post.description | safe }}</em>
 
   <article>
     {{ post.content | safe }}
   </article>
 {% endblock content %}
-

@@ -60,6 +60,15 @@ $theme-dark-second-text-color: #666;
 $theme-light-bg-color:#fafafa;
 $theme-dark-bg-color:#262626;
 
+$theme-bg-color:#fafafa;
+
+$theme-table-header-bg-color:#bec5b2;
+$theme-table-row-a-bg-color:#edeada;
+$theme-table-row-b-bg-color:#e8e5d5;
+
+$body-width: 80rem;
+$sidebar-width: 18vw;
+
 @mixin color($property, $var, $fallback){
   #{$property}: $fallback;
   #{$property}: var($var, $fallback);
@@ -74,8 +83,8 @@ $theme-dark-bg-color:#262626;
 body {
   text-rendering: optimizeLegibility;
   font-family: IBM Plex Sans,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif;
-  font-size: 1.3rem;
-  line-height:1.7;
+  font-size: 1rem;
+  line-height:1.1;
   display: flex;
   flex-flow: row wrap;
   hyphens: auto;
@@ -102,17 +111,63 @@ body {
 }
 
 code {
-  overflow: auto;
-  font:1.3rem IBM Plex Mono, monospace;
+  font:1.0rem IBM Plex Mono, monospace;
+  border-radius: 6px;
+  padding: 0 0.3rem;
+  margin: 0 2px;
+  background-color: #383838;
+  color: #e6e1dc;
 }
 
 pre {
-  overflow: auto;
+  width: $body-width;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0.5rem 0 0.5rem;
+  display: inline-block;
+  white-space: pre-wrap;
+  overflow: hidden;
+  overflow-wrap: anywhere;
   font:1rem IBM Plex Mono, monospace;
-  padding:1.2rem 0.8rem;
-  margin:0 0 1rem 0;
-  border-radius: 5px;
+  line-height:1;
+  font-size: 1rem;
+  padding:1.2rem 0 1.2rem 1.2rem;
+  border-radius: 10px;
+  background-color: #383838;
+  color: #e6e1dc;
 }
+
+table {
+  width: $body-width;
+  max-width: 100%;
+  overflow: hidden;
+  border-spacing: 4px;
+  border-collapse: separate;
+}
+
+thead tr {
+  background-color: $theme-table-header-bg-color
+}
+
+th {
+  padding: 1rem 0rem 1rem 1rem;
+  text-align: left;
+  font-weight: 1200;
+}
+
+td {
+  padding: 0.5rem 0rem 0.5rem 1rem;
+}
+
+tbody tr {
+  padding: 10rem 0 0 0;
+  background-color: $theme-table-row-a-bg-color
+}
+
+tbody tr:nth-of-type(even) {
+  background-color: $theme-table-row-b-bg-color
+}
+
 
 a:link {
   text-decoration: none;
@@ -129,6 +184,7 @@ a:visited {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: IBM Plex Sans,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif;
+  text-transform: uppercase;
 
   .anchor {
     visibility: hidden;
@@ -146,45 +202,68 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-
-h2, h3 {
-  font-weight: 600;
-  line-height:120%;
-  margin-top:2.2rem;
-  margin-bottom:1rem;
-}
-
 h1 {
-  font-size:3rem;
-  line-height:1;
-  font-weight: 700;
+  line-height: 4.5rem;
+  font-size:4.5rem;
+  font-weight: 1200;
   text-transform: uppercase;
-  margin:2rem 0;
+  margin:0.5rem 0 3rem;
 }
 
-nav {
-  min-width:20rem;
-  max-width:40rem;
-  padding: 20px 0 0 9vw;
+h2 {
+  font-size: 2.7rem;
+  font-weight: 1200;
+  line-height: 2.7rem;
+  margin: 2rem 0 1.5rem;
+}
+
+h3 {
+  font-size:1.7rem;
+  line-height: 1.7rem;
+  font-weight: 500;
+  margin: 1rem 0 1rem;
+}
+
+h4 {
+  font-size:1.3rem;
+  font-weight: 400;
+  margin: 1rem 0 0.5rem;
+}
+
+header{
+  font-size: 1.3rem;
+  line-height: 2.4rem;
+  padding: 3rem 0rem 0rem 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
+  width: 100%;
+
   display: flex;
   flex-flow: column nowrap;
-  margin-bottom: -35px;
+  align-self: flex-start;
+  background-color: $theme-bg-color;
 
-  #subnav {
-    display: flex;
-    flex-flow: row wrap;
-    margin:0 0 0.2rem 0;
-    font-size: 1.625rem;
-  }
-  
+  position: sticky;
+  top: -3rem;
+  z-index: 100;
+
   button {
     font-size: 1.625rem;
   }
 
   #breadcrumbs {
+    position: sticky;
+    top: 0px;
     display: flex;
     flex-flow: row wrap;
-    font-style:italic;
+    font-style: italic;
+    background-color: $theme-bg-color;
+    width: 100%;
+  }
+
+  button {
+    font-size: 1.625rem;
   }
 
   ul {
@@ -199,14 +278,48 @@ nav {
   }
 }
 
-main {
-  width:48vw;
-  padding: 13px 0 0 9vw;
-  max-width:64rem;
+nav {
+  font-size: 1.1rem;
+  line-height: 3rem;
+  padding: 1rem 1rem 1rem 2rem;
+  width: 20%;
+
   display: flex;
   flex-flow: column nowrap;
-  margin-top:30px;
-  margin-right:2vw;
+  margin-top: 0;
+  background-color: $theme-bg-color;
+
+  button {
+    font-size: 1.625rem;
+  }
+
+  ul {
+    list-style-type: none;
+    text-align: left;
+    @include color(color, --second-text-color, $theme-light-second-text-color);
+  }
+
+  li {
+    position: sticky;
+    top: 2rem;
+    background-color: $theme-bg-color;
+  }
+
+  em {
+    font-size:1.625rem;
+    line-height: 1.2;
+  }
+}
+
+main {
+  padding: 13px 0 0 0;
+  width: $body-width;
+  max-width: 90%;
+  display: flex;
+  flex-flow: column nowrap;
+  margin-left:auto;
+  margin-right:auto;
+  overflow-wrap: normal;
 
   #breadcrumbs {
     display: flex;
@@ -225,21 +338,24 @@ main {
     }
   }
 
+  //border: solid;
+  border-width: 1px;
+  border-color: #000000;
+
 
   p {
-    margin:0 0 1rem 0;
+    margin:0 0 0 0;
   }
 
   article {
     font-family: Atkinson Hyperlegible,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif;
-    font-size: 1.5rem;
-
-    margin:1rem 4rem 0 0;
+    font-size: 1.1rem;
+    line-height: 1.6rem;
 
     ul, ol {
       margin:0 0 1rem 1rem;
     }
-  
+
     a:visited {
       color:blueviolet;
     }
@@ -255,7 +371,8 @@ main {
 #taxonomies {
   display: flex;
   flex-flow: row wrap;
-  font-size: 1rem;
+  font-size: 1.5rem;
+  margin: 1rem 0 1rem;
 
   date {
     @include color(color, --second-text-color, $theme-light-second-text-color);
@@ -269,23 +386,6 @@ main {
   }
 }
 
-#toc {
-  list-style: none;
-  font-size: 1rem;
-  @include color(color, --second-text-color, $theme-light-second-text-color);
-  margin-top: 1rem;
-
-  padding: 20px 0 2vw 9vw;
-  position: fixed;
-  bottom: 0;
-  left: 0;
- 
-  ul {
-    margin-left:1rem;
-    list-style: none;
-  }
-}
-
 #mobile {
   display: none;
 }
@@ -295,39 +395,48 @@ main {
   @include color(color, --second-text-color, $theme-light-second-text-color);
 }
 
-@media screen and (max-width: 1380px) {
- 
-  body {
-  font-size:1rem;
+@media all and (max-width: 1380px) {
+  nav { flex: 1 0 0; }
+  nav {
+    li {
+      position: sticky;
+      top: 2rem;
+      background-color: $theme-bg-color;
+    }
   }
-  
-  nav, main {
-    width:92vw;
+  h1 {
+    position: sticky;
+    background-color: $theme-bg-color;
+    top: 2rem;
+    font-size: 1.3rem;
+    line-height: 2.4rem;
+    z-index: 100;
   }
-
-  #mobile {
-    display: block;
-    outline:none;
-    color:royalblue;
-    font-size:1.375rem;
-  }
-
-  #toc {
-    visibility:hidden;
-  }
-  
-  select {
-    font-size:1.375rem;
-  }
-  
-  .search-results__items {
-    list-style-position:inside;
-  }
-
-  #bger, #tax_list {
-    display: block;
+  main {
+    max-width: 90%;
   }
 }
 
-@import "search";
-
+@media all and (min-width: 1381px) {
+  h1 {
+    position: sticky;
+    background-color: $theme-bg-color;
+    top: 0;
+    z-index: 100;
+  }
+  nav {
+    ul {
+      margin-top: 10%;
+      position: sticky;
+      top: 2rem;
+      background-color: $theme-bg-color;
+    }
+  }
+  main {
+    max-width: $body-width;
+  }
+  main { flex: 3 0; }
+  header { order: 1; }
+  nav { order: 2; }
+  main { order: 3; }
+}
