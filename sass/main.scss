@@ -66,7 +66,7 @@ $theme-table-header-bg-color:#bec5b2;
 $theme-table-row-a-bg-color:#edeada;
 $theme-table-row-b-bg-color:#e8e5d5;
 
-$body-width: 80rem;
+$body-width: 70rem;
 $sidebar-width: 18vw;
 
 @mixin color($property, $var, $fallback){
@@ -207,7 +207,7 @@ h1 {
   font-size:4.5rem;
   font-weight: 1200;
   text-transform: uppercase;
-  margin:0.5rem 0 3rem;
+  margin:0.5rem 0 1rem;
 }
 
 h2 {
@@ -280,7 +280,7 @@ header {
 
 nav {
   font-size: 1.1rem;
-  line-height: 3rem;
+  line-height: 1.4rem;
   padding: 1rem 1rem 1rem 2rem;
   width: 20%;
 
@@ -302,6 +302,8 @@ nav {
   li {
     position: sticky;
     top: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     background-color: $theme-bg-color;
   }
 
@@ -372,6 +374,7 @@ main {
 
 header.galleryheader {
   margin-left: 0;
+  display: block;
   width: 200px;
   background-color: transparent;
   z-index: 9999;
@@ -382,27 +385,27 @@ header.galleryheader {
 }
 
 gallery {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
   position: fixed;
-  left: 10vw;
-  scrollbar-width: none;
-  z-index: 999;
+  top: 0;
+  left: 0;
+  padding-left: 10vw;
   padding-top: 2vh;
-
-  #gallerycontainer::-webkit-scrollbar {
-    display: none;
-  }
 
   #gallerycontainer img {
     scroll-snap-align: center;
     width:80%;
-    height:80vh;
+    max-height:80vh;
     object-fit:contain;
-    margin-top: 3vh;
-    margin-bottom: 3vh;
+    margin-top: 20vh;
+    margin-bottom: 20vh;
+  }
+
+  #gallerycontainer img:last-of-type {
+    margin-bottom: 10vh;
   }
 
 }
