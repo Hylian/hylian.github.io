@@ -362,7 +362,8 @@ main {
   }
 
   img.resized {
-    width:100%;
+    width:70vw;
+    max-width: 100%;
     object-fit:contain;
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -372,6 +373,12 @@ main {
 header.galleryheader {
   margin-left: 0;
   width: 200px;
+  background-color: transparent;
+  z-index: 9999;
+
+  #breadcrumbs {
+    background-color: transparent;
+  }
 }
 
 gallery {
