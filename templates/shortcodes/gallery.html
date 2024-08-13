@@ -2,7 +2,9 @@
 {% for asset in page.assets | sort -%}
   {%- if asset is matching("[.](jpg|png)$") -%}
     {% set image = resize_image(format="webp", path=asset, width=2048, height=2048, op="fit_width", quality=90) %}
+    <div id="galleryitem">
       <img src="{{ image.url }}" />
+    </div>
   {%- endif %}
 {%- endfor %}
 </div>
