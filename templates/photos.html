@@ -36,7 +36,7 @@
             document.getElementById('gallery').scrollBy({
               top: window.innerHeight,
               left: 0,
-              behavior: 'smooth'
+              behavior: 'instant'
             });
           };
 
@@ -44,7 +44,7 @@
             document.getElementById('gallery').scrollBy({
               top: -window.innerHeight,
               left: 0,
-              behavior: 'smooth'
+              behavior: 'instant'
             });
           };
 
@@ -71,9 +71,10 @@
           event.preventDefault();
           event.stopPropagation();
             if (event.wheelDeltaY < 0) {
-              debouncedScrollDown();
+              //debouncedScrollDown();
+              throttledScrollDown();
             } else if (event.wheelDeltaY > 0) {
-              debouncedScrollUp();
+              throttledScrollUp();
             }
           };
         document.addEventListener('wheel', handleScroll, { passive: false } );
