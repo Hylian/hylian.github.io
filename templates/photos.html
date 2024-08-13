@@ -71,7 +71,6 @@
           event.preventDefault();
           event.stopPropagation();
             if (event.wheelDeltaY < 0) {
-              //debouncedScrollDown();
               throttledScrollDown();
             } else if (event.wheelDeltaY > 0) {
               throttledScrollUp();
