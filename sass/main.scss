@@ -396,7 +396,7 @@ header.galleryheader {
 
 .gallerycontainer img {
   width:90vw;
-  max-height:70vh;
+  max-height:75vh;
   object-fit:contain;
   margin-top: auto;
   margin-bottom: auto;
@@ -456,6 +456,9 @@ header.galleryheader {
   }
   main {
     max-width: 90%;
+  }
+  .gallerycontainer img {
+    max-height:60vh;
   }
 }
 

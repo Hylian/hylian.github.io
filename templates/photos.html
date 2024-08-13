@@ -48,8 +48,8 @@
             });
           };
 
-        const throttledScrollDown = throttle(scrollDown, 100);
-        const throttledScrollUp = throttle(scrollUp, 100);
+        const throttledScrollDown = throttle(scrollDown, 150);
+        const throttledScrollUp = throttle(scrollUp, 150);
 
         const handleKey = (event) => {
             if (event.keyCode === 32 || event.keyCode === 13 || event.keyCode === 39 || event.keyCode === 40 || event.keyCode === 34) {
@@ -64,15 +64,15 @@
           };
         document.addEventListener('keyup', handleKey);
 
-        const debouncedScrollDown = debounce(scrollDown, 100);
-        const debouncedScrollUp = debounce(scrollUp, 100);
+        //const debouncedScrollDown = debounce(scrollDown, 100);
+        //const debouncedScrollUp = debounce(scrollUp, 100);
 
         const handleScroll = (event) => {
           event.preventDefault();
           event.stopPropagation();
-            if (event.wheelDeltaY < 0) {
+            if (event.wheelDeltaY < -40) {
               throttledScrollDown();
-            } else if (event.wheelDeltaY > 0) {
+            } else if (event.wheelDeltaY > 40) {
               throttledScrollUp();
             }
           };
