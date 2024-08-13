@@ -9,7 +9,16 @@
       <title>{% block title %}{{ config.title }}{% endblock title %}</title>
       <link rel="stylesheet" href="{{ get_url(path="main.css") | safe }}">
       <script>
-        document.addEventListener('keydown', function(event) {
+        function debounce(func, delay) {
+          let timeoutId;
+          return function (...args) {
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(() => func.apply(this, args), delay);
+          };
+        };
+
+        const handleKey = debounce((event) => {
+          console.log(event);
           if (event.keyCode === 32 || event.keyCode === 13 || event.keyCode === 39 || event.keyCode === 40 || event.keyCode === 34) {
             // Space / Enter / ArrowDown / ArrowRIght / PageDown scrolls down
             event.preventDefault();
@@ -27,19 +36,12 @@
               behavior: 'smooth'
             });
           }
-        });
+        }, 20);
+        document.addEventListener('keyup', handleKey);
 
-        function debounce(func, delay) {
-          let timeoutId;
-          return function (...args) {
-            clearTimeout(timeoutId);
-            timeoutId = setTimeout(() => func.apply(this, args), delay);
-          };
-        };
 
         const handleScroll = debounce((event) => {
             if (event.deltaY > 0) {
-              console.log('down');
               event.preventDefault();
               document.getElementById('gallery').scrollBy({
                 top: window.innerHeight,
@@ -47,7 +49,6 @@
                 behavior: 'smooth'
               });
             } else if (event.deltaY < 0) {
-              console.log('up');
               event.preventDefault();
               document.getElementById('gallery').scrollBy({
                 top: -window.innerHeight,
@@ -55,7 +56,7 @@
                 behavior: 'smooth'
               });
             }
-          }, 10);
+          }, 100);
         document.addEventListener('wheel', handleScroll);
       </script>
     </head>
