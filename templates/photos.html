@@ -8,6 +8,56 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
       <title>{% block title %}{{ config.title }}{% endblock title %}</title>
       <link rel="stylesheet" href="{{ get_url(path="main.css") | safe }}">
+      <script>
+        document.addEventListener('keydown', function(event) {
+          if (event.keyCode === 32 || event.keyCode === 13 || event.keyCode === 39 || event.keyCode === 40 || event.keyCode === 34) {
+            // Space / Enter / ArrowDown / ArrowRIght / PageDown scrolls down
+            event.preventDefault();
+            document.getElementById('gallery').scrollBy({
+              top: window.innerHeight,
+              left: 0,
+              behavior: 'smooth'
+            });
+          } else if (event.keyCode === 38 || event.keyCode === 37 || event.keyCode == 33) {
+            // ArrowUp / ArrowLeft / PageUp scrolls up
+            event.preventDefault();
+            document.getElementById('gallery').scrollBy({
+              top: -window.innerHeight,
+              left: 0,
+              behavior: 'smooth'
+            });
+          }
+        });
+
+        function debounce(func, delay) {
+          let timeoutId;
+          return function (...args) {
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(() => func.apply(this, args), delay);
+          };
+        };
+
+        const handleScroll = debounce((event) => {
+            if (event.deltaY > 0) {
+              console.log('down');
+              event.preventDefault();
+              document.getElementById('gallery').scrollBy({
+                top: window.innerHeight,
+                left: 0,
+                behavior: 'smooth'
+              });
+            } else if (event.deltaY < 0) {
+              console.log('up');
+              event.preventDefault();
+              document.getElementById('gallery').scrollBy({
+                top: -window.innerHeight,
+                left: 0,
+                behavior: 'smooth'
+              });
+            }
+          }, 10);
+        document.addEventListener('wheel', handleScroll);
+      </script>
     </head>
 
     <body>
@@ -27,10 +77,10 @@
         </ul>
       {% endblock header %}
       </header>
-      <gallery>
+      <div id="gallery">
         {% set all_pages = section.pages | sort(attribute="date") %}
         {% set post = all_pages | last %}
         {{ post.content | safe }}
-      </gallery>
+      </div>
     </body>
 </html>
