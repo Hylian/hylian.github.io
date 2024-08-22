@@ -6,7 +6,11 @@
   <ul id="breadcrumbs">
     {% for parent in page.ancestors %}
       {% set s = get_section(path=parent, include_pages=false) %}
-      <li><a href="{{s.permalink}}">{{s.title}}</a>&nbsp;&#8594;&nbsp;</li>
+      {% if loop.first %}
+        <li><a href="{{s.permalink}}">{{s.title}}</a>&nbsp;&#8594;&nbsp;</li>
+      {% else %}
+        <li>{{s.title}}&nbsp;&#8594;&nbsp;</li>
+      {% endif %}
     {% endfor %}
   </ul>
 {% endblock header%}
