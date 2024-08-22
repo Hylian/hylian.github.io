@@ -43,8 +43,8 @@ margin: 0;
 }
 
 ::selection {
-  background: blue;
-  color: #fafafa;
+  background: #ede6af;
+  color: #ff7e99;
 }
 
 html {
@@ -54,11 +54,15 @@ html {
 }
 
 $theme-light-first-text-color: #444;
-$theme-dark-first-text-color: #888;
 $theme-light-second-text-color: #999;
-$theme-dark-second-text-color: #666;
 $theme-light-bg-color:#fafafa;
-$theme-dark-bg-color:#262626;
+
+$theme-oil-green: #6ea900;
+$theme-coral-red: #ff7399;
+$theme-light-glaucous-blue: #a6e6db;
+$theme-light-glaucous-blue-modified: #72a39b;
+$theme-sulphur-yellow: #f5f5b8;
+$theme-sulphur-yellow-modified: #dbd6b3;
 
 $theme-bg-color:#fafafa;
 
@@ -72,12 +76,6 @@ $sidebar-width: 18vw;
 @mixin color($property, $var, $fallback){
   #{$property}: $fallback;
   #{$property}: var($var, $fallback);
-}
-
-.theme-dark {
-  --first-text-color: #{$theme-dark-first-text-color};
-  --second-text-color:#{$theme-dark-second-text-color};
-  --bg-color: #{$theme-dark-bg-color};
 }
 
 body {
@@ -171,15 +169,15 @@ tbody tr:nth-of-type(even) {
 
 a:link {
   text-decoration: none;
-  color:royalblue;
+  color: #72a39b;
 }
 
 a:hover {
-  @include color(color, --second-text-color, $theme-light-second-text-color);
+  background-color: #f5f5b8;
 }
 
 a:visited {
-  color:royalblue;
+  color: #31758c;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -252,6 +250,10 @@ header {
     font-size: 1.625rem;
   }
 
+  a:link {
+    color: #6ea900;
+  }
+
   #breadcrumbs {
     position: sticky;
     top: 0px;
@@ -304,12 +306,17 @@ nav {
     top: 2rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
-    background-color: $theme-bg-color;
   }
 
   em {
     font-size:1.625rem;
     line-height: 1.2;
+  }
+
+  #curpage {
+    display: inline;
+    color: #ff7399;
+    background-color: #f5f5b8;
   }
 }
 
@@ -358,9 +365,6 @@ main {
       margin:0 0 1rem 1rem;
     }
 
-    a:visited {
-      color:blueviolet;
-    }
   }
 
   img.resized {
