@@ -66,9 +66,9 @@ $theme-sulphur-yellow-modified: #dbd6b3;
 
 $theme-bg-color:#fafafa;
 
-$theme-table-header-bg-color:#bec5b2;
-$theme-table-row-a-bg-color:#edeada;
-$theme-table-row-b-bg-color:#e8e5d5;
+$theme-table-header-bg-color:#a1b381;
+$theme-table-row-a-bg-color:#ebe9d5;
+$theme-table-row-b-bg-color:#ebe9d5;
 
 $body-width: 70rem;
 $sidebar-width: 18vw;
@@ -166,10 +166,9 @@ tbody tr:nth-of-type(even) {
   background-color: $theme-table-row-b-bg-color
 }
 
-
 a:link {
   text-decoration: none;
-  color: #72a39b;
+  color: #31758c;
 }
 
 a:hover {
@@ -250,10 +249,6 @@ header {
     font-size: 1.625rem;
   }
 
-  a:link {
-    color: #6ea900;
-  }
-
   #breadcrumbs {
     position: sticky;
     top: 0px;
@@ -304,8 +299,8 @@ nav {
   li {
     position: sticky;
     top: 2rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
   }
 
   em {
