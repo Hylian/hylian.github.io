@@ -60,7 +60,7 @@ apt install linux-headers-current-meson64
 
 ### Display Driver
 
-[Repo](https://github.com/Hylian/sharp-drm-driver)
+{{ button(url="https://github.com/Hylian/sharp-drm-driver", text="GitHub") }}
 
 ```
 git clone https://github.com/Hylian/sharp-drm-driver.git
@@ -77,7 +77,7 @@ If you aren't seeing the TTY show up on the display, your [fbcon mapping](https:
 
 ### Keyboard Driver
 
-[Repo](https://github.com/Hylian/beepberry-keyboard-driver)
+{{ button(url="https://github.com/Hylian/beepberry-keyboard-driver", text="GitHub") }}
 
 ```
 git clone https://github.com/Hylian/beepberry-keyboard-driver.git
@@ -92,8 +92,7 @@ Reboot your device.
 
 ### Developing
 
-One-liner to rsync and install: `rsync -a ~/dev/beepy/sharp-drm-driver root@radxa-wifi.local:~/ && ssh root@radxa-wifi.local "cd ~/sharp-drm-driv
-er && rm -rf out && make && make install"`
+One-liner to rsync and install: `rsync -a ~/dev/beepy/sharp-drm-driver root@radxa-wifi.local:~/ && ssh root@radxa-wifi.local "cd ~/sharp-drm-driver && rm -rf out && make && make install"`
 
 ## Quirks and Tweaks
 

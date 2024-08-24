@@ -6,7 +6,7 @@ transparent = true
 
 ### Incident Light Meter Watch based on [Sensor Watch](https://www.sensorwatch.net/)
 
-[GitHub](https://github.com/Hylian/Sensor-Watch/tree/hylian/tcs3400)
+{{ button(url="https://github.com/Hylian/Sensor-Watch/tree/hylian/tcs3400", text="GitHub") }}
 
 {{ resized(img="watch.jpg") }}
 

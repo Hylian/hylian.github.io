@@ -30,6 +30,16 @@
     url('ibmplexmono-regular-webfont.woff') format('woff');
 }
 
+@font-face {
+  font-family: 'PragmataPro';
+  font-style: normal;
+  font-weight: 400;
+  font-display: auto;
+  src: local('PragmataPro'),
+    url('pragmatapro.woff2') format('woff2'),
+    url('pragmatapro.woff') format('woff');
+}
+
 .center {
   display: block;
   margin-left: auto;
@@ -53,9 +63,9 @@ html {
   scroll-behavior: smooth;
 }
 
-$theme-light-first-text-color: #444;
-$theme-light-second-text-color: #999;
-$theme-light-bg-color:#fafafa;
+$theme-first-text-color: #444;
+$theme-second-text-color: #999;
+$theme-bg-color:#fafafa;
 
 $theme-oil-green: #6ea900;
 $theme-coral-red: #ff7399;
@@ -64,11 +74,14 @@ $theme-light-glaucous-blue-modified: #72a39b;
 $theme-sulphur-yellow: #f5f5b8;
 $theme-sulphur-yellow-modified: #dbd6b3;
 
-$theme-bg-color:#fafafa;
+$theme-link-color: #31758c;
+
+$theme-code-bg-color:#ebe9d580;
+$theme-code-text-color:#444;
 
 $theme-table-header-bg-color:#a1b381;
-$theme-table-row-a-bg-color:#ebe9d5;
-$theme-table-row-b-bg-color:#ebe9d5;
+$theme-table-row-a-bg-color:#ebe9d580;
+$theme-table-row-b-bg-color:#ebe9d5b4;
 
 $body-width: 70rem;
 $sidebar-width: 18vw;
@@ -86,53 +99,69 @@ body {
   display: flex;
   flex-flow: row wrap;
   hyphens: auto;
-  @include color(background, --bg-color,  $theme-light-bg-color);
-  @include color(color, --first-text-color, $theme-light-first-text-color);
+  background: $theme-bg-color;
+  color: $theme-first-text-color;
 }
 
-.theme-button{
-  display: none;
-  padding:0;
-  border:none;
-  background: transparent;
-  color: royalblue;
+button {
+  border: 2px solid;
+  border-radius: 7px;
+  border-color: $theme-coral-red;
+  background: $theme-bg-color;
+  color: $theme-link-color;
+  font-family: IBM Plex Sans,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif;
+  font-size: 1rem;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-decoration: none;
+  padding: 0.3rem 0.5rem;
+  margin: 0;
   cursor: pointer;
-  margin-right:1rem;
-
-  &:not(:hover){
-    border-bottom-color: transparent;
+  box-shadow: $theme-coral-red 3px -3px;
+  a {
+    background-color: none !important;
   }
 }
 
-.theme-button.enabled{
-  display: inline;
+button:hover {
+  a {
+    color: $theme-coral-red;
+  }
+  border-color: $theme-coral-red;
+  background-color: $theme-sulphur-yellow;
 }
 
-code {
-  font:1.0rem IBM Plex Mono, monospace;
-  border-radius: 6px;
-  padding: 0 0.3rem;
+code:not(pre code) {
+  font:1.0rem PragmataPro, monospace;
+  border: 1px solid;
+  border-color: $theme-oil-green;
+  border-radius: 4px;
+  white-space: pre-line;
+  padding: 1px 0.4rem;
   margin: 0 2px;
-  background-color: #383838;
-  color: #e6e1dc;
+  background-color: $theme-code-bg-color;
+  color: $theme-code-text-color;
 }
 
 pre {
-  width: $body-width;
+  width: 98%;
   max-width: 100%;
   box-sizing: border-box;
-  margin: 0.5rem 0 0.5rem;
+  margin: 0.5rem 0px 0.5rem 0px;
   display: inline-block;
-  white-space: pre-wrap;
+  white-space: pre-line;
   overflow: hidden;
   overflow-wrap: anywhere;
-  font:1rem IBM Plex Mono, monospace;
+  font:1rem PragmataPro, monospace;
   line-height:1;
   font-size: 1rem;
-  padding:1.2rem 0 1.2rem 1.2rem;
-  border-radius: 10px;
-  background-color: #383838;
-  color: #e6e1dc;
+  padding:1.2rem 1.2rem 1.2rem 1.2rem;
+  border: 2px solid;
+  border-color: $theme-oil-green;
+  border-radius: 15px;
+  box-shadow: $theme-oil-green 3px -3px;
+  color: $theme-code-text-color !important;
+  background-color: $theme-code-bg-color !important;
 }
 
 table {
@@ -168,15 +197,15 @@ tbody tr:nth-of-type(even) {
 
 a:link {
   text-decoration: none;
-  color: #31758c;
+  color: $theme-link-color;
 }
 
 a:hover {
-  background-color: #f5f5b8;
+  background-color: $theme-sulphur-yellow;
 }
 
 a:visited {
-  color: #31758c;
+  color: $theme-link-color;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -189,7 +218,7 @@ h1, h2, h3, h4, h5, h6 {
     border-bottom-color: transparent;
     cursor: pointer;
     padding-left:1rem;
-    @include color(color, --second-text-color, $theme-light-second-text-color);
+    color: $theme-second-text-color;
   }
 
   &:hover {
@@ -259,14 +288,10 @@ header {
     width: 100%;
   }
 
-  button {
-    font-size: 1.625rem;
-  }
-
   ul {
     list-style-type: none;
     text-align: left;
-    @include color(color, --second-text-color, $theme-light-second-text-color);
+    color: $theme-second-text-color;
   }
 
   em {
@@ -293,7 +318,7 @@ nav {
   ul {
     list-style-type: none;
     text-align: left;
-    @include color(color, --second-text-color, $theme-light-second-text-color);
+    color: $theme-second-text-color;
   }
 
   li {
@@ -310,8 +335,8 @@ nav {
 
   #curpage {
     display: inline;
-    color: #ff7399;
-    background-color: #f5f5b8;
+    color: $theme-coral-red;
+    background-color: $theme-sulphur-yellow;
   }
 }
 
@@ -321,8 +346,8 @@ main {
   max-width: 90%;
   display: flex;
   flex-flow: column nowrap;
-  margin-left:auto;
-  margin-right:auto;
+  margin-left:2rem;
+  margin-right:2rem;
   overflow-wrap: normal;
 
   #breadcrumbs {
@@ -333,7 +358,7 @@ main {
     ul {
       list-style-type: none;
       text-align: left;
-      @include color(color, --second-text-color, $theme-light-second-text-color);
+      color: $theme-second-text-color;
     }
 
     em {
@@ -342,22 +367,29 @@ main {
     }
   }
 
-  //border: solid;
-  border-width: 1px;
-  border-color: #000000;
-
 
   p {
-    margin:0 0 0 0;
+    margin:0 0 0.7rem 0;
   }
 
   article {
-    font-family: Atkinson Hyperlegible,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif;
+    font-family: PragmataPro,Atkinson Hyperlegible,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif;
     font-size: 1.1rem;
-    line-height: 1.6rem;
+    line-height: 1.4rem;
+    p, ul {
+      margin-left: 0px;
+    }
 
-    ul, ol {
-      margin:0 0 1rem 1rem;
+    ul {
+      padding-left: 20px;
+
+      li {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+      }
+      p {
+        margin: 0;
+      }
     }
 
   }
@@ -416,7 +448,7 @@ header.galleryheader {
   margin: 1rem 0 1rem;
 
   date {
-    @include color(color, --second-text-color, $theme-light-second-text-color);
+    color: $theme-second-text-color;
   }
 
   ul {
@@ -433,7 +465,7 @@ header.galleryheader {
 
 #tax_list {
   list-style: circle;
-  @include color(color, --second-text-color, $theme-light-second-text-color);
+  color: $theme-second-text-color;
 }
 
 @media all and (max-width: 1380px) {

@@ -6,7 +6,7 @@ transparent = true
 
 ### Air quality monitor HAT for Raspbery Pi Zero
 
-[GitHub](https://github.com/Hylian/PiAQM)
+{{ button(url="https://github.com/Hylian/PiAQM", text="GitHub") }}
 
 {{ resized(img="piaqm.jpg") }}
 
