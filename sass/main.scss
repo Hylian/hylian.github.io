@@ -80,8 +80,8 @@ $theme-code-bg-color:#ebe9d580;
 $theme-code-text-color:#444;
 
 $theme-table-header-bg-color:#6ea900;
-$theme-table-row-a-bg-color:#f5f5b8c0;
-$theme-table-row-b-bg-color:#f5f5b894;
+$theme-table-row-a-bg-color:#ebe9d5;
+$theme-table-row-b-bg-color:#ebe9d5;
 
 $body-width: 70rem;
 $sidebar-width: 18vw;
@@ -136,6 +136,7 @@ code:not(pre code) {
   border: 1px solid;
   border-color: $theme-oil-green;
   border-radius: 4px;
+  box-shadow: $theme-oil-green 1px -1px;
   white-space: pre-line;
   padding: 1px 0.4rem;
   margin: 0 2px;
@@ -189,6 +190,8 @@ th {
 }
 
 td {
+  border: 2px solid;
+  border-color: $theme-oil-green;
   padding: 0.5rem 0rem 0.5rem 1rem;
 }
 
