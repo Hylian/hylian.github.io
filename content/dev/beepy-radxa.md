@@ -34,7 +34,7 @@ All the SKUs without headers seem to also only have external antenna. Any small 
 
 ## OS Setup
 
-[Armbian for Radxa Zero](https://www.armbian.com/radxa-zero/)
+{{ button(url="https://www.armbian.com/radxa-zero/", text="Armbian for Radxa Zero") }}
 
 I'm running Armbian 23.11 Bookworm. I haven't tested on later releases, so use a newer major release at your own risk.
 
