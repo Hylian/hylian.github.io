@@ -79,9 +79,9 @@ $theme-link-color: #31758c;
 $theme-code-bg-color:#ebe9d580;
 $theme-code-text-color:#444;
 
-$theme-table-header-bg-color:#a1b381;
-$theme-table-row-a-bg-color:#ebe9d580;
-$theme-table-row-b-bg-color:#ebe9d5b4;
+$theme-table-header-bg-color:#6ea900;
+$theme-table-row-a-bg-color:#f5f5b8c0;
+$theme-table-row-b-bg-color:#f5f5b894;
 
 $body-width: 70rem;
 $sidebar-width: 18vw;
@@ -168,8 +168,12 @@ table {
   width: 100%;
   max-width: 100%;
   overflow: hidden;
-  border-spacing: 4px;
   border-collapse: separate;
+  background-color: $theme-oil-green;
+  border: 6px solid;
+  border-radius: 12px;
+  border-color: $theme-oil-green;
+  box-shadow: $theme-oil-green 3px -3px;
 }
 
 thead tr {
@@ -177,9 +181,11 @@ thead tr {
 }
 
 th {
-  padding: 1rem 0rem 1rem 1rem;
+  padding: 0 0rem 0.5rem 1rem;
   text-align: left;
   font-weight: 1200;
+  font-size: 1.4rem;
+  color: $theme-sulphur-yellow;
 }
 
 td {
