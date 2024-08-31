@@ -92,7 +92,11 @@ Reboot your device.
 
 ### Developing
 
-One-liner to rsync and install: `rsync -a ~/dev/beepy/sharp-drm-driver root@radxa-wifi.local:~/ && ssh root@radxa-wifi.local "cd ~/sharp-drm-driver && rm -rf out && make && make install"`
+One-liner to rsync and install: 
+
+```
+rsync -a ~/dev/beepy/beepberry-keyboard-driver root@radxa-wifi.local:~/ && ssh root@radxa-wifi.local "cd ~/beepberry-keyboard-driver && make && make install && rmmod beepy_kbd && modprobe beepy_kbd"
+```
 
 ## Quirks and Tweaks
 
