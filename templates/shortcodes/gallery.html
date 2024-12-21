@@ -3,7 +3,7 @@
   {%- if asset is matching("[.](jpg|png)$") -%}
     {% set image = resize_image(format="webp", path=asset, width=2048, height=2048, op="fit_width", quality=90) %}
     <div class="galleryitem">
-      <img src="{{ image.url }}" />
+      <img src="{{ image.url }}" onclick="throttledScrollDown()"/>
     </div>
   {%- endif %}
 {%- endfor %}
