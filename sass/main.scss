@@ -74,6 +74,9 @@ $theme-light-glaucous-blue-modified: #72a39b;
 $theme-sulphur-yellow: #f5f5b8;
 $theme-sulphur-yellow-modified: #dbd6b3;
 
+$theme-article-bg-color:#ebe9d520;
+$theme-article-border-color:#6ea90080;
+
 $theme-link-color: #31758c;
 
 $theme-code-bg-color:#ebe9d580;
@@ -394,8 +397,16 @@ main {
     font-family: PragmataPro,Atkinson Hyperlegible,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif;
     font-size: 1.0rem;
     line-height: 1.0rem;
-    margin-left: 1ch;
     max-width: calc(min(80ch, 100%));
+    hyphens: none;
+    border-radius: 18px;
+    border: 1px dotted $theme-article-border-color;
+    background-color: $theme-article-bg-color;
+    padding-top: 1.5ch;
+    padding-left: 1.5ch;
+    padding-right: 1.5ch;
+    padding-bottom: 0ch;
+    margin-bottom: 6ch;
     p, ul {
       margin-left: 0px;
     }
@@ -451,8 +462,10 @@ main {
   }
 
   img.resized {
-    width:70vw;
-    max-width: 100%;
+    max-width: 90%;
+    max-height: 50%;
+    width:auto;
+    height:auto;
     object-fit:contain;
     margin-top: 1rem;
     margin-bottom: 1rem;
