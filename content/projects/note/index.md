@@ -4,7 +4,7 @@ date=2017-05-01
 transparent=true
 +++
 
-### Sound Voltex controller designed with [PCBmodE](https://github.com/boldport/pcbmode)
+## Sound Voltex controller designed with [PCBmodE](https://github.com/boldport/pcbmode)
 
 {{ resized(img="note.jpg") }}
 

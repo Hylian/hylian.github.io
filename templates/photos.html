@@ -70,9 +70,9 @@
         const handleScroll = (event) => {
           event.preventDefault();
           event.stopPropagation();
-            if (event.wheelDeltaY < -40) {
+          if (event.wheelDeltaY < -30 && event.wheelDeltaY > -80) {
               throttledScrollDown();
-            } else if (event.wheelDeltaY > 40) {
+            } else if (event.wheelDeltaY > 30 && event.wheelDeltaY < 80) {
               throttledScrollUp();
             }
           };

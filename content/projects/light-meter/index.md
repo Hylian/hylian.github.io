@@ -4,7 +4,7 @@ date=2024-08-05
 transparent = true
 +++
 
-### Incident Light Meter Watch based on [Sensor Watch](https://www.sensorwatch.net/)
+## Incident Light Meter Watch based on [Sensor Watch](https://www.sensorwatch.net/)
 
 {{ button(url="https://github.com/Hylian/Sensor-Watch/tree/hylian/tcs3400", text="GitHub") }}
 
