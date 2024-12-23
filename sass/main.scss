@@ -69,11 +69,15 @@ $theme-bg-color:#fafafa;
 $theme-bg-color-transparent:#fafafa80;
 
 $theme-oil-green: #6ea900;
+$theme-oil-green-transparent: #6ea90060;
 $theme-coral-red: #ff7399;
+$theme-coral-red-transparent: #ff739960;
 $theme-light-glaucous-blue: #a6e6db;
 $theme-light-glaucous-blue-modified: #72a39b;
+$theme-light-glaucous-blue-transparent: #a6e6db60;
 $theme-sulphur-yellow: #f5f5b8;
 $theme-sulphur-yellow-modified: #dbd6b3;
+
 
 $theme-article-bg-color:#ebe9d520;
 $theme-article-border-color:#6ea90080;
@@ -151,8 +155,8 @@ code:not(pre code) {
   border-color: $theme-oil-green;
   border-radius: 4px;
   box-shadow: inset $theme-oil-green 1.5px -1px;
-  white-space: pre;
-  overflow-x: auto;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
   padding: 0 2px;
   margin: 0 1px;
   background-color: $theme-code-bg-color;
@@ -286,13 +290,11 @@ h2, h3, h4, h5, h6 {
   padding-left: 1ch;
   padding-right: 1ch;
   margin-left: 0;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-top: 0.4rem;
+  margin-bottom: 0.6rem;
   border: 1px dotted;
-  border-color: $theme-coral-red;
   border-radius: 9px;
   color: $theme-code-text-color !important;
-  box-shadow: 2px 3px 7px 0px #5f623920;
 }
 
 h2::before {
@@ -313,15 +315,22 @@ h4::before {
 h2 {
   font-size: 1.5rem;
   line-height: 2rem;
+  border-radius: 15px !important;
+  border-color: $theme-coral-red;
+  box-shadow: 2px 3px 3px 0px $theme-coral-red-transparent;
 }
 
 
 h3 {
   font-size:1rem;
+  border-color: $theme-oil-green;
+  box-shadow: 2px 2px 2px 0px $theme-oil-green-transparent;
 }
 
 h4 {
   font-size:1.0rem;
+  border-color: $theme-light-glaucous-blue;
+  box-shadow: 2px 2px 2px 0px $theme-light-glaucous-blue-transparent;
 }
 
 header {
@@ -466,30 +475,26 @@ main {
     }
 
     ul {
-      padding-left: 20px;
+      position: relative;
+      list-style-type: none;
+      line-height: var(--line-height);
 
       li {
         padding-bottom: 1rem;
+        position: relative;
+        margin-left: 1.5ch;
+        padding-left: 1rem;
+        border-left: 2px solid $theme-first-text-color;
+        border-color: $theme-coral-red;
+        p {
+          padding: 0;
+        }
       }
       p {
         margin: 0;
       }
     }
 
-    ul {
-      position: relative;
-      padding-left: 0;
-      list-style-type: none;
-      line-height: var(--line-height);
-      margin: 0;
-    }
-    ul li {
-      position: relative;
-      padding-left: 1.5ch;
-      margin-left: 1.5ch;
-      border-left: 2px solid $theme-first-text-color;
-      border-color: $theme-coral-red;
-    }
     ul li:before {
       position: absolute;
       display: block;

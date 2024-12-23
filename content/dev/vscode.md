@@ -307,9 +307,9 @@ Pass-through certain keybinds to the terminal to ensure they aren't grabbed by o
 
 Press `Ctrl + b` for three way sidebar toggle.
 
-* If sidebar is hidden, show and focus it.
-* If sidebar is visible and not focused, focus it.
-* If sidebar is focused, hide it.
+ * If sidebar is hidden, show and focus it.
+ * If sidebar is visible and not focused, focus it.
+ * If sidebar is focused, hide it.
 
 ```
   {
