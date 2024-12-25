@@ -393,6 +393,16 @@ nav {
   margin-top: 0;
   background-color: $theme-bg-color;
 
+  #curpage {
+    padding-left: 3px;
+    padding-right: 3px;
+  }
+
+  a {
+    padding-left: 3px;
+    padding-right: 3px;
+  }
+
   button {
     font-size: 1.625rem;
   }
