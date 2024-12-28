@@ -615,7 +615,7 @@ header.galleryheader {
   color: $theme-second-text-color;
 }
 
-@media all and (max-width: 1380px) {
+@media all and (max-width: 846px) {
   header {
     padding-left: 6px;
   }
@@ -663,7 +663,7 @@ header.galleryheader {
   }
 }
 
-@media all and (min-width: 1381px) {
+@media all and (min-width: 846px) {
   h1 {
     position: sticky;
     background-color: $theme-bg-color;
