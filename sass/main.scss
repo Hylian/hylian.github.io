@@ -95,7 +95,7 @@ $article-pad: 30px;
 $article-pad-right: 30px;
 $article-width: calc(min((80ch + $article-pad + $article-pad-right), 100%));
 $article-inner-width: calc($article-width - $article-pad - $article-pad-right);
-$body-width: 70rem;
+$body-width: 735px;
 $sidebar-width: 18vw;
 
 @mixin color($property, $var, $fallback){
@@ -668,7 +668,7 @@ header.galleryheader {
     position: sticky;
     background-color: $theme-bg-color;
     top: 0;
-    max-width: $article-width;
+    min-width: $article-width;
   }
   h2, h3, h4, h5, h6 {
     left:-3rem;
