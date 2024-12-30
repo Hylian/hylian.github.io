@@ -70,6 +70,7 @@ $theme-bg-color-transparent:#fafafa80;
 
 $theme-oil-green: #6ea900;
 $theme-oil-green-transparent: #6ea90060;
+$theme-light-green: #749b2b;
 $theme-coral-red: #ff7399;
 $theme-coral-red-transparent: #ff739960;
 $theme-light-glaucous-blue: #a6e6db;
@@ -86,6 +87,7 @@ $theme-link-color: #31758c;
 
 $theme-code-bg-color:#ebe9d580;
 $theme-code-text-color:#444;
+$theme-code-alt-text-color:#666;
 
 $theme-table-header-bg-color:#6ea900;
 $theme-table-row-a-bg-color:#ebe9d5;
@@ -152,12 +154,14 @@ button:hover {
 code:not(pre code) {
   font:1.0rem PragmataPro, monospace;
   border: 0.5px hidden;
-  border-color: $theme-oil-green;
+  border-color: $theme-oil-green-transparent;
   border-radius: 4px;
-  box-shadow: inset $theme-oil-green 1.5px -1px;
+  box-shadow: inset $theme-oil-green 1.5px -0.5px;
   white-space: pre-wrap;
   overflow-wrap: break-word;
-  padding: 0 4px;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-bottom: 1px;
   margin: 0 1px;
   background-color: $theme-code-bg-color;
   color: $theme-code-text-color;
@@ -176,7 +180,7 @@ pre {
   overflow: hidden;
   overflow-wrap: anywhere;
   font:1rem PragmataPro, monospace;
-  line-height:1;
+  line-height:1rem;
   font-size: 1rem;
   padding:0.6rem 1.0rem 0.6rem 1.0rem;
   border: 2px solid;
@@ -189,13 +193,14 @@ pre {
 
 table {
   max-width: 100%;
+  width: 100%;
   overflow: hidden;
   border-collapse: separate;
-  background-color: $theme-oil-green;
+  background-color: $theme-light-green;
   border: 6px solid;
   border-radius: 12px;
-  border-color: $theme-oil-green;
-  box-shadow: $theme-oil-green 3px -3px;
+  border-color: $theme-light-green;
+  box-shadow: $theme-light-green 3px -3px;
   border-spacing: 8px;
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -204,12 +209,12 @@ table {
 }
 
 thead tr {
-  background-color: $theme-table-header-bg-color
+  background-color: $theme-light-green;
 }
 
 th {
-  padding: 0 0rem 0.5rem 1rem;
-  text-align: left;
+  padding: 0 1rem 0.2rem 1rem;
+  text-align: center;
   font-weight: 1200;
   font-size: 1.4rem;
   color: $theme-sulphur-yellow;
@@ -217,19 +222,24 @@ th {
 
 td {
   border: 0px solid;
-  border-color: $theme-oil-green;
+  border-color: $theme-light-green;
   padding: 0.5rem 1rem 0.5rem 1rem;
-  border-radius: 5px;
-  box-shadow: $theme-coral-red -3px 5px 1px;
+  border-radius: 3px;
 }
 
 tbody tr {
-  padding: 10rem 0 0 0;
-  background-color: $theme-table-row-a-bg-color
+  padding: 8rem 0 0 0;
+  background-color: $theme-table-row-a-bg-color;
+  td {
+    box-shadow: $theme-sulphur-yellow 0px 2px 2px;
+  }
 }
 
 tbody tr:nth-of-type(even) {
-  background-color: $theme-table-row-b-bg-color
+  background-color: $theme-table-row-b-bg-color;
+  td {
+    box-shadow: $theme-coral-red 0px 2px 2px;
+  }
 }
 
 a:link {
@@ -294,7 +304,6 @@ h2, h3, h4, h5, h6 {
   margin-bottom: 0.6rem;
   border: 1px dotted;
   border-radius: 9px;
-  color: $theme-code-text-color !important;
 }
 
 h2::before {
@@ -318,6 +327,7 @@ h2 {
   border-radius: 15px !important;
   border-color: $theme-coral-red;
   box-shadow: 2px 3px 3px 0px $theme-coral-red-transparent;
+  color: $theme-code-text-color !important;
 }
 
 
@@ -325,12 +335,14 @@ h3 {
   font-size:1rem;
   border-color: $theme-oil-green;
   box-shadow: 2px 2px 2px 0px $theme-oil-green-transparent;
+  color: $theme-code-alt-text-color !important;
 }
 
 h4 {
   font-size:1.0rem;
   border-color: $theme-light-glaucous-blue;
   box-shadow: 2px 2px 2px 0px $theme-light-glaucous-blue-transparent;
+  color: $theme-code-alt-text-color !important;
 }
 
 header {
