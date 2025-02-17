@@ -9,6 +9,9 @@
       <title>{% block title %}{{ config.title }}{% endblock title %}</title>
       <link rel="stylesheet" href="{{ get_url(path="main.css") | safe }}">
       <link rel="icon" type="image/png" rel="noopener" target="_blank" href="/favicon.png">
+      {% block rss %}
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path="rss.xml", trailing_slash=false) }}">
+      {% endblock %}
     </head>
 
     <body>

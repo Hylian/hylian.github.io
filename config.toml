@@ -2,6 +2,8 @@ base_url = "https://tokilabs.co"
 compile_sass = true
 build_search_index = true
 title = "tokilabs"
+generate_feeds = true
+feed_filenames = ["rss.xml"]
 
 taxonomies = [
 ]
