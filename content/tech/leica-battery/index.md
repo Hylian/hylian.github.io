@@ -56,7 +56,7 @@ This fuel gauge in particular has a SHA-1 authentication feature. Let's see what
 
 {{ resized(img="ds-32.jpg") }}
 
-Each chip is provisioned with a secret key at the factory. The host writes a 64-bit challenege to the chip, and the chip responds with a SHA-1 Message Authentication Code (MAC). The MAC can be computed using just the secret or with the chip's serial number included as a salt.
+Each chip is provisioned with a secret key at the factory. The host writes a 64-bit challenge to the chip, and the chip responds with a SHA-1 Message Authentication Code (MAC). The MAC can be computed using just the secret or with the chip's serial number included as a salt.
 
 Given this, I believe all copies of the battery should have the same shared secret. If the serial number is used as a salt, it would prevent replay/rainbow table attacks, but there's no getting around the fact that every M10 needs to work with every battery.
 
