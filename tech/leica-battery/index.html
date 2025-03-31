@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+      <title> tokilabs | Leica M10 Battery Teardown and Reverse Engineering </title>
+      <link rel="stylesheet" href="https://tokilabs.co/main.css">
+      <link rel="icon" type="image/png" rel="noopener" target="_blank" href="/favicon.png">
+      
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="https://tokilabs.co/rss.xml">
+      
+    </head>
+
+    <body>
+      <header>
+      
+  <ul id="breadcrumbs">
+    
+      
+      
+        <li><a href="https:&#x2F;&#x2F;tokilabs.co&#x2F;">tokilabs</a></li>
+      
+    
+      
+      
+        <li>&nbsp;&#8594;&nbsp;tech</li>
+      
+    
+  </ul>
+
+      </header>
+
+      <nav>
+      
+  <ul id="bger">
+  
+  
+  
+    
+      
+      <li><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAB3RJTUUH5AUDFDoqfmnPqQAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAC6SURBVEjH7ZTBCcIwFIa/lO6hA7iA6BCO4AZe/xHeCF49C4I7VOfQk2PUS4QibUzahiL0h0AOj7x87wtx+JhZTWQkLYFnTG1Bj5jZBVjE1LpvAknux+F1CkkvgkazB7DJ0kDSHniZ2RFY5yA4SToAKzO7d5EUoVk3V0fZWdLO11dt4gc58Ll62a1OBr2igJ8tcBuLoO0S1Wdfpt40lTALQTNlYI5ujAbTEaT8riHi2cHs4B8dpM5+coI3MpVSlNj0qyUAAAAASUVORK5CYII=" style="object-position: 0 0px; width: 15px; height: 15px" />&nbsp;<div id="curpage">Leica M10 Battery Teardown and Reverse Engineering</div></li>
+      
+  
+      
+        <li><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAB3RJTUUH5AUDFDoqfmnPqQAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAC6SURBVEjH7ZTBCcIwFIa/lO6hA7iA6BCO4AZe/xHeCF49C4I7VOfQk2PUS4QibUzahiL0h0AOj7x87wtx+JhZTWQkLYFnTG1Bj5jZBVjE1LpvAknux+F1CkkvgkazB7DJ0kDSHniZ2RFY5yA4SToAKzO7d5EUoVk3V0fZWdLO11dt4gc58Ll62a1OBr2igJ8tcBuLoO0S1Wdfpt40lTALQTNlYI5ujAbTEaT8riHi2cHs4B8dpM5+coI3MpVSlNj0qyUAAAAASUVORK5CYII=" style="object-position: 0 0px; width: 15px; height: 15px" />&nbsp;<a href="https://tokilabs.co/tech/wd-shuck/">USB to SATA Adapter From a Shucked EasyStore</a></li>
+      
+  
+  </ul>
+
+
+
+      </nav>
+
+      <main>
+        
+  <div id="taxonomies">
+    
+      <date>2025.03.31</date>
+    
+
+    
+  </div>
+
+  <h1>Leica M10 Battery Teardown and Reverse Engineering</h1><em></em>
+
+  <article>
+    <p>The Leica M10 family of cameras use the proprietary BP-SCL5 battery. Of course, Leica being Leica, these batteries cost an eyewatering $200 a pop. Even after many years, a third-party battery option has never materialized. These batteries are also often hard to find in-stock. Li-Ion batteries are consumables with a limited lifespan, and Leica is the only game in town, purely due to their own decision to DRM the battery. While there's a discussion to be had about "luxury" brand pricing, it remains that the BP-SCL5 is the only battery I have to baby around due to not having a big pile of ready-to-go spares. Let's take a peek at what kind of DRM is inside this thing.</p>
+<pre style="background-color:#383838;color:#e6e1dc;"><code><span>Disclaimer: Lithium-Ion batteries are a fire hazard, and care should be taken when handling them. This post is for informational purposes only.
+</span></code></pre>
+<h2 id="protocol-reversing">Protocol Reversing</h2>
+
+
+
+
+
+<img src="https://tokilabs.co/processed_images/breakout_1.0216c8b5d28efc0f.webp" class="resized" />
+<p>The BP-SCL5 uses a single data pin between <code>+</code> and <code>-</code> to communicate with the camera body. When this pin is taped over, the camera refuses to boot.</p>
+<p>Using some magnet wire to break this pin out, we observe that:</p>
+<ul>
+<li>The camera communicates with the battery approximately every second.</li>
+<li>When the pin is grounded, this battery check fails, and the camera powers off.</li>
+<li>The protocol appears to be Dallas 1-Wire.</li>
+</ul>
+
+
+
+
+
+<img src="https://tokilabs.co/processed_images/breakout_2.aafabf7ecf653fca.webp" class="resized" />
+
+
+
+
+
+<img src="https://tokilabs.co/processed_images/scope_1.94289252ba45fb9c.webp" class="resized" />
+
+
+
+
+
+<img src="https://tokilabs.co/processed_images/scope_2.cf2f96379ae27ec1.webp" class="resized" />
+<p>When hooking up to a Saleae, I had to use an instrumentation op-amp to boost the signal to an appropriate voltage. (Unfortunately, I've lost track of the actual capture. I'll update this post if I manage to find it.)</p>
+
+
+
+
+
+<img src="https://tokilabs.co/processed_images/saleae.6d70b788c2bb5d48.webp" class="resized" />
+<h2 id="teardown">Teardown</h2>
+<p>Now, let's teardown an (already dead) M10 battery and see what's inside.</p>
+<p>We see four programming pins hidden under a sticker. I haven't investigated these any further.
+
+
+
+
+
+<img src="https://tokilabs.co/processed_images/pogo_pins.2c4c36ead6b101b0.webp" class="resized" />
+</p>
+<p>After some quality time with the snippers, I finally managed to get the shell off. It's certainly well-built. The plastic was ultrasonically welded shut and the negative space was filled with silicone.
+
+
+
+
+
+<img src="https://tokilabs.co/processed_images/teardown.3d8eb2053c4eb2b4.webp" class="resized" />
+</p>
+<p>Some more scraping frees the PCB, giving us a look at the ICs.</p>
+
+
+
+
+
+<img src="https://tokilabs.co/processed_images/macro.5d062895b7564f78.webp" class="resized" />
+
+
+
+
+
+<img src="https://tokilabs.co/processed_images/microscope.e85e282c4f839199.webp" class="resized" />
+<h2 id="analysis">Analysis</h2>
+<p>The battery uses a <a href="https://tokilabs.co/tech/leica-battery/ds2775-ds2778.pdf">DS2776 "2-Cell, Fuel Gauge with FuelPack, Protector, and SHA-1 Authentication"</a> from Maxim. The fuel gauge protects the bare battery cells and reports a bunch of useful measurements about the battery, such as discharge current, temperature, and estimated cell wear. The chip communicates with the host via Dallas 1-Wire.</p>
+<p>This fuel gauge in particular has a SHA-1 authentication feature. Let's see what the datasheet has to say about it.</p>
+
+
+
+
+
+<img src="https://tokilabs.co/processed_images/ds-0.af317a8c08cd9dbd.webp" class="resized" />
+
+
+
+
+
+<img src="https://tokilabs.co/processed_images/ds-31.d0066cb8e8855379.webp" class="resized" />
+
+
+
+
+
+<img src="https://tokilabs.co/processed_images/ds-32.5021114895bcaa74.webp" class="resized" />
+<p>Each chip is provisioned with a secret key at the factory. The host writes a 64-bit challenge to the chip, and the chip responds with a SHA-1 Message Authentication Code (MAC). The MAC can be computed using just the secret or with the chip's serial number included as a salt.</p>
+<p>Given this, I believe all copies of the battery should have the same shared secret. If the serial number is used as a salt, it would prevent replay/rainbow table attacks, but there's no getting around the fact that every M10 needs to work with every battery.</p>
+<p>Either way, we would need to read the secret from the chip to do anything. Of course, doing so is non-trivial, as the chip has readout protection. It'll need some sort of side-channel attack. I found this paper by David Oswald from the University of Birmingham: <a href="https://tokilabs.co/tech/leica-battery/cardis_2015_sha1_paper.pdf">Side-Channel Attacks on SHA-1-based Product Authentication ICs</a>. Oswald describes successful power analysis attacks on Maxim ICs with SHA-1 authentication over Dallas 1-Wire. I suspect the authentication IP used is very similar to the one in our DS2776. I could see a sufficiently motivated individual with a <a href="https://www.crowdsupply.com/newae/chipwhisperer-husky">ChipWhisperer</a> managing to retrieve the key - I'm just not that individual. Remember, key material is not copyrightable. :)</p>
+
+  </article>
+
+      </main>
+
+    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ee1115978a4845d983e048f906758abd"}'></script><!-- End Cloudflare Web Analytics -->
+    </body>
+</html>
