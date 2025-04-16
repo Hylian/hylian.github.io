@@ -4,9 +4,9 @@
     {% set subsection_item = get_section(path=subsection) %}
     {% set subsection_link = subsection_item.pages | sort(attribute="date") | last %}
     {% if subsection_item.title is not matching("photos") %}
-    <li><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAaElEQVRIx2NgGOqAEcZgZefQb25suIBPcW19g8Hvnz8ukmwBKzuHQHNjw3tiNFRUVDCSZAExLicX1NY3ODJ2dHT8ZxgF+OKA1kHERGsfjFowasGoBaMWEGNBbX2DI60Mr61vkBr69QEAFDIY9Yz1owAAAAAASUVORK5CYII=" style="object-position: 0 1px; width: auto; height: 15px" />&nbsp;<a href="{{ subsection_link.permalink | safe }}">{{ subsection_item.title  }}</a></li>
+    <li class="folder"><span><a href="{{ subsection_link.permalink | safe }}">{{ subsection_item.title  }}</a></span></li>
     {% else %}
-    <li><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAaElEQVRIx2NgGOqAEcZgZefQb25suIBPcW19g8Hvnz8ukmwBKzuHQHNjw3tiNFRUVDCSZAExLicX1NY3ODJ2dHT8ZxgF+OKA1kHERGsfjFowasGoBaMWEGNBbX2DI60Mr61vkBr69QEAFDIY9Yz1owAAAAAASUVORK5CYII=" style="object-position: 0 1px; width: auto; height: 15px" />&nbsp;<a href="{{ subsection_item.permalink | safe }}">{{ subsection_item.title  }}</a></li>
+    <li class="photos"><span><a href="{{ subsection_item.permalink | safe }}">{{ subsection_item.title  }}</a></span></li>
     {% endif %}
   {% endfor %}
   {% for subpage in section.pages %}
@@ -14,10 +14,11 @@
       <li><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAB3RJTUUH5AUDFDoqfmnPqQAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAC6SURBVEjH7ZTBCcIwFIa/lO6hA7iA6BCO4AZe/xHeCF49C4I7VOfQk2PUS4QibUzahiL0h0AOj7x87wtx+JhZTWQkLYFnTG1Bj5jZBVjE1LpvAknux+F1CkkvgkazB7DJ0kDSHniZ2RFY5yA4SToAKzO7d5EUoVk3V0fZWdLO11dt4gc58Ll62a1OBr2igJ8tcBuLoO0S1Wdfpt40lTALQTNlYI5ujAbTEaT8riHi2cHs4B8dpM5+coI3MpVSlNj0qyUAAAAASUVORK5CYII=" style="object-position: 0 0px; width: auto; height: 15px" />&nbsp;<a href="{{ subpage.permalink | safe }}">{{ subpage.title  }}</a></li>
     {% endif %}
   {% endfor %}
-      <li><svg width="15" height="15" fill="#f26623" viewBox="0 -2 18 18">
-  <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
-  <path d="M5.5 12a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m-3-8.5a1 1 0 0 1 1-1c5.523 0 10 4.477 10 10a1 1 0 1 1-2 0 8 8 0 0 0-8-8 1 1 0 0 1-1-1m0 4a1 1 0 0 1 1-1 6 6 0 0 1 6 6 1 1 0 1 1-2 0 4 4 0 0 0-4-4 1 1 0 0 1-1-1"/>
-</svg>&nbsp;<a href="{{ get_url(path="rss.xml", trailing_slash=false) }}">rss</a></li>
-      <li> <svg viewBox="-10 -70 400 390" aria-hidden="true" height="15px" width="15px"><path d="M180 141.964C163.699 110.262 119.308 51.1817 78.0347 22.044C38.4971 -5.86834 23.414 -1.03207 13.526 3.43594C2.08093 8.60755 0 26.1785 0 36.5164C0 46.8542 5.66748 121.272 9.36416 133.694C21.5786 174.738 65.0603 188.607 105.104 184.156C107.151 183.852 109.227 183.572 111.329 183.312C109.267 183.642 107.19 183.924 105.104 184.156C46.4204 192.847 -5.69621 214.233 62.6582 290.33C137.848 368.18 165.705 273.637 180 225.702C194.295 273.637 210.76 364.771 295.995 290.33C360 225.702 313.58 192.85 254.896 184.158C252.81 183.926 250.733 183.645 248.671 183.315C250.773 183.574 252.849 183.855 254.896 184.158C294.94 188.61 338.421 174.74 350.636 133.697C354.333 121.275 360 46.8568 360 36.519C360 26.1811 357.919 8.61012 346.474 3.43851C336.586 -1.02949 321.503 -5.86576 281.965 22.0466C240.692 51.1843 196.301 110.262 180 141.964Z" fill="#1185fe"></path></svg>&nbsp;<a href="https://bsky.app/profile/tokilabs.co">bsky</a></li>
+      <li class="rss">
+        <span><a href="{{ get_url(path="rss.xml", trailing_slash=false) }}">rss</a></span>
+      </li>
+      <li class="bsky">
+        <span><a href="https://bsky.app/profile/tokilabs.co">bsky</a></span>
+      </li>
   </ul>
 {% endmacro tree %}

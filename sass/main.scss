@@ -428,9 +428,33 @@ nav {
   li {
     position: sticky;
     top: 2rem;
-    padding-left: 0.6rem;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding-left: 0.0rem;
+    padding-top: 0.4rem;
+    padding-bottom: 0.0rem;
+  }
+
+  li span:before {
+    vertical-align: middle;
+    display: inline-block;
+    margin-left: auto;
+    width: 16px;
+    padding-right: 4px;
+  }
+
+  li.folder span:before {
+    content: url('folder.svg');
+  }
+
+  li.photos span:before {
+    content: url('photos.svg');
+  }
+
+  li.rss span:before {
+    content: url('rss.svg');
+  }
+
+  li.bsky span:before {
+    content: url('bsky.svg');
   }
 
   em {
