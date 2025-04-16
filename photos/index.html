@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+      <title>tokilabs</title>
+      <link rel="stylesheet" href="https://tokilabs.co/main.css">
+      <script>
+        function throttle(mainFunction, delay) {
+          let timerFlag = null; // Variable to keep track of the timer
+
+          // Returning a throttled version
+          return (...args) => {
+            if (timerFlag === null) { // If there is no timer currently running
+              mainFunction(...args); // Execute the main function
+              timerFlag = setTimeout(() => { // Set a timer to clear the timerFlag after the specified delay
+                timerFlag = null; // Clear the timerFlag to allow the main function to be executed again
+              }, delay);
+            }
+          };
+        }
+
+
+        function debounce(func, delay) {
+          let timeoutId;
+          return function (...args) {
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(() => func.apply(this, args), delay);
+          };
+        };
+
+        const scrollDown = () => {
+            document.getElementById('gallery').scrollBy({
+              top: window.innerHeight,
+              left: 0,
+              behavior: 'instant'
+            });
+          };
+
+        const scrollUp = () => {
+            document.getElementById('gallery').scrollBy({
+              top: -window.innerHeight,
+              left: 0,
+              behavior: 'instant'
+            });
+          };
+
+        const throttledScrollDown = throttle(scrollDown, 150);
+        const throttledScrollUp = throttle(scrollUp, 150);
+
+        const handleKey = (event) => {
+            if (event.keyCode === 32 || event.keyCode === 13 || event.keyCode === 39 || event.keyCode === 40 || event.keyCode === 34) {
+              // Space / Enter / ArrowDown / ArrowRIght / PageDown scrolls down
+              event.preventDefault();
+              throttledScrollDown();
+            } else if (event.keyCode === 38 || event.keyCode === 37 || event.keyCode == 33) {
+              // ArrowUp / ArrowLeft / PageUp scrolls up
+              event.preventDefault();
+              throttledScrollUp();
+            }
+          };
+        document.addEventListener('keyup', handleKey);
+
+        //const debouncedScrollDown = debounce(scrollDown, 100);
+        //const debouncedScrollUp = debounce(scrollUp, 100);
+
+        const handleScroll = (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          if (event.wheelDeltaY < -30 && event.wheelDeltaY > -80) {
+              throttledScrollDown();
+            } else if (event.wheelDeltaY > 30 && event.wheelDeltaY < 80) {
+              throttledScrollUp();
+            }
+          };
+        document.addEventListener('wheel', handleScroll, { passive: false } );
+      </script>
+    </head>
+
+    <body>
+      <header class="galleryheader">
+      
+        <ul id="breadcrumbs">
+            
+                
+                    <li><a href="https:&#x2F;&#x2F;tokilabs.co&#x2F;">tokilabs</a>&nbsp;&#8594;&nbsp; </li>
+                
+                    <li>photos</li>
+        </ul>
+        <ul id="breadcrumbs">
+          
+        </ul>
+      
+      </header>
+      <div id="gallery">
+        
+        
+        <div class="gallerycontainer">
+
+    <div class="galleryitem">
+      <img loading="lazy" src="https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;01.21fef0ce56fb5f5f.webp" onclick="throttledScrollDown()"/>
+    </div>
+    <div class="galleryitem">
+      <img loading="lazy" src="https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;02.6435fe7b53c8c5ad.webp" onclick="throttledScrollDown()"/>
+    </div>
+    <div class="galleryitem">
+      <img loading="lazy" src="https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;03.8c8e6e61f90389e8.webp" onclick="throttledScrollDown()"/>
+    </div>
+    <div class="galleryitem">
+      <img loading="lazy" src="https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;04.6f790e734e07c470.webp" onclick="throttledScrollDown()"/>
+    </div>
+    <div class="galleryitem">
+      <img loading="lazy" src="https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;05.569f22160691bab1.webp" onclick="throttledScrollDown()"/>
+    </div>
+    <div class="galleryitem">
+      <img loading="lazy" src="https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;06.5c6022c67c390575.webp" onclick="throttledScrollDown()"/>
+    </div>
+    <div class="galleryitem">
+      <img loading="lazy" src="https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;07.f7bf43f860948faf.webp" onclick="throttledScrollDown()"/>
+    </div>
+    <div class="galleryitem">
+      <img loading="lazy" src="https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;08.f48db929194dac48.webp" onclick="throttledScrollDown()"/>
+    </div>
+    <div class="galleryitem">
+      <img loading="lazy" src="https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;09.caee5f895928093e.webp" onclick="throttledScrollDown()"/>
+    </div>
+    <div class="galleryitem">
+      <img loading="lazy" src="https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;10.862f252f27348d50.webp" onclick="throttledScrollDown()"/>
+    </div>
+    <div class="galleryitem">
+      <img loading="lazy" src="https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;11.183ecf19d8a78af8.webp" onclick="throttledScrollDown()"/>
+    </div>
+    <div class="galleryitem">
+      <img loading="lazy" src="https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;12.052073f0e5853c86.webp" onclick="throttledScrollDown()"/>
+    </div>
+    <div class="galleryitem">
+      <img loading="lazy" src="https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;13.1b868a1ad3f7c2e8.webp" onclick="throttledScrollDown()"/>
+    </div>
+    <div class="galleryitem">
+      <img loading="lazy" src="https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;14.c926e55cbc786aee.webp" onclick="throttledScrollDown()"/>
+    </div>
+    <div class="galleryitem">
+      <img loading="lazy" src="https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;15.de469bc5e3d64078.webp" onclick="throttledScrollDown()"/>
+    </div>
+    <div class="galleryitem">
+      <img loading="lazy" src="https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;16.9481bf59b4d4ab35.webp" onclick="throttledScrollDown()"/>
+    </div>
+    <div class="galleryitem">
+      <img loading="lazy" src="https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;17.e37fcd40d91d0952.webp" onclick="throttledScrollDown()"/>
+    </div>
+    <div class="galleryitem">
+      <img loading="lazy" src="https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;18.e5c746c479ec5e2b.webp" onclick="throttledScrollDown()"/>
+    </div>
+    <div class="galleryitem">
+      <img loading="lazy" src="https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;19.eba18cc2c187a2ce.webp" onclick="throttledScrollDown()"/>
+    </div>
+    <div class="galleryitem">
+      <img loading="lazy" src="https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;20.93c2ad298783c32a.webp" onclick="throttledScrollDown()"/>
+    </div>
+    <div class="galleryitem">
+      <img loading="lazy" src="https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;21.db2f9d5674f0bd4b.webp" onclick="throttledScrollDown()"/>
+    </div>
+    <div class="galleryitem">
+      <img loading="lazy" src="https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;22.db764cc5101d335d.webp" onclick="throttledScrollDown()"/>
+    </div>
+    <div class="galleryitem">
+      <img loading="lazy" src="https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;23.2ba221523a950fe0.webp" onclick="throttledScrollDown()"/>
+    </div>
+    <div class="galleryitem">
+      <img loading="lazy" src="https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;24.c7a9459bd9c2fe0f.webp" onclick="throttledScrollDown()"/>
+    </div>
+    <div class="galleryitem">
+      <img loading="lazy" src="https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;25.e14ab935ea2804de.webp" onclick="throttledScrollDown()"/>
+    </div>
+    <div class="galleryitem">
+      <img loading="lazy" src="https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;26.4785cd0e63fbce6e.webp" onclick="throttledScrollDown()"/>
+    </div>
+    <div class="galleryitem">
+      <img loading="lazy" src="https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;27.bc4b8978e007ce0e.webp" onclick="throttledScrollDown()"/>
+    </div>
+    <div class="galleryitem">
+      <img loading="lazy" src="https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;28.a0c46978c855ef50.webp" onclick="throttledScrollDown()"/>
+    </div>
+    <div class="galleryitem">
+      <img loading="lazy" src="https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;29.5b581fced7819c78.webp" onclick="throttledScrollDown()"/>
+    </div>
+    <div class="galleryitem">
+      <img loading="lazy" src="https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;30.29bf6d90bfa68dad.webp" onclick="throttledScrollDown()"/>
+    </div>
+    <div class="galleryitem">
+      <img loading="lazy" src="https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;31.ec417f28f7a42b99.webp" onclick="throttledScrollDown()"/>
+    </div>
+    <div class="galleryitem">
+      <img loading="lazy" src="https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;32.d0a3d56a9f64ccc9.webp" onclick="throttledScrollDown()"/>
+    </div>
+    <div class="galleryitem">
+      <img loading="lazy" src="https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;33.941d0bfbdadeb95e.webp" onclick="throttledScrollDown()"/>
+    </div>
+    <div class="galleryitem">
+      <img loading="lazy" src="https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;34.16aa9e8d15e23270.webp" onclick="throttledScrollDown()"/>
+    </div>
+    <div class="galleryitem">
+      <img loading="lazy" src="https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;35.fa59ba57451b400c.webp" onclick="throttledScrollDown()"/>
+    </div>
+    <div class="galleryitem">
+      <img loading="lazy" src="https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;36.55bd467082982407.webp" onclick="throttledScrollDown()"/>
+    </div>
+    <div class="galleryitem">
+      <img loading="lazy" src="https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;37.7190564998e43452.webp" onclick="throttledScrollDown()"/>
+    </div>
+    <div class="galleryitem">
+      <img loading="lazy" src="https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;38.da58f6564ed2f0ce.webp" onclick="throttledScrollDown()"/>
+    </div>
+    <div class="galleryitem">
+      <img loading="lazy" src="https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;39.62ecc5806bba0d63.webp" onclick="throttledScrollDown()"/>
+    </div>
+    <div class="galleryitem">
+      <img loading="lazy" src="https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;40.fc5ec57d2ec2ea23.webp" onclick="throttledScrollDown()"/>
+    </div>
+    <div class="galleryitem">
+      <img loading="lazy" src="https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;41.2f0781ab6aa74f67.webp" onclick="throttledScrollDown()"/>
+    </div>
+</div>
+
+      </div>
+    </body>
+</html>
