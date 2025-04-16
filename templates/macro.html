@@ -2,7 +2,12 @@
   <ul id="bger">
   {% for subsection in section.subsections %}
     {% set subsection_item = get_section(path=subsection) %}
+    {% set subsection_link = subsection_item.pages | sort(attribute="date") | last %}
+    {% if subsection_item.title is not matching("photos") %}
+    <li><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAaElEQVRIx2NgGOqAEcZgZefQb25suIBPcW19g8Hvnz8ukmwBKzuHQHNjw3tiNFRUVDCSZAExLicX1NY3ODJ2dHT8ZxgF+OKA1kHERGsfjFowasGoBaMWEGNBbX2DI60Mr61vkBr69QEAFDIY9Yz1owAAAAAASUVORK5CYII=" style="object-position: 0 1px; width: auto; height: 15px" />&nbsp;<a href="{{ subsection_link.permalink | safe }}">{{ subsection_item.title  }}</a></li>
+    {% else %}
     <li><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAaElEQVRIx2NgGOqAEcZgZefQb25suIBPcW19g8Hvnz8ukmwBKzuHQHNjw3tiNFRUVDCSZAExLicX1NY3ODJ2dHT8ZxgF+OKA1kHERGsfjFowasGoBaMWEGNBbX2DI60Mr61vkBr69QEAFDIY9Yz1owAAAAAASUVORK5CYII=" style="object-position: 0 1px; width: auto; height: 15px" />&nbsp;<a href="{{ subsection_item.permalink | safe }}">{{ subsection_item.title  }}</a></li>
+    {% endif %}
   {% endfor %}
   {% for subpage in section.pages %}
     {% if subpage.title is not matching("Search") %}
