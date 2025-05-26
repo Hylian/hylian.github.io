@@ -1,8 +1,8 @@
 {% set width = 2048 %}
 {% if page.colocated_path %}
-{% set resize = resize_image(format="webp", path=page.colocated_path ~ img, width=width, height=width, op="fit", quality=85) %}
+{% set resize = resize_image(format="webp", path=page.colocated_path ~ img, width=width, height=width, op="fit", quality=80) %}
 {% else %}
-{% set resize = resize_image(format="webp", path=img, width=width, height=width, op="fit", quality=85) %}
+{% set resize = resize_image(format="webp", path=img, width=width, height=width, op="fit", quality=80) %}
 {% endif %}
 
-<img src="{{ resize.url | safe }}" class="resized" />
+<img loading="lazy" src="{{ resize.url | safe }}" class="resized" />
