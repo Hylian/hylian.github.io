@@ -42,7 +42,7 @@ Install VS Code on your server and local machine.
 
 ### Install Neovim Extension
 
-https://marketplace.visualstudio.com/items?itemName=asvetliakov.vscode-neovim
+[https://marketplace.visualstudio.com/items?itemName=asvetliakov.vscode-neovim](https://marketplace.visualstudio.com/items?itemName=asvetliakov.vscode-neovim)
 
 The plugin requires neovim v0.8.0 or greater. If your distro's repo does not have a recent neovim version, install the appimage release manually:
 
@@ -111,7 +111,7 @@ Most of the following sections will focus on keybindings that I found useful. My
 
 ### When Clauses
 
-https://code.visualstudio.com/api/references/when-clause-contexts
+[https://code.visualstudio.com/api/references/when-clause-contexts](https://code.visualstudio.com/api/references/when-clause-contexts)
 
 VS Code has a lot of different modalities, with different types of panes that can be visible and focused on. To deal with this, keybindings evaluate `when clause` expressions to only apply in certain contexts. You could have a single key combination that has multiple bindings depending on what is focused or even visible on the screen.
 
@@ -550,9 +550,9 @@ In `settings.json`:
 
 ## Workaround: Zsh Shell Breaks Due to Recursion
 
-https://github.com/microsoft/vscode/issues/165648
+[https://github.com/microsoft/vscode/issues/165648](https://github.com/microsoft/vscode/issues/165648)
 
-Manually apply this patch to your VS Code: https://github.com/microsoft/vscode/pull/165174/files
+Manually apply this patch to your VS Code: [https://github.com/microsoft/vscode/pull/165174/files](https://github.com/microsoft/vscode/pull/165174/files)
 
 ## Extension: Docs View
 
