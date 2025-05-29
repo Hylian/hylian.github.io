@@ -4,8 +4,6 @@ date=2023-02-19
 transparent=true
 +++
 
-Well, I finally did it. I switched from Neovim to VS Code. This page stands as a testament to all my tinkering and struggles, and maybe even will convince you, fellow Vim-user, to give it a shot as well.
-
 ## Why VS Code?
 
 ### You Can Still Use Neovim
