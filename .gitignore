@@ -11,6 +11,7 @@ Thumbs.db
 .rbenv-version
 .rvmrc
 *.swp
+.obsidian
 
 public/*
 static/processed_images/*
