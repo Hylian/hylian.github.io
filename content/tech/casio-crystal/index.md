@@ -1,5 +1,5 @@
 +++
-title="Casio F-91W / A168W Crystal Decal Removal"
+title="Casio F-91W / A158WA Crystal Decal Removal"
 date=2025-06-01
 transparent=true
 +++
@@ -46,23 +46,23 @@ This post just documents the process that works for me, as well as any additiona
 {{ resized(img="clean_crystal.png") }}
 
 ## Warnings and Observations
-### F-91W vs. A168W
-The A168W is a variant by Casio that uses the same internal module, and is thus [fully compatible with Sensor Watch](https://www.sensorwatch.net/docs/#need-to-buy-a-watch). The only new features A168W brings are a chrome finish on the plastic case and a steel watchband.
+### F-91W vs. A158WA
+The A158WA is a variant by Casio that uses the same internal module, and is thus [fully compatible with Sensor Watch](https://www.sensorwatch.net/docs/#need-to-buy-a-watch). The only new features A158WA brings are a chrome finish on the plastic case and a steel watchband.
 
 However, I noticed *considerable* differences between these two models when it comes to crystal and decal removal.
 * **Crystal Adhesive**
 	* Both watches use an adhesive to bond the crystal to the case.
 	* The F-91W uses a glue, primarily applied around the edges of the crystal. After removal, it's not uncommon to find some bit of glue that didn't release, leaving a shard broken off and still attached to the case. While this isn't necessarily an issue, it looks terrible visually, and would be unacceptable in a production run.
-	* The A168W uses an adhesive sheet cut to the outline of the bezel. The adhesion feels similar to that of 3M VHB tape. This differs from the F-91W in that the adhesion is more even across the face, but is easier to release cleanly. As I didn't know this prior, I had to do some more heating passes on the A168W; enough to case some slight warpage on the case. However, once I got the adhesive to release, the whole crystal came out cleanly!
+	* The A158WA uses an adhesive sheet cut to the outline of the bezel. The adhesion feels similar to that of 3M VHB tape. This differs from the F-91W in that the adhesion is more even across the face, but is easier to release cleanly. As I didn't know this prior, I had to do some more heating passes on the A158WA; enough to case some slight warpage on the case. However, once I got the adhesive to release, the whole crystal came out cleanly!
 * **Scratch Resistance**
 	* The F-91W's acrylic crystal scratches *extremely* easily when scraping off the decal with a solvent. I used acetone for my first attempt, which was way too strong and resulted in fuming and tons of scratches. Even isopropyl alcohol plus a plastic cleaning swab can cause microscratching if not careful.
-	* Meanwhile, the A168W's crystal did not scratch at all, despite also being acrylic (N=1)! The decal is bonded more strongly than the F-91W. I ended up having to use several passes of IPA and even a metal scraping tool. Such harsh treatment would have certainly destroyed an F-91W crystal, but I was pleasantly surprised to see the A168W crystal survived intact.
+	* Meanwhile, the A158WA's crystal did not scratch at all, despite also being acrylic (N=1)! The decal is bonded more strongly than the F-91W. I ended up having to use several passes of IPA and even a metal scraping tool. Such harsh treatment would have certainly destroyed an F-91W crystal, but I was pleasantly surprised to see the A158WA crystal survived intact.
 
 {{ resized(img="green_f91w_crystal_removed.png") }}
 
 {{ resized(img="a168w.png") }}
 
-tl;dr: consider the A168W for crystal mods over the F-91W; you will have a better time.
+tl;dr: consider the A158WA for crystal mods over the F-91W; you will have a better time.
 ### Don't Let Things Get Melty
 Last bit of warning: I've found the line between cleanly releasing the crystal and turning the watch into a goopy mess to be fairly slim (with my methods, at least). If you overheat the watch, it *will* warp. If you overheat the front crystal, it *will* warp when you push on it. If something smells burnt, you applied too much heat. Be methodical and slowly increase the heat until you figure out a process that works for you.
 
