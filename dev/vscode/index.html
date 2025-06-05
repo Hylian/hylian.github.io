@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+      <title> tokilabs | VS Code for Hopeless Vim Users </title>
+      <link rel="stylesheet" href="https://tokilabs.co/main.css">
+      <link rel="icon" type="image/png" rel="noopener" target="_blank" href="/favicon.png">
+      
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="https://tokilabs.co/rss.xml">
+      
+    </head>
+
+    <body>
+      <header>
+      
+  <ul id="breadcrumbs">
+    
+      
+      
+        <li><a href="https:&#x2F;&#x2F;tokilabs.co&#x2F;">tokilabs</a></li>
+      
+    
+      
+      
+        <li>&nbsp;&#8594;&nbsp;dev</li>
+      
+    
+  </ul>
+
+      </header>
+
+      <nav>
+      
+  <ul id="bger">
+  
+  
+  
+    
+      
+        <li><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAB3RJTUUH5AUDFDoqfmnPqQAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAC6SURBVEjH7ZTBCcIwFIa/lO6hA7iA6BCO4AZe/xHeCF49C4I7VOfQk2PUS4QibUzahiL0h0AOj7x87wtx+JhZTWQkLYFnTG1Bj5jZBVjE1LpvAknux+F1CkkvgkazB7DJ0kDSHniZ2RFY5yA4SToAKzO7d5EUoVk3V0fZWdLO11dt4gc58Ll62a1OBr2igJ8tcBuLoO0S1Wdfpt40lTALQTNlYI5ujAbTEaT8riHi2cHs4B8dpM5+coI3MpVSlNj0qyUAAAAASUVORK5CYII=" style="object-position: 0 0px; width: 15px; height: 15px" />&nbsp;<a href="https://tokilabs.co/dev/beepy-radxa/">Beepy + Radxa Zero Notes</a></li>
+      
+  
+      
+      <li><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAB3RJTUUH5AUDFDoqfmnPqQAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAC6SURBVEjH7ZTBCcIwFIa/lO6hA7iA6BCO4AZe/xHeCF49C4I7VOfQk2PUS4QibUzahiL0h0AOj7x87wtx+JhZTWQkLYFnTG1Bj5jZBVjE1LpvAknux+F1CkkvgkazB7DJ0kDSHniZ2RFY5yA4SToAKzO7d5EUoVk3V0fZWdLO11dt4gc58Ll62a1OBr2igJ8tcBuLoO0S1Wdfpt40lTALQTNlYI5ujAbTEaT8riHi2cHs4B8dpM5+coI3MpVSlNj0qyUAAAAASUVORK5CYII=" style="object-position: 0 0px; width: 15px; height: 15px" />&nbsp;<div id="curpage">VS Code for Hopeless Vim Users</div></li>
+      
+  
+      
+        <li><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAB3RJTUUH5AUDFDoqfmnPqQAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAC6SURBVEjH7ZTBCcIwFIa/lO6hA7iA6BCO4AZe/xHeCF49C4I7VOfQk2PUS4QibUzahiL0h0AOj7x87wtx+JhZTWQkLYFnTG1Bj5jZBVjE1LpvAknux+F1CkkvgkazB7DJ0kDSHniZ2RFY5yA4SToAKzO7d5EUoVk3V0fZWdLO11dt4gc58Ll62a1OBr2igJ8tcBuLoO0S1Wdfpt40lTALQTNlYI5ujAbTEaT8riHi2cHs4B8dpM5+coI3MpVSlNj0qyUAAAAASUVORK5CYII=" style="object-position: 0 0px; width: 15px; height: 15px" />&nbsp;<a href="https://tokilabs.co/dev/hacklu/">Hack.lu 2014 CTF: Gunslinger Joe&#x27;s Gold Stash</a></li>
+      
+  
+  </ul>
+
+
+
+      </nav>
+
+      <main>
+        
+  <div id="taxonomies">
+    
+      <date>2023.02.19</date>
+    
+
+    
+  </div>
+
+  <h1>VS Code for Hopeless Vim Users</h1><em></em>
+
+  <article>
+    <h2 id="why-vs-code">Why VS Code?</h2>
+<h3 id="you-can-still-use-neovim">You Can Still Use Neovim</h3>
+<p>The neovim extension runs an actual neovim instance! With your nvim config! Since it's an actual neovim instance, you'll never run into weird edge cases of specific vim features that haven't been implemented.</p>
+<h3 id="it-s-configurable">It's Configurable</h3>
+<p>The VS Code defaults did not work for me at all, but there's a good amount of configurability. Combined with the neovim plugin, it's possible to tinker your way into a cozy environment.</p>
+<h3 id="remote-workflow">Remote Workflow</h3>
+<p>After switching to a remote server workflow, vim in a ssh session felt like a chore. Input latency was noticeably worse, launching new sessions in i3/sway was slower, and I didn't want to live inside of a tmux session. VS Code Remote hides the latency with local buffers, and is able to resume sessions from a broken SSH connection.</p>
+<h3 id="language-server-support">Language Server Support</h3>
+<p>coc.nvim is great and all, but VS Code's out-of-box Language Server support is really well integrated. Displaying type annotations in-line, symbol/outline search, type documentation, renaming, completion- it all <em>Just Works(tm)</em>. Really nice, especially when writing C++ or Rust.</p>
+<h3 id="diff-merge-tooling">Diff/Merge Tooling</h3>
+<p>Even after lots of tinkering with plugins, using Vim for diffs and merges always felt clunky to me. VS Code's side-by-side view is super nice, and can be used as your git difftool and merge tool. Just clicking a button to revert a single line/hunk or accept both changes in a merge is really refreshing.</p>
+<h3 id="easy-splits">Easy Splits</h3>
+<p>Being a GUI editor, panes and splits feel a lot more freeform than in Vim. You can easily move editors between split panes, create new ones, and create tabs within a pane.</p>
+<h3 id="remote-terminal">Remote Terminal</h3>
+<p>The terminal is nice to have in a VS Code Remote session. It might not be <code>$YOUR_FAVORITE_TERMINAL_EMULATOR</code>, but it's perfectly serviceable.</p>
+<h2 id="getting-started">Getting Started</h2>
+<h3 id="install-vs-code">Install VS Code</h3>
+<p>Install VS Code on your server and local machine.</p>
+<h3 id="install-neovim-extension">Install Neovim Extension</h3>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=asvetliakov.vscode-neovim">https://marketplace.visualstudio.com/items?itemName=asvetliakov.vscode-neovim</a></p>
+<p>The plugin requires neovim v0.8.0 or greater. If your distro's repo does not have a recent neovim version, install the appimage release manually:</p>
+<pre style="background-color:#383838;color:#e6e1dc;"><code><span>mkdir -p $HOME/.local/bin
+</span><span>wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage -O $HOME/.local/bin/nvim
+</span><span>chmod u+x $HOME/.local/bin/nvim
+</span></code></pre>
+<h2 id="configure-neovim">Configure Neovim</h2>
+<p>Spend some time reading through the README for the extension, it's very thorough.</p>
+<h3 id="extension-configuration">Extension Configuration</h3>
+<p>Open User Settings (<code>Ctrl+Shift+P &gt; "Open User Settings</code>):</p>
+<pre style="background-color:#383838;color:#e6e1dc;"><code><span>Neovim Executable Paths: Linux: ~/.local/bin/nvim
+</span></code></pre>
+<p>Make sure you add the following to <code>settings.json</code> (Ctrl+Shift+P &gt; "Open User Settings (JSON)"):</p>
+<pre style="background-color:#383838;color:#e6e1dc;"><code><span>&quot;extensions.experimental.affinity&quot;: {
+</span><span>    &quot;asvetliakov.vscode-neovim&quot;: 1
+</span><span>},
+</span></code></pre>
+<h3 id="init-vim-configuration"><code>init.vim</code> Configuration</h3>
+<p>The extension will use the same <code>init.vim</code> configuration as your regular neovim instance. This means that you will need to modify your config to exclude nvim plugin loading when in VS Code, and can also bind specific keybinds for VS Code only.</p>
+<p>You can do this by wrapping lines in this if statement:</p>
+<pre style="background-color:#383838;color:#e6e1dc;"><code><span>if !exists(&#39;g:vscode&#39;)
+</span><span>  ...
+</span><span>endif
+</span></code></pre>
+<p>I highly recommend gating loading of your neovim plugins and lua scripts when in vscode mode.</p>
+<p>You can also invoke VS Code commands and set them to keybinds:</p>
+<pre style="background-color:#383838;color:#e6e1dc;"><code><span>nmap { :call VSCodeCall(&#39;workbench.action.showAllSymbols&#39;)&lt;CR&gt;
+</span></code></pre>
+<p>However, note that the bindings in VS Code can take precedence over the neovim ones, and you should read on to the Keybindings section before going to town with your binds.</p>
+<h2 id="keybindings">Keybindings</h2>
+<p>VS Code has a robust, if overly complex, system for setting keybindings. They can be configured via the GUI or JSON:</p>
+<pre style="background-color:#383838;color:#e6e1dc;"><code><span>Ctrl + Shift + P &gt; Open Keyboard Shortcuts
+</span><span>Ctrl + Shift + P &gt; Open Keyboard Shortcuts (JSON)
+</span></code></pre>
+<p>There is a huge pile of default bindings that are generally focused on chords or function keys. Deleting bad default binds and creating your own is key to a cozy experience. Every time a keybind doesn't do what you want, or you want to do something with a keybind, I recommend spending a minute to open up the shortcut editor and configuring it. It took me a couple weeks to finally get all the keybinds to what I want.</p>
+<p>The keybindings set in VS Code will always take precedence over keybindings set in neovim.</p>
+<p>Most of the following sections will focus on keybindings that I found useful. My bindings are weird and for my Ergodox setup, but will hopefully be useful as a starting point for your config.</p>
+<h3 id="when-clauses">When Clauses</h3>
+<p><a href="https://code.visualstudio.com/api/references/when-clause-contexts">https://code.visualstudio.com/api/references/when-clause-contexts</a></p>
+<p>VS Code has a lot of different modalities, with different types of panes that can be visible and focused on. To deal with this, keybindings evaluate <code>when clause</code> expressions to only apply in certain contexts. You could have a single key combination that has multiple bindings depending on what is focused or even visible on the screen.</p>
+<h4 id="neovim-when-clauses">Neovim When Clauses</h4>
+<p>The Neovim extension exposes <code>when clause</code> contexts that can be used for keybinds. These are very useful for creating bindings that only run when neovim is in <code>NORMAL</code> mode.</p>
+<p>eg. <code>editorTextFocus &amp;&amp; neovim.init &amp;&amp; neovim.mode == 'normal'</code></p>
+<h4 id="useful-when-clauses">Useful When Clauses</h4>
+<table><thead><tr><th>Clause</th><th>Description</th></tr></thead><tbody>
+<tr><td>editorFocus</td><td>Focus is on a text editor</td></tr>
+<tr><td>editorTextFocus</td><td>Text in an editor has focus</td></tr>
+<tr><td>inputFocus</td><td>Any text input has focus (including GUI menus)</td></tr>
+<tr><td>listFocus</td><td>Focus is on a GUI list</td></tr>
+<tr><td>findWidgetVisible</td><td>Find widget is visible</td></tr>
+<tr><td>terminalFocus</td><td>Terminal is focused</td></tr>
+<tr><td>searchViewletVisible</td><td>Search viewlet is visible (side pane search)</td></tr>
+<tr><td>sideBarVisible</td><td>Sidebar is visible</td></tr>
+<tr><td>sideBarFocus</td><td>Sidebar is focused</td></tr>
+<tr><td>focusedView</td><td>Currently focused view</td></tr>
+<tr><td>neovim.init</td><td>Neovim is initialized</td></tr>
+<tr><td>neovim.mode</td><td>The current vim mode</td></tr>
+<tr><td>activeViewlet == 'workbench.view.explorer'</td><td>Explorer is visible in the side pane</td></tr>
+<tr><td>activeViewlet == 'workbench.view.search'</td><td>Search is visible in the side pane</td></tr>
+</tbody></table>
+<h3 id="useful-keybindings">Useful Keybindings</h3>
+<h4 id="navigate-panes">Navigate Panes</h4>
+<p>Use <code>Alt + h/j/k/l</code> to navigate between any panes on the screen. You can go between side pane, editors, and terminal with the same binds.</p>
+<pre style="background-color:#383838;color:#e6e1dc;"><code><span>  {
+</span><span>    &quot;key&quot;: &quot;alt+h&quot;,
+</span><span>    &quot;command&quot;: &quot;workbench.action.navigateLeft&quot;
+</span><span>  },
+</span><span>  {
+</span><span>    &quot;key&quot;: &quot;alt+l&quot;,
+</span><span>    &quot;command&quot;: &quot;workbench.action.navigateRight&quot;
+</span><span>  },
+</span><span>  {
+</span><span>    &quot;key&quot;: &quot;alt+k&quot;,
+</span><span>    &quot;command&quot;: &quot;workbench.action.navigateUp&quot;
+</span><span>  },
+</span><span>  {
+</span><span>    &quot;key&quot;: &quot;alt+j&quot;,
+</span><span>    &quot;command&quot;: &quot;workbench.action.navigateDown&quot;
+</span><span>  },
+</span></code></pre>
+<h4 id="move-an-editor">Move an Editor</h4>
+<p>Use <code>Ctrl + h/j/k/l</code> to move an editor. If an editor group exists in the move location, it will turn into a tab in the group. If there is no group, a new split will be created.</p>
+<pre style="background-color:#383838;color:#e6e1dc;"><code><span>  {
+</span><span>    &quot;key&quot;: &quot;ctrl+k&quot;,
+</span><span>    &quot;command&quot;: &quot;workbench.action.moveEditorToAboveGroup&quot;,
+</span><span>    &quot;when&quot;: &quot;editorFocus &amp;&amp; !inQuickOpen &amp;&amp; !listFocus &amp;&amp; focusedView != &#39;workbench.view.search&#39;&quot;
+</span><span>  },
+</span><span>  {
+</span><span>    &quot;key&quot;: &quot;ctrl+j&quot;,
+</span><span>    &quot;command&quot;: &quot;workbench.action.moveEditorToBelowGroup&quot;,
+</span><span>    &quot;when&quot;: &quot;editorFocus &amp;&amp; !inQuickOpen &amp;&amp; !listFocus &amp;&amp; focusedView != &#39;workbench.view.search&#39;&quot;
+</span><span>  },
+</span><span>  {
+</span><span>    &quot;key&quot;: &quot;ctrl+h&quot;,
+</span><span>    &quot;command&quot;: &quot;workbench.action.moveEditorToLeftGroup&quot;,
+</span><span>    &quot;when&quot;: &quot;editorFocus &amp;&amp; !inQuickOpen &amp;&amp; !listFocus &amp;&amp; focusedView != &#39;workbench.view.search&#39;&quot;
+</span><span>  },
+</span><span>  {
+</span><span>    &quot;key&quot;: &quot;ctrl+l&quot;,
+</span><span>    &quot;command&quot;: &quot;workbench.action.moveEditorToRightGroup&quot;,
+</span><span>    &quot;when&quot;: &quot;editorFocus &amp;&amp; !inQuickOpen &amp;&amp; !listFocus &amp;&amp; focusedView != &#39;workbench.view.search&#39;&quot;
+</span><span>  },
+</span></code></pre>
+<h4 id="switch-tabs">Switch Tabs</h4>
+<p>Change tabs with <code>Shift + h/j/k/l</code> in <code>NORMAL</code> mode.</p>
+<pre style="background-color:#383838;color:#e6e1dc;"><code><span>  {
+</span><span>    &quot;key&quot;: &quot;shift+j&quot;,
+</span><span>    &quot;command&quot;: &quot;workbench.action.nextEditorInGroup&quot;,
+</span><span>    &quot;when&quot;: &quot;editorFocus &amp;&amp; neovim.mode == &#39;normal&#39;&quot;
+</span><span>  },
+</span><span>  {
+</span><span>    &quot;key&quot;: &quot;shift+k&quot;,
+</span><span>    &quot;command&quot;: &quot;workbench.action.previousEditorInGroup&quot;,
+</span><span>    &quot;when&quot;: &quot;editorFocus &amp;&amp; neovim.mode == &#39;normal&#39;&quot;
+</span><span>  },
+</span><span>  {
+</span><span>    &quot;key&quot;: &quot;shift+h&quot;,
+</span><span>    &quot;command&quot;: &quot;workbench.action.previousEditorInGroup&quot;,
+</span><span>    &quot;when&quot;: &quot;editorFocus &amp;&amp; neovim.mode == &#39;normal&#39;&quot;
+</span><span>  },
+</span><span>  {
+</span><span>    &quot;key&quot;: &quot;shift+l&quot;,
+</span><span>    &quot;command&quot;: &quot;workbench.action.nextEditorInGroup&quot;,
+</span><span>    &quot;when&quot;: &quot;editorFocus &amp;&amp; neovim.mode == &#39;normal&#39;&quot;
+</span><span>  },
+</span></code></pre>
+<h4 id="move-tab">Move Tab</h4>
+<p>Move tab ordering within its editor group with <code>Ctrl + Shift + h/j/k/l</code>.</p>
+<pre style="background-color:#383838;color:#e6e1dc;"><code><span>  {
+</span><span>    &quot;key&quot;: &quot;ctrl+shift+j&quot;,
+</span><span>    &quot;command&quot;: &quot;-workbench.action.search.toggleQueryDetails&quot;,
+</span><span>    &quot;when&quot;: &quot;inSearchEditor || searchViewletFocus&quot;
+</span><span>  },
+</span><span>    {
+</span><span>    &quot;key&quot;: &quot;ctrl+shift+k&quot;,
+</span><span>    &quot;command&quot;: &quot;search.action.focusPreviousSearchResult&quot;,
+</span><span>    &quot;when&quot;: &quot;hasSearchResult &amp;&amp; activeViewlet == &#39;workbench.view.search&#39;&quot;
+</span><span>  },
+</span><span>    {
+</span><span>    &quot;key&quot;: &quot;ctrl+shift+h&quot;,
+</span><span>    &quot;command&quot;: &quot;workbench.action.moveEditorLeftInGroup&quot;,
+</span><span>    &quot;when&quot;: &quot;editorFocus &amp;&amp; neovim.mode == &#39;normal&#39;&quot;
+</span><span>  },
+</span><span>    {
+</span><span>    &quot;key&quot;: &quot;ctrl+shift+l&quot;,
+</span><span>    &quot;command&quot;: &quot;workbench.action.moveEditorRightInGroup&quot;,
+</span><span>    &quot;when&quot;: &quot;editorFocus &amp;&amp; neovim.mode == &#39;normal&#39;&quot;
+</span><span>  },
+</span></code></pre>
+<h4 id="toggle-terminal">Toggle Terminal</h4>
+<p>Press <code>Ctrl + ]</code> to toggle terminal visibility.</p>
+<pre style="background-color:#383838;color:#e6e1dc;"><code><span>  {
+</span><span>    &quot;key&quot;: &quot;ctrl+]&quot;,
+</span><span>    &quot;command&quot;: &quot;workbench.action.terminal.toggleTerminal&quot;
+</span><span>  },
+</span></code></pre>
+<h4 id="toggle-terminal-maximization">Toggle Terminal Maximization</h4>
+<p>Press <code>Ctrl + f</code> to maximize terminal pane when focused.</p>
+<pre style="background-color:#383838;color:#e6e1dc;"><code><span>  {
+</span><span>    &quot;key&quot;: &quot;ctrl+f&quot;,
+</span><span>    &quot;command&quot;: &quot;workbench.action.toggleMaximizedPanel&quot;,
+</span><span>    &quot;when&quot;: &quot;terminalFocus&quot;
+</span><span>  },
+</span></code></pre>
+<h4 id="terminal-key-passthrough">Terminal Key Passthrough</h4>
+<p>Pass-through certain keybinds to the terminal to ensure they aren't grabbed by other keybinds.</p>
+<pre style="background-color:#383838;color:#e6e1dc;"><code><span>  {
+</span><span>    &quot;key&quot;: &quot;ctrl+e&quot;,
+</span><span>    &quot;command&quot;: &quot;ctrl+e&quot;,
+</span><span>    &quot;when&quot;: &quot;terminalFocus&quot;
+</span><span>  },
+</span><span>  {
+</span><span>    &quot;key&quot;: &quot;ctrl+t&quot;,
+</span><span>    &quot;command&quot;: &quot;ctrl+t&quot;,
+</span><span>    &quot;when&quot;: &quot;terminalFocus&quot;
+</span><span>  },
+</span><span>  {
+</span><span>    &quot;key&quot;: &quot;ctrl+j&quot;,
+</span><span>    &quot;command&quot;: &quot;ctrl+j&quot;,
+</span><span>    &quot;when&quot;: &quot;terminalFocus&quot;
+</span><span>  },
+</span><span>  {
+</span><span>    &quot;key&quot;: &quot;ctrl+k&quot;,
+</span><span>    &quot;command&quot;: &quot;ctrl+k&quot;,
+</span><span>    &quot;when&quot;: &quot;terminalFocus&quot;
+</span><span>  },
+</span><span>  {
+</span><span>    &quot;key&quot;: &quot;ctrl+r&quot;,
+</span><span>    &quot;command&quot;: &quot;ctrl+r&quot;,
+</span><span>    &quot;when&quot;: &quot;terminalFocus&quot;
+</span><span>  },
+</span></code></pre>
+<h4 id="toggle-sidebar">Toggle Sidebar</h4>
+<p>Press <code>Ctrl + b</code> for three way sidebar toggle.</p>
+<ul>
+<li>If sidebar is hidden, show and focus it.</li>
+<li>If sidebar is visible and not focused, focus it.</li>
+<li>If sidebar is focused, hide it.</li>
+</ul>
+<pre style="background-color:#383838;color:#e6e1dc;"><code><span>  {
+</span><span>    &quot;key&quot;: &quot;ctrl+b&quot;,
+</span><span>    &quot;command&quot;: &quot;workbench.action.focusSideBar&quot;,
+</span><span>    &quot;when&quot;: &quot;!sideBarFocus&quot;
+</span><span>  },
+</span><span>  {
+</span><span>    &quot;key&quot;: &quot;ctrl+b&quot;,
+</span><span>    &quot;command&quot;: &quot;workbench.action.toggleSidebarVisibility&quot;
+</span><span>  },
+</span></code></pre>
+<h4 id="list-navigation">List Navigation</h4>
+<p>Navigate GUI lists with <code>Ctrl + j/k</code>.</p>
+<pre style="background-color:#383838;color:#e6e1dc;"><code><span>  {
+</span><span>    &quot;key&quot;: &quot;ctrl+j&quot;,
+</span><span>    &quot;command&quot;: &quot;list.focusDown&quot;,
+</span><span>    &quot;when&quot;: &quot;listFocus &amp;&amp; !inputFocus &amp;&amp; !editorTextFocus&quot;
+</span><span>  },
+</span><span>  {
+</span><span>    &quot;key&quot;: &quot;ctrl+k&quot;,
+</span><span>    &quot;command&quot;: &quot;list.focusUp&quot;,
+</span><span>    &quot;when&quot;: &quot;listFocus &amp;&amp; !inputFocus &amp;&amp; !editorTextFocus&quot;
+</span><span>  },
+</span><span>  {
+</span><span>    &quot;key&quot;: &quot;ctrl+j&quot;,
+</span><span>    &quot;command&quot;: &quot;workbench.action.quickOpenSelectNext&quot;,
+</span><span>    &quot;when&quot;: &quot;inQuickOpen&quot;
+</span><span>  },
+</span><span>  {
+</span><span>    &quot;key&quot;: &quot;ctrl+k&quot;,
+</span><span>    &quot;command&quot;: &quot;workbench.action.quickOpenSelectPrevious&quot;,
+</span><span>    &quot;when&quot;: &quot;inQuickOpen&quot;
+</span><span>  },
+</span><span>
+</span></code></pre>
+<h4 id="search-result-navigation">Search Result Navigation</h4>
+<p>When search results are visible in the sidebar, use <code>Ctrl + Shift + j/k</code> to go between search results, even when in editor.</p>
+<pre style="background-color:#383838;color:#e6e1dc;"><code><span>  {
+</span><span>    &quot;key&quot;: &quot;ctrl+shift+j&quot;,
+</span><span>    &quot;command&quot;: &quot;search.action.focusNextSearchResult&quot;,
+</span><span>    &quot;when&quot;: &quot;hasSearchResult &amp;&amp; activeViewlet == &#39;workbench.view.search&#39;&quot;
+</span><span>  },
+</span><span>  {
+</span><span>    &quot;key&quot;: &quot;ctrl+shift+k&quot;,
+</span><span>    &quot;command&quot;: &quot;search.action.focusPreviousSearchResult&quot;,
+</span><span>    &quot;when&quot;: &quot;hasSearchResult &amp;&amp; activeViewlet == &#39;workbench.view.search&#39;&quot;
+</span><span>  },
+</span></code></pre>
+<h4 id="editor-quick-open-file">Editor: Quick Open File</h4>
+<p>When in editor and <code>NORMAL</code> mode, press <code>'</code> to quick open a file via search.</p>
+<pre style="background-color:#383838;color:#e6e1dc;"><code><span>  {
+</span><span>    &quot;key&quot;: &quot;&#39;&quot;,
+</span><span>    &quot;command&quot;: &quot;workbench.action.quickOpen&quot;,
+</span><span>    &quot;when&quot;: &quot;editorTextFocus &amp;&amp; neovim.init &amp;&amp; !dirtyDiffVisible &amp;&amp; !findWidgetVisible &amp;&amp; !inReferenceSearchEditor &amp;&amp; !markersNavigationVisible &amp;&amp; !notebookCellFocused &amp;&amp; !notificationCenterVisible &amp;&amp; !parameterHintsVisible &amp;&amp; !referenceSearchVisible &amp;&amp; neovim.mode == &#39;normal&#39;&quot;
+</span><span>  }
+</span></code></pre>
+<h4 id="editor-sidebar-search">Editor: Sidebar Search</h4>
+<p>When in editor and <code>NORMAL</code> mode, press <code>|</code> to open search sidebar to search for text within the project.</p>
+<pre style="background-color:#383838;color:#e6e1dc;"><code><span>  {
+</span><span>    &quot;key&quot;: &quot;shift+\\&quot;,
+</span><span>    &quot;command&quot;: &quot;workbench.action.findInFiles&quot;,
+</span><span>    &quot;when&quot;: &quot;editorTextFocus &amp;&amp; neovim.init &amp;&amp; !dirtyDiffVisible &amp;&amp; !findWidgetVisible &amp;&amp; !inReferenceSearchEditor &amp;&amp; !markersNavigationVisible &amp;&amp; !notebookCellFocused &amp;&amp; !notificationCenterVisible &amp;&amp; !parameterHintsVisible &amp;&amp; !referenceSearchVisible &amp;&amp; neovim.mode == &#39;normal&#39;&quot;
+</span><span>  },
+</span></code></pre>
+<h4 id="editor-search-all-workspace-symbols">Editor: Search All Workspace Symbols</h4>
+<p>When in editor and <code>NORMAL</code> mode, press <code>{</code> to search all symbols in the workspace.</p>
+<pre style="background-color:#383838;color:#e6e1dc;"><code><span>  {
+</span><span>    &quot;key&quot;: &quot;shift+[&quot;,
+</span><span>    &quot;command&quot;: &quot;workbench.action.showAllSymbols&quot;,
+</span><span>    &quot;when&quot;: &quot;editorTextFocus &amp;&amp; neovim.init &amp;&amp; !dirtyDiffVisible &amp;&amp; !findWidgetVisible &amp;&amp; !inReferenceSearchEditor &amp;&amp; !markersNavigationVisible &amp;&amp; !notebookCellFocused &amp;&amp; !notificationCenterVisible &amp;&amp; !parameterHintsVisible &amp;&amp; !referenceSearchVisible &amp;&amp; neovim.mode == &#39;normal&#39;&quot;
+</span><span>  },
+</span></code></pre>
+<h4 id="editor-search-symbols-in-file-outline">Editor: Search Symbols in File (Outline)</h4>
+<p>When in editor and <code>NORMAL</code> mode, press <code>}</code> to search all symbols in the file.</p>
+<pre style="background-color:#383838;color:#e6e1dc;"><code><span>  {
+</span><span>    &quot;key&quot;: &quot;shift+]&quot;,
+</span><span>    &quot;command&quot;: &quot;workbench.action.gotoSymbol&quot;,
+</span><span>    &quot;when&quot;: &quot;editorTextFocus &amp;&amp; neovim.init &amp;&amp; !textCompareEditorVIsible &amp;&amp; !dirtyDiffVisible &amp;&amp; !findWidgetVisible &amp;&amp; !inReferenceSearchEditor &amp;&amp; !markersNavigationVisible &amp;&amp; !notebookCellFocused &amp;&amp; !notificationCenterVisible &amp;&amp; !parameterHintsVisible &amp;&amp; !referenceSearchVisible &amp;&amp; neovim.mode == &#39;normal&#39;&quot;
+</span><span>  },
+</span></code></pre>
+<h4 id="editor-language-server-keybinds">Editor: Language Server Keybinds</h4>
+<pre style="background-color:#383838;color:#e6e1dc;"><code><span>if exists(&#39;g:vscode&#39;)
+</span><span>  nmap &lt;silent&gt; gd :call VSCodeCall(&#39;editor.action.peekDefinition&#39;)&lt;CR&gt;
+</span><span>  nmap &lt;silent&gt; gD :call VSCodeCall(&#39;editor.action.revealDefinition&#39;)&lt;CR&gt;
+</span><span>  nmap &lt;silent&gt; gr :call VSCodeCall(&#39;editor.action.referenceSearch.trigger&#39;)&lt;CR&gt;
+</span><span>  nmap &lt;silent&gt; gR :call VSCodeCall(&#39;references-view.findReferences&#39;)&lt;CR&gt;
+</span><span>  nmap &lt;silent&gt; gy :call VSCodeCall(&#39;editor.action.goToTypeDefinition&#39;)&lt;CR&gt;
+</span><span>  nmap &lt;silent&gt; grn :call VSCodeCall(&#39;editor.action.rename&#39;)&lt;CR&gt;
+</span><span>fi
+</span></code></pre>
+<h4 id="diff-stage-unstage">Diff: Stage/Unstage</h4>
+<p>In a diff view:</p>
+<ul>
+<li>
+<p>Select a hunk and press <code>Alt + s</code> to stage just that hunk.</p>
+</li>
+<li>
+<p>Select a hunk and press <code>Alt + Shift + s</code> to unstage just that hunk.</p>
+</li>
+<li>
+<p>Press <code>Ctrl + s</code> to stage the whole file.</p>
+</li>
+</ul>
+<pre style="background-color:#383838;color:#e6e1dc;"><code><span>  {
+</span><span>    &quot;key&quot;: &quot;alt+s&quot;,
+</span><span>    &quot;command&quot;: &quot;git.stageSelectedRanges&quot;,
+</span><span>    &quot;when&quot;: &quot;isInDiffEditor&quot;
+</span><span>  },
+</span><span>  {
+</span><span>    &quot;key&quot;: &quot;shift+alt+s&quot;,
+</span><span>    &quot;command&quot;: &quot;git.unstageSelectedRanges&quot;,
+</span><span>    &quot;when&quot;: &quot;isInDiffEditor&quot;
+</span><span>  },
+</span><span>  {
+</span><span>    &quot;key&quot;: &quot;ctrl+s&quot;,
+</span><span>    &quot;command&quot;: &quot;git.stage&quot;,
+</span><span>    &quot;when&quot;: &quot;isInDiffEditor&quot;
+</span><span>  },
+</span></code></pre>
+<h4 id="toggle-split-width">Toggle Split Width</h4>
+<p>When in a split of two editor groups, press <code>,</code> to toggle between maximizing the width of one split and evenly splitting them.</p>
+<p>When a split is maximized, navigating to the smaller split will cause that one to become maximized instead.</p>
+<p>In <code>init.vim</code>:</p>
+<pre style="background-color:#383838;color:#e6e1dc;"><code><span>if exists(&#39;g:vscode&#39;)
+</span><span>  nnoremap , :call VSCodeCall(&#39;workbench.action.toggleEditorWidths&#39;)&lt;CR&gt;
+</span><span>endif
+</span></code></pre>
+<h4 id="toggle-zen-mode">Toggle Zen Mode</h4>
+<p>Press <code>.</code> to toggle <a href="https://code.visualstudio.com/docs/getstarted/userinterface#_zen-mode">Zen Mode</a>. Zen Mode hides unnecessary UI elements and bars, only showing editors. The sidebar and terminal can still be invoked with keybinds in this mode.</p>
+<p>In <code>init.vim</code>:</p>
+<pre style="background-color:#383838;color:#e6e1dc;"><code><span>if exists(&#39;g:vscode&#39;)
+</span><span>  nnoremap . :call VSCodeCall(&#39;workbench.action.toggleZenMode&#39;)&lt;CR&gt;
+</span><span>endif
+</span></code></pre>
+<h2 id="git-difftool">Git Difftool</h2>
+<p>VS Code can be used as your difftool, even when remoted into a server.</p>
+<pre style="background-color:#383838;color:#e6e1dc;"><code><span>~/.gitconfig:
+</span><span>
+</span><span>[difftool &quot;vscode&quot;]
+</span><span>  cmd = code --wait --diff $LOCAL $REMOTE
+</span></code></pre>
+<p>You must invoke <code>git difftool</code> from the VS Code terminal for it to work properly.</p>
+<h2 id="make-doc-hover-larger">Make Doc Hover Larger</h2>
+<p>The mouse hover (also invokable with <code>gh</code>) also shows language server error output, but it's not resizable.</p>
+<p>You can use the <a href="https://marketplace.visualstudio.com/items?itemName=be5invis.vscode-custom-css">Custom CSS and JS Loader</a> extension to make this hover box a big larger with this CSS.</p>
+<pre style="background-color:#383838;color:#e6e1dc;"><code><span>.monaco-editor .suggest-widget.docs-side {
+</span><span>  width: 1000px;
+</span><span>}
+</span><span>
+</span><span>.monaco-editor .suggest-widget.docs-side &gt; .details {
+</span><span>  width: 60%;
+</span><span>  max-height: 800px !important;
+</span><span>}
+</span><span>
+</span><span>.monaco-editor .suggest-widget.docs-side &gt; .tree {
+</span><span>  width: 30%;
+</span><span>  float: left;
+</span><span>}
+</span><span>
+</span><span>.editor-widget.parameter-hints-widget.visible {
+</span><span>  max-height: 800px !important;
+</span><span>}
+</span><span>
+</span><span>.monaco-editor .parameter-hints-widget &gt; .wrapper {
+</span><span>  max-width: 1000px;
+</span><span>}
+</span><span>
+</span><span>.monaco-editor .monaco-hover {
+</span><span>  max-width: 2000px !important;
+</span><span>  max-height: 800px !important;
+</span><span>  margin: 0;
+</span><span>}
+</span><span>
+</span><span>.monaco-editor .monaco-hover-content {
+</span><span>  max-width: 2000px !important;
+</span><span>  max-height: 800px !important;
+</span><span>  margin: 0;
+</span><span>}
+</span></code></pre>
+<h2 id="get-rid-of-useless-ui-elements">Get Rid of Useless UI Elements</h2>
+<p>Elements in the sidebar and bottom bar that are annoying can be hidden by right clicking them.</p>
+<h2 id="show-line-numbers-in-zen-mode">Show Line Numbers in Zen Mode</h2>
+<p>In <code>settings.json</code>:</p>
+<pre style="background-color:#383838;color:#e6e1dc;"><code><span>    &quot;zenMode.hideLineNumbers&quot;: false,
+</span></code></pre>
+<h2 id="workaround-zsh-shell-breaks-due-to-recursion">Workaround: Zsh Shell Breaks Due to Recursion</h2>
+<p><a href="https://github.com/microsoft/vscode/issues/165648">https://github.com/microsoft/vscode/issues/165648</a></p>
+<p>Manually apply this patch to your VS Code: <a href="https://github.com/microsoft/vscode/pull/165174/files">https://github.com/microsoft/vscode/pull/165174/files</a></p>
+<h2 id="extension-docs-view">Extension: Docs View</h2>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=bierner.docs-view">Docs View</a> is a useful extension that will show hover documentation in the Explorer sidebar panel.</p>
+<h2 id="extension-gitlens">Extension: GitLens</h2>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens">GitLens</a> adds a bunch of fancy git features, but I mostly like it because it adds <code>git blame</code> annotations to the current editor line.</p>
+<h2 id="addendum-wayland-sway">Addendum: Wayland + Sway</h2>
+<p>I've found latency and compositing performanace with VS Code to be significantly better with Sway + Wayland over i3 + picom. If you're using Wayland, you need to launch VS Code with the proper flags to launch it with Wayland support.</p>
+<pre style="background-color:#383838;color:#e6e1dc;"><code><span>~/.local/share/applications/code.desktop:
+</span><span>
+</span><span>[Desktop Entry]
+</span><span>Name=Visual Studio Code
+</span><span>Comment=Code Editing. Redefined.
+</span><span>GenericName=Text Editor
+</span><span>Exec=/usr/share/code/code --enable-features=UseOzonePlatform --ozone-platform=wayland --unity-launch %F
+</span><span>Icon=com.visualstudio.code
+</span><span>Type=Application
+</span><span>StartupNotify=false
+</span><span>StartupWMClass=Code
+</span><span>Categories=TextEditor;Development;IDE;
+</span><span>MimeType=text/plain;inode/directory;application/x-code-workspace;
+</span><span>Actions=new-empty-window;
+</span><span>Keywords=vscode;
+</span><span>
+</span><span>[Desktop Action new-empty-window]
+</span><span>Name=New Empty Window
+</span><span>Exec=/usr/share/code/code --enable-features=UseOzonePlatform --ozone-platform=wayland --new-window %F
+</span><span>Icon=com.visualstudio.code
+</span></code></pre>
+
+  </article>
+
+      </main>
+
+    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ee1115978a4845d983e048f906758abd"}'></script><!-- End Cloudflare Web Analytics -->
+    </body>
+</html>
