@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+      <title> tokilabs | Hack.lu 2014 CTF: Gunslinger Joe&#x27;s Gold Stash </title>
+      <link rel="stylesheet" href="https://tokilabs.co/main.css">
+      <link rel="icon" type="image/png" rel="noopener" target="_blank" href="/favicon.png">
+      
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="https://tokilabs.co/rss.xml">
+      
+    </head>
+
+    <body>
+      <header>
+      
+  <ul id="breadcrumbs">
+    
+      
+      
+        <li><a href="https:&#x2F;&#x2F;tokilabs.co&#x2F;">tokilabs</a></li>
+      
+    
+      
+      
+        <li>&nbsp;&#8594;&nbsp;dev</li>
+      
+    
+  </ul>
+
+      </header>
+
+      <nav>
+      
+  <ul id="bger">
+  
+  
+  
+    
+      
+        <li><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAB3RJTUUH5AUDFDoqfmnPqQAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAC6SURBVEjH7ZTBCcIwFIa/lO6hA7iA6BCO4AZe/xHeCF49C4I7VOfQk2PUS4QibUzahiL0h0AOj7x87wtx+JhZTWQkLYFnTG1Bj5jZBVjE1LpvAknux+F1CkkvgkazB7DJ0kDSHniZ2RFY5yA4SToAKzO7d5EUoVk3V0fZWdLO11dt4gc58Ll62a1OBr2igJ8tcBuLoO0S1Wdfpt40lTALQTNlYI5ujAbTEaT8riHi2cHs4B8dpM5+coI3MpVSlNj0qyUAAAAASUVORK5CYII=" style="object-position: 0 0px; width: 15px; height: 15px" />&nbsp;<a href="https://tokilabs.co/dev/beepy-radxa/">Beepy + Radxa Zero Notes</a></li>
+      
+  
+      
+        <li><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAB3RJTUUH5AUDFDoqfmnPqQAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAC6SURBVEjH7ZTBCcIwFIa/lO6hA7iA6BCO4AZe/xHeCF49C4I7VOfQk2PUS4QibUzahiL0h0AOj7x87wtx+JhZTWQkLYFnTG1Bj5jZBVjE1LpvAknux+F1CkkvgkazB7DJ0kDSHniZ2RFY5yA4SToAKzO7d5EUoVk3V0fZWdLO11dt4gc58Ll62a1OBr2igJ8tcBuLoO0S1Wdfpt40lTALQTNlYI5ujAbTEaT8riHi2cHs4B8dpM5+coI3MpVSlNj0qyUAAAAASUVORK5CYII=" style="object-position: 0 0px; width: 15px; height: 15px" />&nbsp;<a href="https://tokilabs.co/dev/vscode/">VS Code for Hopeless Vim Users</a></li>
+      
+  
+      
+      <li><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAB3RJTUUH5AUDFDoqfmnPqQAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAC6SURBVEjH7ZTBCcIwFIa/lO6hA7iA6BCO4AZe/xHeCF49C4I7VOfQk2PUS4QibUzahiL0h0AOj7x87wtx+JhZTWQkLYFnTG1Bj5jZBVjE1LpvAknux+F1CkkvgkazB7DJ0kDSHniZ2RFY5yA4SToAKzO7d5EUoVk3V0fZWdLO11dt4gc58Ll62a1OBr2igJ8tcBuLoO0S1Wdfpt40lTALQTNlYI5ujAbTEaT8riHi2cHs4B8dpM5+coI3MpVSlNj0qyUAAAAASUVORK5CYII=" style="object-position: 0 0px; width: 15px; height: 15px" />&nbsp;<div id="curpage">Hack.lu 2014 CTF: Gunslinger Joe&#x27;s Gold Stash</div></li>
+      
+  
+  </ul>
+
+
+
+      </nav>
+
+      <main>
+        
+  <div id="taxonomies">
+    
+      <date>2014.10.23</date>
+    
+
+    
+  </div>
+
+  <h1>Hack.lu 2014 CTF: Gunslinger Joe&#x27;s Gold Stash</h1><em></em>
+
+  <article>
+    <pre style="background-color:#383838;color:#e6e1dc;"><code><span>Category: Reversing 
+</span><span>Points: 200 
+</span><span>Author: cutz 
+</span><span>Description: Silly Gunslinger Joe has learned from his mistakes with his private terminal and now tries to remember passwords. But he&#39;s gotten more paranoid and chose to develope an additional method: protect all his private stuff with a secure locking mechanism that no one would be able to figure out! He&#39;s so confident with this new method that he even started using it to protect all his precious gold. So … we better steal all of it!
+</span><span>SSH: joes_gold@wildwildweb.fluxfingers.net  PORT: 1415 
+</span><span>PASSWORD: 1gs67uendsx71xmma8    
+</span><span>Note: If your username/password combination is not getting accepted, then the challenge is working as expected.
+</span></code></pre>
+<p>The first thing we see when logging in to the server is that there is a file named FLAG, and an executable named gold_stash. Executing gold_stash prompts us for a username and password. By running <code>ls -l</code>, we see that FLAG is readable by root only and setuid is set for gold_stash, meaning it runs as root user.</p>
+
+
+
+
+
+<img loading="lazy" src="https://tokilabs.co/processed_images/1.04fa7f945c8b6877.webp" class="resized" />
+<p>Opening the executable up in IDA, we find a very straight-forward program that checks the username and password against two plaintext strings and pops a shell by calling <code>execve</code> on <code>/bin/sh</code> if the strings match.</p>
+<p>Since the username and password are in plaintext, we can just pull them straight out. The username is <code>Joe</code> and the password is <code>omg_joe_is_so_rich</code>.</p>
+
+
+
+
+
+<img loading="lazy" src="https://tokilabs.co/processed_images/2.c16e4146d95e5c19.webp" class="resized" />
+<p>However, using this username/password combination still results in a failed authentication. We notice that in gdb on the challenge server and on a local machine, it does pop a shell as intended.</p>
+
+
+
+
+
+<img loading="lazy" src="https://tokilabs.co/processed_images/3.5a6f35735ba7f570.webp" class="resized" />
+<p>Looking through the disassembly for gold_stash, we don't notice anything particularly interesting. All the memory is allocated and initialized, and there isn't any way for data to leak in, causing the check to fail.</p>
+<p>Thus, we can reason that the thing that is causing the check to fail is external to the executable and unique to the root user on the challenge machine only. The external glibc libraries are a good suspect.</p>
+<p>We run <code>locate joe</code> in the root folder to find any files with substring <code>joe</code>, and find an interesting kernel module called <code>joe.ko</code> at <code>/lib/modules/3.13.0-36-generic/kernel/joe/joe.ko</code>.</p>
+
+
+
+
+
+<img loading="lazy" src="https://tokilabs.co/processed_images/4.6c649f44719abadf.webp" class="resized" />
+<p>Disassembling the module in IDA confirms that it is relevant to the challenge.</p>
+
+
+
+
+
+<img loading="lazy" src="https://tokilabs.co/processed_images/5.487379f0a1655fb3.webp" class="resized" />
+<p>Inside the module, there is a function called <code>fuqstring</code> which is very similar to some of the code in the main <code>joe</code> function. This function iterates over an array in memory, and for every element, it subtracts 4 and then XOR's it with an element from the array <code>byte_2DD</code>. We see that it iterates over 18 elements, which is the length of the password string.</p>
+
+
+
+
+
+<img loading="lazy" src="https://tokilabs.co/processed_images/6.6fc37c12dcb476df.webp" class="resized" />
+<p>The array <code>byte_2DD</code> is the character array <code>123456789012445678</code>. So, we just calculate the inverse of <code>(a ^ (b-4))</code>, which is <code>(a ^ b)+4</code>, for every character in the string.</p>
+
+
+
+
+
+<img loading="lazy" src="https://tokilabs.co/processed_images/7.55df12495836eb6d.webp" class="resized" />
+<pre style="background-color:#383838;color:#e6e1dc;"><code><span>#include &lt;stdio.h&gt;
+</span><span>
+</span><span>void main()
+</span><span>{
+</span><span>    char* a;
+</span><span>    char* b;
+</span><span>
+</span><span>    a = &quot;123456789012445678&quot;;
+</span><span>    b = &quot;omg_joe_is_so_rich&quot;;
+</span><span>
+</span><span>    for(int i = 0; i &lt; 18; i++)
+</span><span>        printf(&quot;%c&quot;, (a[i] ^ b[i])+4);
+</span><span>
+</span><span>    printf(&quot;\n&quot;);
+</span><span>}
+</span></code></pre>
+
+
+
+
+
+<img loading="lazy" src="https://tokilabs.co/processed_images/8.85d6e83ae2f0af7f.webp" class="resized" />
+<p>Using this password pops us a shell, and we can read the file.</p>
+
+
+
+
+
+<img loading="lazy" src="https://tokilabs.co/processed_images/9.b2c27b8e03dd7a14.webp" class="resized" />
+
+  </article>
+
+      </main>
+
+    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ee1115978a4845d983e048f906758abd"}'></script><!-- End Cloudflare Web Analytics -->
+    </body>
+</html>

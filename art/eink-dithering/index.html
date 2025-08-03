@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+      <title> tokilabs | Dithering for Inky Frame 7-color E-Ink Displays </title>
+      <link rel="stylesheet" href="https://tokilabs.co/main.css">
+      <link rel="icon" type="image/png" rel="noopener" target="_blank" href="/favicon.png">
+      
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="https://tokilabs.co/rss.xml">
+      
+    </head>
+
+    <body>
+      <header>
+      
+  <ul id="breadcrumbs">
+    
+      
+      
+        <li><a href="https:&#x2F;&#x2F;tokilabs.co&#x2F;">tokilabs</a></li>
+      
+    
+      
+      
+        <li>&nbsp;&#8594;&nbsp;art</li>
+      
+    
+  </ul>
+
+      </header>
+
+      <nav>
+      
+  <ul id="bger">
+  
+  
+  
+    
+      
+      <li><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAB3RJTUUH5AUDFDoqfmnPqQAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAC6SURBVEjH7ZTBCcIwFIa/lO6hA7iA6BCO4AZe/xHeCF49C4I7VOfQk2PUS4QibUzahiL0h0AOj7x87wtx+JhZTWQkLYFnTG1Bj5jZBVjE1LpvAknux+F1CkkvgkazB7DJ0kDSHniZ2RFY5yA4SToAKzO7d5EUoVk3V0fZWdLO11dt4gc58Ll62a1OBr2igJ8tcBuLoO0S1Wdfpt40lTALQTNlYI5ujAbTEaT8riHi2cHs4B8dpM5+coI3MpVSlNj0qyUAAAAASUVORK5CYII=" style="object-position: 0 0px; width: 15px; height: 15px" />&nbsp;<div id="curpage">Dithering for Inky Frame 7-color E-Ink Displays</div></li>
+      
+  
+      
+        <li><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAB3RJTUUH5AUDFDoqfmnPqQAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAC6SURBVEjH7ZTBCcIwFIa/lO6hA7iA6BCO4AZe/xHeCF49C4I7VOfQk2PUS4QibUzahiL0h0AOj7x87wtx+JhZTWQkLYFnTG1Bj5jZBVjE1LpvAknux+F1CkkvgkazB7DJ0kDSHniZ2RFY5yA4SToAKzO7d5EUoVk3V0fZWdLO11dt4gc58Ll62a1OBr2igJ8tcBuLoO0S1Wdfpt40lTALQTNlYI5ujAbTEaT8riHi2cHs4B8dpM5+coI3MpVSlNj0qyUAAAAASUVORK5CYII=" style="object-position: 0 0px; width: 15px; height: 15px" />&nbsp;<a href="https://tokilabs.co/art/pcb/">Shimarin PCB</a></li>
+      
+  
+  </ul>
+
+
+
+      </nav>
+
+      <main>
+        
+  <div id="taxonomies">
+    
+      <date>2025.06.03</date>
+    
+
+    
+  </div>
+
+  <h1>Dithering for Inky Frame 7-color E-Ink Displays</h1><em></em>
+
+  <article>
+    <p>Let's dither this -</p>
+
+
+
+
+
+<img loading="lazy" src="https://tokilabs.co/processed_images/original.ee5ce1f33d5931cb.webp" class="resized" />
+<p>- into this</p>
+
+
+
+
+
+<img loading="lazy" src="https://tokilabs.co/processed_images/dithered.986cb7b6532f358d.webp" class="resized" />
+<p>but first, let's take a look at the display itself.</p>
+
+
+
+
+
+<img loading="lazy" src="https://tokilabs.co/processed_images/macro1.8111c4eef5de480e.webp" class="resized" />
+<ul>
+<li>7.3" EPD display (800 x 480 pixels)</li>
+<li>E Ink Gallery Palette ePaper</li>
+<li>ACeP (Advanced Color ePaper) 7-color with black, white, red, green, blue, yellow, orange.</li>
+<li>Ultra wide viewing angles</li>
+<li>Ultra low power consumption</li>
+<li>Dot pitch – 0.2 x 0.2mm</li>
+</ul>
+
+
+
+
+
+<img loading="lazy" src="https://tokilabs.co/processed_images/macro2.409cb12e53c3b39e.webp" class="resized" />
+<ul>
+<li>note how the square pixels cross the boundaries of the hexagonal e-ink cells</li>
+</ul>
+
+
+
+
+
+<img loading="lazy" src="https://tokilabs.co/processed_images/macro3.c6cd8dae840ba1ca.webp" class="resized" />
+<ul>
+<li>looks like a CMYG-type setup</li>
+</ul>
+
+
+
+
+
+<img loading="lazy" src="https://tokilabs.co/processed_images/macro4.a905208be4592020.webp" class="resized" />
+<ul>
+<li>orange pixels are softer and lower contrast than other pixels. hexagonal cells that are fully contained by the pixel appear darker. this effectively gives orange pixels antialiasing. note how adjacent orange pixels blend together.</li>
+</ul>
+<p>with that tangent aside, let's experiment with dithering for this display in GIMP!</p>
+<p>create an 800x480 canvas.</p>
+<p>import this palette: <a href="https://tokilabs.co/art/eink-dithering/./epaper-muted.gpl">epaper-muted.gpl</a></p>
+
+
+
+
+
+<img loading="lazy" src="https://tokilabs.co/processed_images/palette.c66f837b75bc90c4.webp" class="resized" />
+<p>this is a 7-color palette of all the colors the display can show.
+I've manually muted the brightness of each color, lowering the gamma. by doing so, we are shoving the color space mapping around to get more effective color resolution out of our low contrast display.</p>
+<p>now, select <code>Image &gt; Mode &gt; Indexed</code></p>
+
+
+
+
+
+<img loading="lazy" src="https://tokilabs.co/processed_images/indexed.9bb78170082450f1.webp" class="resized" />
+<p>use the custom color palette</p>
+
+
+
+
+
+<img loading="lazy" src="https://tokilabs.co/processed_images/indexed_menu.39087cdcd1a7ed99.webp" class="resized" />
+<p>hmm, it's close, but it looks a little odd</p>
+
+
+
+
+
+<img loading="lazy" src="https://tokilabs.co/processed_images/nijika_example1.af2773b9c99e0e7a.webp" class="resized" />
+<p>...WIP...</p>
+
+  </article>
+
+      </main>
+
+    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ee1115978a4845d983e048f906758abd"}'></script><!-- End Cloudflare Web Analytics -->
+    </body>
+</html>

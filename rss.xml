@@ -1,0 +1,1391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>tokilabs</title>
+      <link>https://tokilabs.co</link>
+      <description></description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://tokilabs.co/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Tue, 03 Jun 2025 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>Dithering for Inky Frame 7-color E-Ink Displays</title>
+          <pubDate>Tue, 03 Jun 2025 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://tokilabs.co/art/eink-dithering/</link>
+          <guid>https://tokilabs.co/art/eink-dithering/</guid>
+          <description xml:base="https://tokilabs.co/art/eink-dithering/">&lt;p&gt;Let&#x27;s dither this -&lt;&#x2F;p&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;original.ee5ce1f33d5931cb.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+&lt;p&gt;- into this&lt;&#x2F;p&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;dithered.986cb7b6532f358d.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+&lt;p&gt;but first, let&#x27;s take a look at the display itself.&lt;&#x2F;p&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;macro1.8111c4eef5de480e.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+&lt;ul&gt;
+&lt;li&gt;7.3&quot; EPD display (800 x 480 pixels)&lt;&#x2F;li&gt;
+&lt;li&gt;E Ink Gallery Palette ePaper&lt;&#x2F;li&gt;
+&lt;li&gt;ACeP (Advanced Color ePaper) 7-color with black, white, red, green, blue, yellow, orange.&lt;&#x2F;li&gt;
+&lt;li&gt;Ultra wide viewing angles&lt;&#x2F;li&gt;
+&lt;li&gt;Ultra low power consumption&lt;&#x2F;li&gt;
+&lt;li&gt;Dot pitch – 0.2 x 0.2mm&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;macro2.409cb12e53c3b39e.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+&lt;ul&gt;
+&lt;li&gt;note how the square pixels cross the boundaries of the hexagonal e-ink cells&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;macro3.c6cd8dae840ba1ca.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+&lt;ul&gt;
+&lt;li&gt;looks like a CMYG-type setup&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;macro4.a905208be4592020.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+&lt;ul&gt;
+&lt;li&gt;orange pixels are softer and lower contrast than other pixels. hexagonal cells that are fully contained by the pixel appear darker. this effectively gives orange pixels antialiasing. note how adjacent orange pixels blend together.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;with that tangent aside, let&#x27;s experiment with dithering for this display in GIMP!&lt;&#x2F;p&gt;
+&lt;p&gt;create an 800x480 canvas.&lt;&#x2F;p&gt;
+&lt;p&gt;import this palette: &lt;a href=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;art&#x2F;eink-dithering&#x2F;.&#x2F;epaper-muted.gpl&quot;&gt;epaper-muted.gpl&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;palette.c66f837b75bc90c4.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+&lt;p&gt;this is a 7-color palette of all the colors the display can show.
+I&#x27;ve manually muted the brightness of each color, lowering the gamma. by doing so, we are shoving the color space mapping around to get more effective color resolution out of our low contrast display.&lt;&#x2F;p&gt;
+&lt;p&gt;now, select &lt;code&gt;Image &amp;gt; Mode &amp;gt; Indexed&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;indexed.9bb78170082450f1.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+&lt;p&gt;use the custom color palette&lt;&#x2F;p&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;indexed_menu.39087cdcd1a7ed99.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+&lt;p&gt;hmm, it&#x27;s close, but it looks a little odd&lt;&#x2F;p&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;nijika_example1.af2773b9c99e0e7a.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+&lt;p&gt;...WIP...&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Casio F-91W &#x2F; A158WA Crystal Decal Removal</title>
+          <pubDate>Sun, 01 Jun 2025 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://tokilabs.co/tech/casio-crystal/</link>
+          <guid>https://tokilabs.co/tech/casio-crystal/</guid>
+          <description xml:base="https://tokilabs.co/tech/casio-crystal/">
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;lightmeter_watch.657b31ca39487506.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+&lt;p&gt;In my spare time, I&#x27;ve been slowly chipping away at the &lt;a href=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;projects&#x2F;light-meter&#x2F;&quot;&gt;Light Meter Watch&lt;&#x2F;a&gt;.
+The goal is to build an easy-to-use meter good enough for film photography (and maybe even do a small production run!)
+I&#x27;m building off the Joey Castillo&#x27;s fantastic work on &lt;a href=&quot;https:&#x2F;&#x2F;www.sensorwatch.net&#x2F;&quot;&gt;Sensor Watch&lt;&#x2F;a&gt;, repurposing the venerable Casio F-91W.&lt;&#x2F;p&gt;
+&lt;p&gt;When conceptualizing this project, the first hurdle was obvious - where to place the light sensor?
+Ideally, the sensor should have line-of-sight to the outside world, past the LCD, internal plastic frame, and bezel decals.&lt;&#x2F;p&gt;
+&lt;p&gt;After some squinting (and lots more sketching, measuring, and datasheet searching), I arrived at this &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;Hylian&#x2F;sensor-watch-tcs3400&quot;&gt;sensor flex design&lt;&#x2F;a&gt;, using the &lt;a href=&quot;https:&#x2F;&#x2F;ams-osram.com&#x2F;products&#x2F;sensor-solutions&#x2F;ambient-light-color-spectral-proximity-sensors&#x2F;ams-tcs3400-color-sensor&quot;&gt;AMS TCS3400&lt;&#x2F;a&gt; color light sensor.
+The sensor is nestled between some capacitors and the flex connector, placed just low enough to peep through the gaps in the internal Casio module&#x27;s frame.&lt;&#x2F;p&gt;
+&lt;p&gt;The only problem? The bezel decal covers it up, so it has to go!&lt;&#x2F;p&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;internal_module.227ca3a88dabe6fc.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;sensor_placement.6794f12168eba915.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+&lt;h2 id=&quot;research&quot;&gt;Research&lt;&#x2F;h2&gt;
+&lt;p&gt;I&#x27;m not the first to have done this - turns out, there&#x27;s a healthy Casio modding scene, found on forums like &lt;a href=&quot;https:&#x2F;&#x2F;www.reddit.com&#x2F;r&#x2F;casiomods&#x2F;&quot;&gt;r&#x2F;casiomods&lt;&#x2F;a&gt;. There&#x27;s also a great article from &lt;a href=&quot;https:&#x2F;&#x2F;shellzine.net&#x2F;casio-f-series-mods&#x2F;&quot;&gt;SHELLZINE&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;This post just documents the process that works for me, as well as any additional observations. I really don&#x27;t want to be burning through a whole bunch of watches when it comes to making a batch of these.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;process&quot;&gt;Process&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;removing-the-crystal&quot;&gt;Removing the Crystal&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Preheat watch face-down on hotplate for 1min @ 55C.&lt;&#x2F;li&gt;
+&lt;li&gt;Set SMD rework hot air station to 155C, high air flow, ~1 cm nozzle dia.&lt;&#x2F;li&gt;
+&lt;li&gt;Heat the crystal from the inside of the watch for 1min 20sec. Focus on evenly heating the bezel. You want to heat up the adhesive around the edges of the crystal.&lt;&#x2F;li&gt;
+&lt;li&gt;Using gloves or a towel, grip both straps, one in each hand. Use your thumbs to pop out the crystal. This will take a bit of force; watch out for the crystal flying away!&lt;&#x2F;li&gt;
+&lt;li&gt;Repeat as needed.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;two_watches_underside.9e5f8904d26e5eb5.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;two_watches.f06513f767b2c94a.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+&lt;h3 id=&quot;removing-the-decal&quot;&gt;Removing the Decal&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Prepare hot plate at ~70C.&lt;&#x2F;li&gt;
+&lt;li&gt;Place crystal on hotplate for a few seconds, decal-side down. Squish the crystal briefly to ensure contact.&lt;&#x2F;li&gt;
+&lt;li&gt;Scrape away decal using swabs and isopropyl alcohol. I recommend foam-tipped plastic cleaning swabs and a plastic scraping tool.&lt;&#x2F;li&gt;
+&lt;li&gt;Repeat as needed.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;clean_crystal.13c40edfe887e565.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+&lt;h2 id=&quot;warnings-and-observations&quot;&gt;Warnings and Observations&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;f-91w-vs-a158wa&quot;&gt;F-91W vs. A158WA&lt;&#x2F;h3&gt;
+&lt;p&gt;The A158WA is a variant by Casio that uses the same internal module, and is thus &lt;a href=&quot;https:&#x2F;&#x2F;www.sensorwatch.net&#x2F;docs&#x2F;#need-to-buy-a-watch&quot;&gt;fully compatible with Sensor Watch&lt;&#x2F;a&gt;. The only new features A158WA brings are a chrome finish on the plastic case and a steel watchband.&lt;&#x2F;p&gt;
+&lt;p&gt;However, I noticed &lt;em&gt;considerable&lt;&#x2F;em&gt; differences between these two models when it comes to crystal and decal removal.&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Crystal Adhesive&lt;&#x2F;strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Both watches use an adhesive to bond the crystal to the case.&lt;&#x2F;li&gt;
+&lt;li&gt;The F-91W uses a glue, primarily applied around the edges of the crystal. After removal, it&#x27;s not uncommon to find some bit of glue that didn&#x27;t release, leaving a shard broken off and still attached to the case. While this isn&#x27;t necessarily an issue, it looks terrible visually, and would be unacceptable in a production run.&lt;&#x2F;li&gt;
+&lt;li&gt;The A158WA uses an adhesive sheet cut to the outline of the bezel. The adhesion feels similar to that of 3M VHB tape. This differs from the F-91W in that the adhesion is more even across the face, but is easier to release cleanly. As I didn&#x27;t know this prior, I had to do some more heating passes on the A158WA; enough to case some slight warpage on the case. However, once I got the adhesive to release, the whole crystal came out cleanly!&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Scratch Resistance&lt;&#x2F;strong&gt;
+&lt;ul&gt;
+&lt;li&gt;The F-91W&#x27;s acrylic crystal scratches &lt;em&gt;extremely&lt;&#x2F;em&gt; easily when scraping off the decal with a solvent. I used acetone for my first attempt, which was way too strong and resulted in fuming and tons of scratches. Even isopropyl alcohol plus a plastic cleaning swab can cause microscratching if not careful.&lt;&#x2F;li&gt;
+&lt;li&gt;Meanwhile, the A158WA&#x27;s crystal did not scratch at all, despite also being acrylic (N=1)! The decal is bonded more strongly than the F-91W. I ended up having to use several passes of IPA and even a metal scraping tool. Such harsh treatment would have certainly destroyed an F-91W crystal, but I was pleasantly surprised to see the A158WA crystal survived intact.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;green_f91w_crystal_removed.6b1a1f119736a72a.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;a168w.e2e4d5a6554d8b32.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+&lt;p&gt;tl;dr: consider the A158WA for crystal mods over the F-91W; you will have a better time.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;don-t-let-things-get-melty&quot;&gt;Don&#x27;t Let Things Get Melty&lt;&#x2F;h3&gt;
+&lt;p&gt;Last bit of warning: I&#x27;ve found the line between cleanly releasing the crystal and turning the watch into a goopy mess to be fairly slim (with my methods, at least). If you overheat the watch, it &lt;em&gt;will&lt;&#x2F;em&gt; warp. If you overheat the front crystal, it &lt;em&gt;will&lt;&#x2F;em&gt; warp when you push on it. If something smells burnt, you applied too much heat. Be methodical and slowly increase the heat until you figure out a process that works for you.&lt;&#x2F;p&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;melty.f122d8ccb2d01fca.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+</description>
+      </item>
+      <item>
+          <title>Leica M10 Battery Teardown and Reverse Engineering</title>
+          <pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://tokilabs.co/tech/leica-battery/</link>
+          <guid>https://tokilabs.co/tech/leica-battery/</guid>
+          <description xml:base="https://tokilabs.co/tech/leica-battery/">&lt;p&gt;The Leica M10 family of cameras use the proprietary BP-SCL5 battery. Of course, Leica being Leica, these batteries cost an eyewatering $200 a pop. Even after many years, a third-party battery option has never materialized. These batteries are also often hard to find in-stock. Li-Ion batteries are consumables with a limited lifespan, and Leica is the only game in town, purely due to their own decision to DRM the battery. While there&#x27;s a discussion to be had about &quot;luxury&quot; brand pricing, it remains that the BP-SCL5 is the only battery I have to baby around due to not having a big pile of ready-to-go spares. Let&#x27;s take a peek at what kind of DRM is inside this thing.&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#383838;color:#e6e1dc;&quot;&gt;&lt;code&gt;&lt;span&gt;Disclaimer: Lithium-Ion batteries are a fire hazard, and care should be taken when handling them. This post is for informational purposes only.
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;protocol-reversing&quot;&gt;Protocol Reversing&lt;&#x2F;h2&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;breakout_1.fb157f6c909ddd3e.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+&lt;p&gt;The BP-SCL5 uses a single data pin between &lt;code&gt;+&lt;&#x2F;code&gt; and &lt;code&gt;-&lt;&#x2F;code&gt; to communicate with the camera body. When this pin is taped over, the camera refuses to boot.&lt;&#x2F;p&gt;
+&lt;p&gt;Using some magnet wire to break this pin out, we observe that:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;The camera communicates with the battery approximately every second.&lt;&#x2F;li&gt;
+&lt;li&gt;When the pin is grounded, this battery check fails, and the camera powers off.&lt;&#x2F;li&gt;
+&lt;li&gt;The protocol appears to be Dallas 1-Wire.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;breakout_2.10cf6fc728a35eb2.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;scope_1.062fef12ae97c55c.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;scope_2.54216cd0e4737f15.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+&lt;p&gt;When hooking up to a Saleae, I had to use an instrumentation op-amp to boost the signal to an appropriate voltage. (Unfortunately, I&#x27;ve lost track of the actual capture. I&#x27;ll update this post if I manage to find it.)&lt;&#x2F;p&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;saleae.d8af3ea62ea8561d.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+&lt;h2 id=&quot;teardown&quot;&gt;Teardown&lt;&#x2F;h2&gt;
+&lt;p&gt;Now, let&#x27;s teardown an (already dead) M10 battery and see what&#x27;s inside.&lt;&#x2F;p&gt;
+&lt;p&gt;We see four programming pins hidden under a sticker. I haven&#x27;t investigated these any further.
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;pogo_pins.828550d4fdf71b4d.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+&lt;&#x2F;p&gt;
+&lt;p&gt;After some quality time with the snippers, I finally managed to get the shell off. It&#x27;s certainly well-built. The plastic was ultrasonically welded shut and the negative space was filled with silicone.
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;teardown.dfe93953bcb6c8ce.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+&lt;&#x2F;p&gt;
+&lt;p&gt;Some more scraping frees the PCB, giving us a look at the ICs.&lt;&#x2F;p&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;macro.2af52fed5c6cc4fc.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;microscope.8b7a656e648dea2f.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+&lt;h2 id=&quot;analysis&quot;&gt;Analysis&lt;&#x2F;h2&gt;
+&lt;p&gt;The battery uses a &lt;a href=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;tech&#x2F;leica-battery&#x2F;ds2775-ds2778.pdf&quot;&gt;DS2776 &quot;2-Cell, Fuel Gauge with FuelPack, Protector, and SHA-1 Authentication&quot;&lt;&#x2F;a&gt; from Maxim. The fuel gauge protects the bare battery cells and reports a bunch of useful measurements about the battery, such as discharge current, temperature, and estimated cell wear. The chip communicates with the host via Dallas 1-Wire.&lt;&#x2F;p&gt;
+&lt;p&gt;This fuel gauge in particular has a SHA-1 authentication feature. Let&#x27;s see what the datasheet has to say about it.&lt;&#x2F;p&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;ds-0.4a97ea1ae98ce55b.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;ds-31.47cc62d7518cac8f.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;ds-32.d9207c0d6049eb94.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+&lt;p&gt;Each chip is provisioned with a secret key at the factory. The host writes a 64-bit challenge to the chip, and the chip responds with a SHA-1 Message Authentication Code (MAC). The MAC can be computed using just the secret or with the chip&#x27;s serial number included as a salt.&lt;&#x2F;p&gt;
+&lt;p&gt;Given this, I believe all copies of the battery should have the same shared secret. If the serial number is used as a salt, it would prevent replay&#x2F;rainbow table attacks, but there&#x27;s no getting around the fact that every M10 needs to work with every battery.&lt;&#x2F;p&gt;
+&lt;p&gt;Either way, we would need to read the secret from the chip to do anything. Of course, doing so is non-trivial, as the chip has readout protection. It&#x27;ll need some sort of side-channel attack. I found this paper by David Oswald from the University of Birmingham: &lt;a href=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;tech&#x2F;leica-battery&#x2F;cardis_2015_sha1_paper.pdf&quot;&gt;Side-Channel Attacks on SHA-1-based Product Authentication ICs&lt;&#x2F;a&gt;. Oswald describes successful power analysis attacks on Maxim ICs with SHA-1 authentication over Dallas 1-Wire. I suspect the authentication IP used is very similar to the one in our DS2776. I could see a sufficiently motivated individual with a &lt;a href=&quot;https:&#x2F;&#x2F;www.crowdsupply.com&#x2F;newae&#x2F;chipwhisperer-husky&quot;&gt;ChipWhisperer&lt;&#x2F;a&gt; managing to retrieve the key - I&#x27;m just not that individual. Remember, key material is not copyrightable. :)&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Beepy + Radxa Zero Notes</title>
+          <pubDate>Tue, 06 Aug 2024 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://tokilabs.co/dev/beepy-radxa/</link>
+          <guid>https://tokilabs.co/dev/beepy-radxa/</guid>
+          <description xml:base="https://tokilabs.co/dev/beepy-radxa/">&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;beepy.sqfmi.com&#x2F;&quot;&gt;Beepy&lt;&#x2F;a&gt; is a handheld Linux device, with a Blackberry-like keyboard and monochrome Sharp Memory LCD. It&#x27;s normally powered by a Raspberry Pi Zero W.&lt;&#x2F;p&gt;
+&lt;p&gt;This document contains my notes for swapping out the Raspberry Pi Zero for a &lt;a href=&quot;https:&#x2F;&#x2F;wiki.radxa.com&#x2F;Zero&quot;&gt;Radxa Zero&lt;&#x2F;a&gt; instead.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;why-radxa-zero-over-raspberry-pi-zero&quot;&gt;Why Radxa Zero over Raspberry Pi Zero?&lt;&#x2F;h2&gt;
+&lt;p&gt;Raspberry Pi is great, but not ideal for handheld, battery-powered devices. Raspberry Pi doesn&#x27;t implement suspend to RAM or hibernate, due to various reasons related to the boot chain and Broadcom&#x27;s closed first stage boot. Additionally, the Pi also doesn&#x27;t have a good concept of a poweroff state. The Pi draws significant current even in &quot;poweroff&quot;, and there is also no way to initiate boot from poweroff outside of cycling the power.&lt;&#x2F;p&gt;
+&lt;p&gt;These limitations are fine for a lot of projects, but isn&#x27;t a great fit for Beepy, which is trying to be a chat device that can stay idle for days&#x2F;weeks at a time. To address this, Beepy has a management MCU (RP2040), which performs power management in addition to providing keyboard support. The MCU controls the power rail to the Pi, solving the issue of the Pi&#x27;s quiescent current draw in poweroff. The MCU also sequences power on based on the power key, or an RTC-based timer. The concept is to optimize the Pi&#x27;s Linux boot times, and have the MCU periodically boot it to quickly check for messages before powering off again. Since the display is a Sharp Memory LCD, notifications and alerts can remain on the screen, even in this soft shutdown state.&lt;&#x2F;p&gt;
+&lt;p&gt;Still, it would be great if we could just... have working suspend and hibernate instead of dealing with all this. The Radxa Zero uses an Amlogic SoC that supports suspend and hibernate, and the goal of this project is to see if we can get acceptable suspend power draw with it.&lt;&#x2F;p&gt;
+&lt;p&gt;None of this stuff is really polished, but it should generally work for day-to-day use. Suspend power still needs to be investigated and optimized, but worst case, you can just enter shutdown and be at feature parity with the Raspberry Pi Zero. :)&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;buying&quot;&gt;Buying&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;radxa-zero&quot;&gt;Radxa Zero&lt;&#x2F;h3&gt;
+&lt;p&gt;You want a SKU that doesn&#x27;t come with the headers pre-soldered, so it can mate with the Beepy pogo pins.&lt;&#x2F;p&gt;
+&lt;p&gt;I purchased mine from &lt;a href=&quot;https:&#x2F;&#x2F;shop.allnetchina.cn&#x2F;products&#x2F;copy-of-radxa-zero?variant=39440872308838&quot;&gt;Allnet&lt;&#x2F;a&gt;, an official Radxa distributor.&lt;&#x2F;p&gt;
+&lt;p&gt;I wasn&#x27;t able to get eMMC boot working with Armbian, so YMMV if you want the larger eMMC models.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;antenna&quot;&gt;Antenna&lt;&#x2F;h3&gt;
+&lt;p&gt;All the SKUs without headers seem to also only have external antenna. Any small 2.4&#x2F;5 GHz flex antenna with a U.FL connector should work. I bought &lt;a href=&quot;https:&#x2F;&#x2F;www.digikey.com&#x2F;en&#x2F;products&#x2F;detail&#x2F;antenova&#x2F;SRF2W012-100&#x2F;5959788&quot;&gt;this one&lt;&#x2F;a&gt; off Digi-Key.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;os-setup&quot;&gt;OS Setup&lt;&#x2F;h2&gt;
+&lt;div class=&quot;blockbutton&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.armbian.com&#x2F;radxa-zero&#x2F;&quot;&gt;&lt;button&gt;Armbian for Radxa Zero&lt;&#x2F;button&gt;&lt;&#x2F;a&gt;&lt;&#x2F;div&gt;
+&lt;p&gt;I&#x27;m running Armbian 23.11 Bookworm. I haven&#x27;t tested on later releases, so use a newer major release at your own risk.&lt;&#x2F;p&gt;
+&lt;p&gt;If you have an eMMC model, follow the instructions to erase the eMMC to enable microSD boot.&lt;&#x2F;p&gt;
+&lt;p&gt;Flash the system image to the microSD card and boot as usual.&lt;&#x2F;p&gt;
+&lt;p&gt;You won&#x27;t have Beepy keyboard or display support at this point, so a micro-HDMI cable and USB-C hub will come in handy here. Once you have Wi-Fi and SSH set up, you can just SSH in for subsequent boots.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;install-kernel-modules&quot;&gt;Install Kernel Modules&lt;&#x2F;h2&gt;
+&lt;p&gt;There are two kernel modules to install, for display and keyboard support. These are forked from the Beepy drivers.
+The main changes are to provide Radxa Zero Device Tree configs and modify the Makefile to build and install on Armbian.&lt;&#x2F;p&gt;
+&lt;p&gt;The following steps should be performed on your Radxa Zero.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;dependencies&quot;&gt;Dependencies&lt;&#x2F;h3&gt;
+&lt;pre style=&quot;background-color:#383838;color:#e6e1dc;&quot;&gt;&lt;code&gt;&lt;span&gt;apt install linux-headers-current-meson64
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;display-driver&quot;&gt;Display Driver&lt;&#x2F;h3&gt;
+&lt;div class=&quot;blockbutton&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;Hylian&#x2F;sharp-drm-driver&quot;&gt;&lt;button&gt;GitHub&lt;&#x2F;button&gt;&lt;&#x2F;a&gt;&lt;&#x2F;div&gt;
+&lt;pre style=&quot;background-color:#383838;color:#e6e1dc;&quot;&gt;&lt;code&gt;&lt;span&gt;git clone https:&#x2F;&#x2F;github.com&#x2F;Hylian&#x2F;sharp-drm-driver.git
+&lt;&#x2F;span&gt;&lt;span&gt;cd sharp-drm-driver
+&lt;&#x2F;span&gt;&lt;span&gt;make
+&lt;&#x2F;span&gt;&lt;span&gt;make install
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h4 id=&quot;troubleshooting&quot;&gt;Troubleshooting&lt;&#x2F;h4&gt;
+&lt;p&gt;Once the driver is loaded, you should see a framebuffer device show up at &lt;code&gt;&#x2F;dev&#x2F;fb0&lt;&#x2F;code&gt;. Writing to this device should update the screen (e.g. &lt;code&gt;cat &#x2F;dev&#x2F;random &amp;gt; &#x2F;dev&#x2F;fb0&lt;&#x2F;code&gt;).&lt;&#x2F;p&gt;
+&lt;p&gt;If you aren&#x27;t seeing the TTY show up on the display, your &lt;a href=&quot;https:&#x2F;&#x2F;www.kernel.org&#x2F;doc&#x2F;Documentation&#x2F;fb&#x2F;fbcon.txt&quot;&gt;fbcon mapping&lt;&#x2F;a&gt; may be incorrect. The Makefile install target adds a &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;Hylian&#x2F;sharp-drm-driver&#x2F;blob&#x2F;radxa-zero&#x2F;Makefile#L21&quot;&gt;fbcon boot arg&lt;&#x2F;a&gt; to &lt;code&gt;&#x2F;boot&#x2F;armbianEnv.txt&lt;&#x2F;code&gt;, with an fbcon mapping that worked for me. Try modifying &lt;code&gt;&#x2F;boot&#x2F;armbianEnv.txt&lt;&#x2F;code&gt; with a different mapping and reboot. If you only see console messages without a TTY appearing, you are probably in this state.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;keyboard-driver&quot;&gt;Keyboard Driver&lt;&#x2F;h3&gt;
+&lt;div class=&quot;blockbutton&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;Hylian&#x2F;beepberry-keyboard-driver&quot;&gt;&lt;button&gt;GitHub&lt;&#x2F;button&gt;&lt;&#x2F;a&gt;&lt;&#x2F;div&gt;
+&lt;pre style=&quot;background-color:#383838;color:#e6e1dc;&quot;&gt;&lt;code&gt;&lt;span&gt;git clone https:&#x2F;&#x2F;github.com&#x2F;Hylian&#x2F;beepberry-keyboard-driver.git
+&lt;&#x2F;span&gt;&lt;span&gt;cd beepberry-keyboard-driver
+&lt;&#x2F;span&gt;&lt;span&gt;make
+&lt;&#x2F;span&gt;&lt;span&gt;make install
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;finishing-up&quot;&gt;Finishing up&lt;&#x2F;h3&gt;
+&lt;p&gt;Reboot your device.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;developing&quot;&gt;Developing&lt;&#x2F;h3&gt;
+&lt;p&gt;One-liner to rsync and install:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#383838;color:#e6e1dc;&quot;&gt;&lt;code&gt;&lt;span&gt;rsync -a ~&#x2F;dev&#x2F;beepy&#x2F;beepberry-keyboard-driver root@radxa-wifi.local:~&#x2F; &amp;amp;&amp;amp; ssh root@radxa-wifi.local &amp;quot;cd ~&#x2F;beepberry-keyboard-driver &amp;amp;&amp;amp; make &amp;amp;&amp;amp; make install &amp;amp;&amp;amp; rmmod beepy_kbd &amp;amp;&amp;amp; modprobe beepy_kbd&amp;quot;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;quirks-and-tweaks&quot;&gt;Quirks and Tweaks&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;my-beepy-randomly-suspends-while-typing&quot;&gt;My Beepy randomly suspends while typing!&lt;&#x2F;h3&gt;
+&lt;p&gt;This may happen when you try to type &lt;code&gt;-&lt;&#x2F;code&gt; (&lt;code&gt;Alt + i&lt;&#x2F;code&gt;). This is because the Beepy MCU firmware emits keycode 142 for that key, which then gets mapped to &lt;code&gt;minus&lt;&#x2F;code&gt; in the &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;Hylian&#x2F;beepberry-keyboard-driver&#x2F;blob&#x2F;radxa-zero&#x2F;beepy-kbd.map#L67&quot;&gt;keyboard map&lt;&#x2F;a&gt;. Keycode 142 collides with &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;torvalds&#x2F;linux&#x2F;blob&#x2F;master&#x2F;include&#x2F;uapi&#x2F;linux&#x2F;input-event-codes.h#L220&quot;&gt;&lt;code&gt;KEY_SLEEP&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;fix&quot;&gt;Fix&lt;&#x2F;h4&gt;
+&lt;p&gt;Configure &lt;code&gt;logind&lt;&#x2F;code&gt; to ignore the sleep key.&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;vim &#x2F;etc&#x2F;systemd&#x2F;logind.conf&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;Set &lt;code&gt;HandleSuspendKey=ignore&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;how-do-i-suspend&quot;&gt;How do I suspend?&lt;&#x2F;h3&gt;
+&lt;p&gt;The &lt;code&gt;systemctl suspend&lt;&#x2F;code&gt; command will put the Radxa into suspend. You should see the cursor stop blinking, and the system will resume upon any keypress. You can also check &lt;code&gt;dmesg&lt;&#x2F;code&gt; to confirm that it entered suspend.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;can-i-remap-the-power-key-to-suspend&quot;&gt;Can I remap the power key to suspend?&lt;&#x2F;h3&gt;
+&lt;p&gt;Yes, you can modify the keyboard driver. Change &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;Hylian&#x2F;beepberry-keyboard-driver&#x2F;blob&#x2F;170beef94a83ef5653dc92469f4a20bb6d8fe6b3&#x2F;src&#x2F;input_fw.c#L29&quot;&gt;this&lt;&#x2F;a&gt; line to instead invoke &lt;code&gt;systemctl suspend&lt;&#x2F;code&gt;. Then configure the kernel module to &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;Hylian&#x2F;beepberry-keyboard-driver&#x2F;blob&#x2F;170beef94a83ef5653dc92469f4a20bb6d8fe6b3&#x2F;src&#x2F;params_iface.c#L315&quot;&gt;handle poweroff in-driver&lt;&#x2F;a&gt;. The power button long press event from firmware should now invoke suspend.&lt;&#x2F;p&gt;
+&lt;p&gt;Shutting down from shell should still work fine, as when the keyboard driver is unloaded during poweroff, it informs the MCU. The MCU should enter deep sleep and power on the Radxa like normal on the next power button press.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;how-do-i-measure-battery-state-of-charge&quot;&gt;How do I measure battery state of charge?&lt;&#x2F;h3&gt;
+&lt;p&gt;These sysfs exports are available via the keyboard driver:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;code&gt;&#x2F;sys&#x2F;firmware&#x2F;beepy&#x2F;battery_raw&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;code&gt;&#x2F;sys&#x2F;firmware&#x2F;beepy&#x2F;battery_volts&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;code&gt;&#x2F;sys&#x2F;firmware&#x2F;beepy&#x2F;battery_percent&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Note that the model used for battery percentage is pretty rough, and may not be accurate.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;optimizing-power&quot;&gt;Optimizing Power&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;I only have a USB power meter, which works OK with the battery unplugged, but it&#x27;s still capturing power supply losses. Power meter into the battery terminals would be better, and separate shunt resistors to the Radxa and RP2040 would be ideal. I put in a feature request to SQFMI to add shunt resistor jumpers in the next revision.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;TODO:&lt;&#x2F;em&gt; In suspend, DRAM still needs to self-refresh. We should characterize quiescent power draw.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;TODO:&lt;&#x2F;em&gt; Investigate Radxa&#x2F;Amlogic suspend sequence and see what clocks and peripherals stay up. Can we gate any of them?&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;TODO:&lt;&#x2F;em&gt; Investigate if wireless chipset stays up during suspend. If it does, we should block Wi-Fi and Bluetooth with &lt;code&gt;rfkill&lt;&#x2F;code&gt; before suspending.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;TODO:&lt;&#x2F;em&gt; The MCU still stays active when Radxa suspends. The MCU will consume around 20mA @ 5V in this state, which isn&#x27;t ideal. When in shutdown, the MCU enters deep sleep, consuming much less power, and only wakes on a wakeup timer or power button interrupt. We should implement similar handling for the suspend case, entering suspend+deep sleep via power key tap. After that, we can measure the actual power draw in suspend.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;power-measurements&quot;&gt;Power Measurements&lt;&#x2F;h3&gt;
+&lt;p&gt;(08&#x2F;24): Measured with a USB power meter, battery unplugged.&lt;&#x2F;p&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Radxa&lt;&#x2F;th&gt;&lt;th&gt;RP2040&lt;&#x2F;th&gt;&lt;th&gt;Watts&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Active&lt;&#x2F;td&gt;&lt;td&gt;Active&lt;&#x2F;td&gt;&lt;td&gt;0.8W&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Suspend&lt;&#x2F;td&gt;&lt;td&gt;Active&lt;&#x2F;td&gt;&lt;td&gt;0.45W&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Suspend&lt;&#x2F;td&gt;&lt;td&gt;Deep Sleep&lt;&#x2F;td&gt;&lt;td&gt;TODO&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Poweroff&lt;&#x2F;td&gt;&lt;td&gt;Deep Sleep&lt;&#x2F;td&gt;&lt;td&gt;0.05W&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;p&gt;According to the measurements in the RP2040 &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;ardangelo&#x2F;beepberry-rp2040&quot;&gt;repo&lt;&#x2F;a&gt;, MCU active draws 0.125W, so Radxa in suspend should be contributing 0.275W power draw.&lt;&#x2F;p&gt;
+&lt;p&gt;That means in suspend, we&#x27;ll draw: (Radxa_suspend + RP2040_deepsleep) = (275mW + 25mW) = 300mW&lt;&#x2F;p&gt;
+&lt;p&gt;Beepy battery is 7.4Wh, so total suspend time should be: (7.4Wh&#x2F;300mW) = 24.67 hours&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Light Meter Watch</title>
+          <pubDate>Mon, 05 Aug 2024 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://tokilabs.co/projects/light-meter/</link>
+          <guid>https://tokilabs.co/projects/light-meter/</guid>
+          <description xml:base="https://tokilabs.co/projects/light-meter/">&lt;h2 id=&quot;incident-light-meter-watch-based-on-sensor-watch&quot;&gt;Incident Light Meter Watch based on &lt;a href=&quot;https:&#x2F;&#x2F;www.sensorwatch.net&#x2F;&quot;&gt;Sensor Watch&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;div class=&quot;blockbutton&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;Hylian&#x2F;Sensor-Watch&#x2F;tree&#x2F;hylian&#x2F;tcs3400&quot;&gt;&lt;button&gt;GitHub&lt;&#x2F;button&gt;&lt;&#x2F;a&gt;&lt;&#x2F;div&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;watch.b7e22efe767ca723.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;pcb.6318231a2a250966.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;microscope.c6f63c58d932a633.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+</description>
+      </item>
+      <item>
+          <title>Gallery</title>
+          <pubDate>Thu, 01 Aug 2024 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://tokilabs.co/photos/gallery/</link>
+          <guid>https://tokilabs.co/photos/gallery/</guid>
+          <description xml:base="https://tokilabs.co/photos/gallery/">&lt;div class=&quot;gallerycontainer&quot;&gt;
+
+    &lt;div class=&quot;galleryitem&quot;&gt;
+      &lt;img loading=&quot;lazy&quot; src=&quot;https:&amp;#x2F;&amp;#x2F;tokilabs.co&amp;#x2F;processed_images&amp;#x2F;01.a8e45d7e3e3a61f3.webp&quot; onclick=&quot;throttledScrollDown()&quot;&#x2F;&gt;
+    &lt;&#x2F;div&gt;
+    &lt;div class=&quot;galleryitem&quot;&gt;
+      &lt;img loading=&quot;lazy&quot; src=&quot;https:&amp;#x2F;&amp;#x2F;tokilabs.co&amp;#x2F;processed_images&amp;#x2F;02.a23badf6fa7df94c.webp&quot; onclick=&quot;throttledScrollDown()&quot;&#x2F;&gt;
+    &lt;&#x2F;div&gt;
+    &lt;div class=&quot;galleryitem&quot;&gt;
+      &lt;img loading=&quot;lazy&quot; src=&quot;https:&amp;#x2F;&amp;#x2F;tokilabs.co&amp;#x2F;processed_images&amp;#x2F;03.4eb8eb1f1c806d3f.webp&quot; onclick=&quot;throttledScrollDown()&quot;&#x2F;&gt;
+    &lt;&#x2F;div&gt;
+    &lt;div class=&quot;galleryitem&quot;&gt;
+      &lt;img loading=&quot;lazy&quot; src=&quot;https:&amp;#x2F;&amp;#x2F;tokilabs.co&amp;#x2F;processed_images&amp;#x2F;04.8a2601c9dd3aa22d.webp&quot; onclick=&quot;throttledScrollDown()&quot;&#x2F;&gt;
+    &lt;&#x2F;div&gt;
+    &lt;div class=&quot;galleryitem&quot;&gt;
+      &lt;img loading=&quot;lazy&quot; src=&quot;https:&amp;#x2F;&amp;#x2F;tokilabs.co&amp;#x2F;processed_images&amp;#x2F;05.532a5a9382632008.webp&quot; onclick=&quot;throttledScrollDown()&quot;&#x2F;&gt;
+    &lt;&#x2F;div&gt;
+    &lt;div class=&quot;galleryitem&quot;&gt;
+      &lt;img loading=&quot;lazy&quot; src=&quot;https:&amp;#x2F;&amp;#x2F;tokilabs.co&amp;#x2F;processed_images&amp;#x2F;06.75b807f9326ce610.webp&quot; onclick=&quot;throttledScrollDown()&quot;&#x2F;&gt;
+    &lt;&#x2F;div&gt;
+    &lt;div class=&quot;galleryitem&quot;&gt;
+      &lt;img loading=&quot;lazy&quot; src=&quot;https:&amp;#x2F;&amp;#x2F;tokilabs.co&amp;#x2F;processed_images&amp;#x2F;07.f30acfc0a04cfac7.webp&quot; onclick=&quot;throttledScrollDown()&quot;&#x2F;&gt;
+    &lt;&#x2F;div&gt;
+    &lt;div class=&quot;galleryitem&quot;&gt;
+      &lt;img loading=&quot;lazy&quot; src=&quot;https:&amp;#x2F;&amp;#x2F;tokilabs.co&amp;#x2F;processed_images&amp;#x2F;08.e8d4057b0230e9c4.webp&quot; onclick=&quot;throttledScrollDown()&quot;&#x2F;&gt;
+    &lt;&#x2F;div&gt;
+    &lt;div class=&quot;galleryitem&quot;&gt;
+      &lt;img loading=&quot;lazy&quot; src=&quot;https:&amp;#x2F;&amp;#x2F;tokilabs.co&amp;#x2F;processed_images&amp;#x2F;09.886dd52373dcb370.webp&quot; onclick=&quot;throttledScrollDown()&quot;&#x2F;&gt;
+    &lt;&#x2F;div&gt;
+    &lt;div class=&quot;galleryitem&quot;&gt;
+      &lt;img loading=&quot;lazy&quot; src=&quot;https:&amp;#x2F;&amp;#x2F;tokilabs.co&amp;#x2F;processed_images&amp;#x2F;10.5e30f0760844cbaa.webp&quot; onclick=&quot;throttledScrollDown()&quot;&#x2F;&gt;
+    &lt;&#x2F;div&gt;
+    &lt;div class=&quot;galleryitem&quot;&gt;
+      &lt;img loading=&quot;lazy&quot; src=&quot;https:&amp;#x2F;&amp;#x2F;tokilabs.co&amp;#x2F;processed_images&amp;#x2F;11.fbf2a1c5187968d8.webp&quot; onclick=&quot;throttledScrollDown()&quot;&#x2F;&gt;
+    &lt;&#x2F;div&gt;
+    &lt;div class=&quot;galleryitem&quot;&gt;
+      &lt;img loading=&quot;lazy&quot; src=&quot;https:&amp;#x2F;&amp;#x2F;tokilabs.co&amp;#x2F;processed_images&amp;#x2F;12.d698c36361f68ad9.webp&quot; onclick=&quot;throttledScrollDown()&quot;&#x2F;&gt;
+    &lt;&#x2F;div&gt;
+    &lt;div class=&quot;galleryitem&quot;&gt;
+      &lt;img loading=&quot;lazy&quot; src=&quot;https:&amp;#x2F;&amp;#x2F;tokilabs.co&amp;#x2F;processed_images&amp;#x2F;13.2de3acfcc1ab5f14.webp&quot; onclick=&quot;throttledScrollDown()&quot;&#x2F;&gt;
+    &lt;&#x2F;div&gt;
+    &lt;div class=&quot;galleryitem&quot;&gt;
+      &lt;img loading=&quot;lazy&quot; src=&quot;https:&amp;#x2F;&amp;#x2F;tokilabs.co&amp;#x2F;processed_images&amp;#x2F;14.24543bf03f9e9ad4.webp&quot; onclick=&quot;throttledScrollDown()&quot;&#x2F;&gt;
+    &lt;&#x2F;div&gt;
+    &lt;div class=&quot;galleryitem&quot;&gt;
+      &lt;img loading=&quot;lazy&quot; src=&quot;https:&amp;#x2F;&amp;#x2F;tokilabs.co&amp;#x2F;processed_images&amp;#x2F;15.6784ba437ddf1c33.webp&quot; onclick=&quot;throttledScrollDown()&quot;&#x2F;&gt;
+    &lt;&#x2F;div&gt;
+    &lt;div class=&quot;galleryitem&quot;&gt;
+      &lt;img loading=&quot;lazy&quot; src=&quot;https:&amp;#x2F;&amp;#x2F;tokilabs.co&amp;#x2F;processed_images&amp;#x2F;16.412d727616cf2243.webp&quot; onclick=&quot;throttledScrollDown()&quot;&#x2F;&gt;
+    &lt;&#x2F;div&gt;
+    &lt;div class=&quot;galleryitem&quot;&gt;
+      &lt;img loading=&quot;lazy&quot; src=&quot;https:&amp;#x2F;&amp;#x2F;tokilabs.co&amp;#x2F;processed_images&amp;#x2F;17.427768264676b722.webp&quot; onclick=&quot;throttledScrollDown()&quot;&#x2F;&gt;
+    &lt;&#x2F;div&gt;
+    &lt;div class=&quot;galleryitem&quot;&gt;
+      &lt;img loading=&quot;lazy&quot; src=&quot;https:&amp;#x2F;&amp;#x2F;tokilabs.co&amp;#x2F;processed_images&amp;#x2F;18.dd23d31dfadec58a.webp&quot; onclick=&quot;throttledScrollDown()&quot;&#x2F;&gt;
+    &lt;&#x2F;div&gt;
+    &lt;div class=&quot;galleryitem&quot;&gt;
+      &lt;img loading=&quot;lazy&quot; src=&quot;https:&amp;#x2F;&amp;#x2F;tokilabs.co&amp;#x2F;processed_images&amp;#x2F;19.f3498a9ed5d59e13.webp&quot; onclick=&quot;throttledScrollDown()&quot;&#x2F;&gt;
+    &lt;&#x2F;div&gt;
+    &lt;div class=&quot;galleryitem&quot;&gt;
+      &lt;img loading=&quot;lazy&quot; src=&quot;https:&amp;#x2F;&amp;#x2F;tokilabs.co&amp;#x2F;processed_images&amp;#x2F;20.2b502ea9dd941469.webp&quot; onclick=&quot;throttledScrollDown()&quot;&#x2F;&gt;
+    &lt;&#x2F;div&gt;
+    &lt;div class=&quot;galleryitem&quot;&gt;
+      &lt;img loading=&quot;lazy&quot; src=&quot;https:&amp;#x2F;&amp;#x2F;tokilabs.co&amp;#x2F;processed_images&amp;#x2F;21.34a2c64dacadecbb.webp&quot; onclick=&quot;throttledScrollDown()&quot;&#x2F;&gt;
+    &lt;&#x2F;div&gt;
+    &lt;div class=&quot;galleryitem&quot;&gt;
+      &lt;img loading=&quot;lazy&quot; src=&quot;https:&amp;#x2F;&amp;#x2F;tokilabs.co&amp;#x2F;processed_images&amp;#x2F;22.2d9c82035dc2f908.webp&quot; onclick=&quot;throttledScrollDown()&quot;&#x2F;&gt;
+    &lt;&#x2F;div&gt;
+    &lt;div class=&quot;galleryitem&quot;&gt;
+      &lt;img loading=&quot;lazy&quot; src=&quot;https:&amp;#x2F;&amp;#x2F;tokilabs.co&amp;#x2F;processed_images&amp;#x2F;23.99b5763c3ce30cca.webp&quot; onclick=&quot;throttledScrollDown()&quot;&#x2F;&gt;
+    &lt;&#x2F;div&gt;
+    &lt;div class=&quot;galleryitem&quot;&gt;
+      &lt;img loading=&quot;lazy&quot; src=&quot;https:&amp;#x2F;&amp;#x2F;tokilabs.co&amp;#x2F;processed_images&amp;#x2F;24.19468e549ab96224.webp&quot; onclick=&quot;throttledScrollDown()&quot;&#x2F;&gt;
+    &lt;&#x2F;div&gt;
+    &lt;div class=&quot;galleryitem&quot;&gt;
+      &lt;img loading=&quot;lazy&quot; src=&quot;https:&amp;#x2F;&amp;#x2F;tokilabs.co&amp;#x2F;processed_images&amp;#x2F;25.a7296f36ec1bd4dc.webp&quot; onclick=&quot;throttledScrollDown()&quot;&#x2F;&gt;
+    &lt;&#x2F;div&gt;
+    &lt;div class=&quot;galleryitem&quot;&gt;
+      &lt;img loading=&quot;lazy&quot; src=&quot;https:&amp;#x2F;&amp;#x2F;tokilabs.co&amp;#x2F;processed_images&amp;#x2F;26.88677839af1b47f1.webp&quot; onclick=&quot;throttledScrollDown()&quot;&#x2F;&gt;
+    &lt;&#x2F;div&gt;
+    &lt;div class=&quot;galleryitem&quot;&gt;
+      &lt;img loading=&quot;lazy&quot; src=&quot;https:&amp;#x2F;&amp;#x2F;tokilabs.co&amp;#x2F;processed_images&amp;#x2F;27.71da805196bd9ca0.webp&quot; onclick=&quot;throttledScrollDown()&quot;&#x2F;&gt;
+    &lt;&#x2F;div&gt;
+    &lt;div class=&quot;galleryitem&quot;&gt;
+      &lt;img loading=&quot;lazy&quot; src=&quot;https:&amp;#x2F;&amp;#x2F;tokilabs.co&amp;#x2F;processed_images&amp;#x2F;28.1b522214df680a55.webp&quot; onclick=&quot;throttledScrollDown()&quot;&#x2F;&gt;
+    &lt;&#x2F;div&gt;
+    &lt;div class=&quot;galleryitem&quot;&gt;
+      &lt;img loading=&quot;lazy&quot; src=&quot;https:&amp;#x2F;&amp;#x2F;tokilabs.co&amp;#x2F;processed_images&amp;#x2F;29.7aba352ff33736dd.webp&quot; onclick=&quot;throttledScrollDown()&quot;&#x2F;&gt;
+    &lt;&#x2F;div&gt;
+    &lt;div class=&quot;galleryitem&quot;&gt;
+      &lt;img loading=&quot;lazy&quot; src=&quot;https:&amp;#x2F;&amp;#x2F;tokilabs.co&amp;#x2F;processed_images&amp;#x2F;30.d9417e50f91608ca.webp&quot; onclick=&quot;throttledScrollDown()&quot;&#x2F;&gt;
+    &lt;&#x2F;div&gt;
+    &lt;div class=&quot;galleryitem&quot;&gt;
+      &lt;img loading=&quot;lazy&quot; src=&quot;https:&amp;#x2F;&amp;#x2F;tokilabs.co&amp;#x2F;processed_images&amp;#x2F;31.42ecd1d79516ca53.webp&quot; onclick=&quot;throttledScrollDown()&quot;&#x2F;&gt;
+    &lt;&#x2F;div&gt;
+    &lt;div class=&quot;galleryitem&quot;&gt;
+      &lt;img loading=&quot;lazy&quot; src=&quot;https:&amp;#x2F;&amp;#x2F;tokilabs.co&amp;#x2F;processed_images&amp;#x2F;32.785aafc4637ebd70.webp&quot; onclick=&quot;throttledScrollDown()&quot;&#x2F;&gt;
+    &lt;&#x2F;div&gt;
+    &lt;div class=&quot;galleryitem&quot;&gt;
+      &lt;img loading=&quot;lazy&quot; src=&quot;https:&amp;#x2F;&amp;#x2F;tokilabs.co&amp;#x2F;processed_images&amp;#x2F;33.2d9d877bf2ee6e34.webp&quot; onclick=&quot;throttledScrollDown()&quot;&#x2F;&gt;
+    &lt;&#x2F;div&gt;
+    &lt;div class=&quot;galleryitem&quot;&gt;
+      &lt;img loading=&quot;lazy&quot; src=&quot;https:&amp;#x2F;&amp;#x2F;tokilabs.co&amp;#x2F;processed_images&amp;#x2F;34.2dfbdf320058e51d.webp&quot; onclick=&quot;throttledScrollDown()&quot;&#x2F;&gt;
+    &lt;&#x2F;div&gt;
+    &lt;div class=&quot;galleryitem&quot;&gt;
+      &lt;img loading=&quot;lazy&quot; src=&quot;https:&amp;#x2F;&amp;#x2F;tokilabs.co&amp;#x2F;processed_images&amp;#x2F;35.53bb78a26c4acf21.webp&quot; onclick=&quot;throttledScrollDown()&quot;&#x2F;&gt;
+    &lt;&#x2F;div&gt;
+    &lt;div class=&quot;galleryitem&quot;&gt;
+      &lt;img loading=&quot;lazy&quot; src=&quot;https:&amp;#x2F;&amp;#x2F;tokilabs.co&amp;#x2F;processed_images&amp;#x2F;36.00d7a9c0df1d1c26.webp&quot; onclick=&quot;throttledScrollDown()&quot;&#x2F;&gt;
+    &lt;&#x2F;div&gt;
+    &lt;div class=&quot;galleryitem&quot;&gt;
+      &lt;img loading=&quot;lazy&quot; src=&quot;https:&amp;#x2F;&amp;#x2F;tokilabs.co&amp;#x2F;processed_images&amp;#x2F;37.af875daca2cd5eaa.webp&quot; onclick=&quot;throttledScrollDown()&quot;&#x2F;&gt;
+    &lt;&#x2F;div&gt;
+    &lt;div class=&quot;galleryitem&quot;&gt;
+      &lt;img loading=&quot;lazy&quot; src=&quot;https:&amp;#x2F;&amp;#x2F;tokilabs.co&amp;#x2F;processed_images&amp;#x2F;38.4433d70fcf25c8e9.webp&quot; onclick=&quot;throttledScrollDown()&quot;&#x2F;&gt;
+    &lt;&#x2F;div&gt;
+    &lt;div class=&quot;galleryitem&quot;&gt;
+      &lt;img loading=&quot;lazy&quot; src=&quot;https:&amp;#x2F;&amp;#x2F;tokilabs.co&amp;#x2F;processed_images&amp;#x2F;39.7d546a7d07eccf02.webp&quot; onclick=&quot;throttledScrollDown()&quot;&#x2F;&gt;
+    &lt;&#x2F;div&gt;
+    &lt;div class=&quot;galleryitem&quot;&gt;
+      &lt;img loading=&quot;lazy&quot; src=&quot;https:&amp;#x2F;&amp;#x2F;tokilabs.co&amp;#x2F;processed_images&amp;#x2F;40.a77688cd94b5ed97.webp&quot; onclick=&quot;throttledScrollDown()&quot;&#x2F;&gt;
+    &lt;&#x2F;div&gt;
+    &lt;div class=&quot;galleryitem&quot;&gt;
+      &lt;img loading=&quot;lazy&quot; src=&quot;https:&amp;#x2F;&amp;#x2F;tokilabs.co&amp;#x2F;processed_images&amp;#x2F;41.2c87e1a5d7bbc446.webp&quot; onclick=&quot;throttledScrollDown()&quot;&#x2F;&gt;
+    &lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+</description>
+      </item>
+      <item>
+          <title>VS Code for Hopeless Vim Users</title>
+          <pubDate>Sun, 19 Feb 2023 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://tokilabs.co/dev/vscode/</link>
+          <guid>https://tokilabs.co/dev/vscode/</guid>
+          <description xml:base="https://tokilabs.co/dev/vscode/">&lt;h2 id=&quot;why-vs-code&quot;&gt;Why VS Code?&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;you-can-still-use-neovim&quot;&gt;You Can Still Use Neovim&lt;&#x2F;h3&gt;
+&lt;p&gt;The neovim extension runs an actual neovim instance! With your nvim config! Since it&#x27;s an actual neovim instance, you&#x27;ll never run into weird edge cases of specific vim features that haven&#x27;t been implemented.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;it-s-configurable&quot;&gt;It&#x27;s Configurable&lt;&#x2F;h3&gt;
+&lt;p&gt;The VS Code defaults did not work for me at all, but there&#x27;s a good amount of configurability. Combined with the neovim plugin, it&#x27;s possible to tinker your way into a cozy environment.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;remote-workflow&quot;&gt;Remote Workflow&lt;&#x2F;h3&gt;
+&lt;p&gt;After switching to a remote server workflow, vim in a ssh session felt like a chore. Input latency was noticeably worse, launching new sessions in i3&#x2F;sway was slower, and I didn&#x27;t want to live inside of a tmux session. VS Code Remote hides the latency with local buffers, and is able to resume sessions from a broken SSH connection.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;language-server-support&quot;&gt;Language Server Support&lt;&#x2F;h3&gt;
+&lt;p&gt;coc.nvim is great and all, but VS Code&#x27;s out-of-box Language Server support is really well integrated. Displaying type annotations in-line, symbol&#x2F;outline search, type documentation, renaming, completion- it all &lt;em&gt;Just Works(tm)&lt;&#x2F;em&gt;. Really nice, especially when writing C++ or Rust.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;diff-merge-tooling&quot;&gt;Diff&#x2F;Merge Tooling&lt;&#x2F;h3&gt;
+&lt;p&gt;Even after lots of tinkering with plugins, using Vim for diffs and merges always felt clunky to me. VS Code&#x27;s side-by-side view is super nice, and can be used as your git difftool and merge tool. Just clicking a button to revert a single line&#x2F;hunk or accept both changes in a merge is really refreshing.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;easy-splits&quot;&gt;Easy Splits&lt;&#x2F;h3&gt;
+&lt;p&gt;Being a GUI editor, panes and splits feel a lot more freeform than in Vim. You can easily move editors between split panes, create new ones, and create tabs within a pane.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;remote-terminal&quot;&gt;Remote Terminal&lt;&#x2F;h3&gt;
+&lt;p&gt;The terminal is nice to have in a VS Code Remote session. It might not be &lt;code&gt;$YOUR_FAVORITE_TERMINAL_EMULATOR&lt;&#x2F;code&gt;, but it&#x27;s perfectly serviceable.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;getting-started&quot;&gt;Getting Started&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;install-vs-code&quot;&gt;Install VS Code&lt;&#x2F;h3&gt;
+&lt;p&gt;Install VS Code on your server and local machine.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;install-neovim-extension&quot;&gt;Install Neovim Extension&lt;&#x2F;h3&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;marketplace.visualstudio.com&#x2F;items?itemName=asvetliakov.vscode-neovim&quot;&gt;https:&#x2F;&#x2F;marketplace.visualstudio.com&#x2F;items?itemName=asvetliakov.vscode-neovim&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;The plugin requires neovim v0.8.0 or greater. If your distro&#x27;s repo does not have a recent neovim version, install the appimage release manually:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#383838;color:#e6e1dc;&quot;&gt;&lt;code&gt;&lt;span&gt;mkdir -p $HOME&#x2F;.local&#x2F;bin
+&lt;&#x2F;span&gt;&lt;span&gt;wget https:&#x2F;&#x2F;github.com&#x2F;neovim&#x2F;neovim&#x2F;releases&#x2F;download&#x2F;stable&#x2F;nvim.appimage -O $HOME&#x2F;.local&#x2F;bin&#x2F;nvim
+&lt;&#x2F;span&gt;&lt;span&gt;chmod u+x $HOME&#x2F;.local&#x2F;bin&#x2F;nvim
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;configure-neovim&quot;&gt;Configure Neovim&lt;&#x2F;h2&gt;
+&lt;p&gt;Spend some time reading through the README for the extension, it&#x27;s very thorough.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;extension-configuration&quot;&gt;Extension Configuration&lt;&#x2F;h3&gt;
+&lt;p&gt;Open User Settings (&lt;code&gt;Ctrl+Shift+P &amp;gt; &quot;Open User Settings&lt;&#x2F;code&gt;):&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#383838;color:#e6e1dc;&quot;&gt;&lt;code&gt;&lt;span&gt;Neovim Executable Paths: Linux: ~&#x2F;.local&#x2F;bin&#x2F;nvim
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Make sure you add the following to &lt;code&gt;settings.json&lt;&#x2F;code&gt; (Ctrl+Shift+P &amp;gt; &quot;Open User Settings (JSON)&quot;):&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#383838;color:#e6e1dc;&quot;&gt;&lt;code&gt;&lt;span&gt;&amp;quot;extensions.experimental.affinity&amp;quot;: {
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;asvetliakov.vscode-neovim&amp;quot;: 1
+&lt;&#x2F;span&gt;&lt;span&gt;},
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;init-vim-configuration&quot;&gt;&lt;code&gt;init.vim&lt;&#x2F;code&gt; Configuration&lt;&#x2F;h3&gt;
+&lt;p&gt;The extension will use the same &lt;code&gt;init.vim&lt;&#x2F;code&gt; configuration as your regular neovim instance. This means that you will need to modify your config to exclude nvim plugin loading when in VS Code, and can also bind specific keybinds for VS Code only.&lt;&#x2F;p&gt;
+&lt;p&gt;You can do this by wrapping lines in this if statement:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#383838;color:#e6e1dc;&quot;&gt;&lt;code&gt;&lt;span&gt;if !exists(&amp;#39;g:vscode&amp;#39;)
+&lt;&#x2F;span&gt;&lt;span&gt;  ...
+&lt;&#x2F;span&gt;&lt;span&gt;endif
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;I highly recommend gating loading of your neovim plugins and lua scripts when in vscode mode.&lt;&#x2F;p&gt;
+&lt;p&gt;You can also invoke VS Code commands and set them to keybinds:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#383838;color:#e6e1dc;&quot;&gt;&lt;code&gt;&lt;span&gt;nmap { :call VSCodeCall(&amp;#39;workbench.action.showAllSymbols&amp;#39;)&amp;lt;CR&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;However, note that the bindings in VS Code can take precedence over the neovim ones, and you should read on to the Keybindings section before going to town with your binds.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;keybindings&quot;&gt;Keybindings&lt;&#x2F;h2&gt;
+&lt;p&gt;VS Code has a robust, if overly complex, system for setting keybindings. They can be configured via the GUI or JSON:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#383838;color:#e6e1dc;&quot;&gt;&lt;code&gt;&lt;span&gt;Ctrl + Shift + P &amp;gt; Open Keyboard Shortcuts
+&lt;&#x2F;span&gt;&lt;span&gt;Ctrl + Shift + P &amp;gt; Open Keyboard Shortcuts (JSON)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;There is a huge pile of default bindings that are generally focused on chords or function keys. Deleting bad default binds and creating your own is key to a cozy experience. Every time a keybind doesn&#x27;t do what you want, or you want to do something with a keybind, I recommend spending a minute to open up the shortcut editor and configuring it. It took me a couple weeks to finally get all the keybinds to what I want.&lt;&#x2F;p&gt;
+&lt;p&gt;The keybindings set in VS Code will always take precedence over keybindings set in neovim.&lt;&#x2F;p&gt;
+&lt;p&gt;Most of the following sections will focus on keybindings that I found useful. My bindings are weird and for my Ergodox setup, but will hopefully be useful as a starting point for your config.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;when-clauses&quot;&gt;When Clauses&lt;&#x2F;h3&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;code.visualstudio.com&#x2F;api&#x2F;references&#x2F;when-clause-contexts&quot;&gt;https:&#x2F;&#x2F;code.visualstudio.com&#x2F;api&#x2F;references&#x2F;when-clause-contexts&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;VS Code has a lot of different modalities, with different types of panes that can be visible and focused on. To deal with this, keybindings evaluate &lt;code&gt;when clause&lt;&#x2F;code&gt; expressions to only apply in certain contexts. You could have a single key combination that has multiple bindings depending on what is focused or even visible on the screen.&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;neovim-when-clauses&quot;&gt;Neovim When Clauses&lt;&#x2F;h4&gt;
+&lt;p&gt;The Neovim extension exposes &lt;code&gt;when clause&lt;&#x2F;code&gt; contexts that can be used for keybinds. These are very useful for creating bindings that only run when neovim is in &lt;code&gt;NORMAL&lt;&#x2F;code&gt; mode.&lt;&#x2F;p&gt;
+&lt;p&gt;eg. &lt;code&gt;editorTextFocus &amp;amp;&amp;amp; neovim.init &amp;amp;&amp;amp; neovim.mode == &#x27;normal&#x27;&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;useful-when-clauses&quot;&gt;Useful When Clauses&lt;&#x2F;h4&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Clause&lt;&#x2F;th&gt;&lt;th&gt;Description&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;editorFocus&lt;&#x2F;td&gt;&lt;td&gt;Focus is on a text editor&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;editorTextFocus&lt;&#x2F;td&gt;&lt;td&gt;Text in an editor has focus&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;inputFocus&lt;&#x2F;td&gt;&lt;td&gt;Any text input has focus (including GUI menus)&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;listFocus&lt;&#x2F;td&gt;&lt;td&gt;Focus is on a GUI list&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;findWidgetVisible&lt;&#x2F;td&gt;&lt;td&gt;Find widget is visible&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;terminalFocus&lt;&#x2F;td&gt;&lt;td&gt;Terminal is focused&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;searchViewletVisible&lt;&#x2F;td&gt;&lt;td&gt;Search viewlet is visible (side pane search)&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;sideBarVisible&lt;&#x2F;td&gt;&lt;td&gt;Sidebar is visible&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;sideBarFocus&lt;&#x2F;td&gt;&lt;td&gt;Sidebar is focused&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;focusedView&lt;&#x2F;td&gt;&lt;td&gt;Currently focused view&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;neovim.init&lt;&#x2F;td&gt;&lt;td&gt;Neovim is initialized&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;neovim.mode&lt;&#x2F;td&gt;&lt;td&gt;The current vim mode&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;activeViewlet == &#x27;workbench.view.explorer&#x27;&lt;&#x2F;td&gt;&lt;td&gt;Explorer is visible in the side pane&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;activeViewlet == &#x27;workbench.view.search&#x27;&lt;&#x2F;td&gt;&lt;td&gt;Search is visible in the side pane&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;h3 id=&quot;useful-keybindings&quot;&gt;Useful Keybindings&lt;&#x2F;h3&gt;
+&lt;h4 id=&quot;navigate-panes&quot;&gt;Navigate Panes&lt;&#x2F;h4&gt;
+&lt;p&gt;Use &lt;code&gt;Alt + h&#x2F;j&#x2F;k&#x2F;l&lt;&#x2F;code&gt; to navigate between any panes on the screen. You can go between side pane, editors, and terminal with the same binds.&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#383838;color:#e6e1dc;&quot;&gt;&lt;code&gt;&lt;span&gt;  {
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;key&amp;quot;: &amp;quot;alt+h&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;command&amp;quot;: &amp;quot;workbench.action.navigateLeft&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;  },
+&lt;&#x2F;span&gt;&lt;span&gt;  {
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;key&amp;quot;: &amp;quot;alt+l&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;command&amp;quot;: &amp;quot;workbench.action.navigateRight&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;  },
+&lt;&#x2F;span&gt;&lt;span&gt;  {
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;key&amp;quot;: &amp;quot;alt+k&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;command&amp;quot;: &amp;quot;workbench.action.navigateUp&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;  },
+&lt;&#x2F;span&gt;&lt;span&gt;  {
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;key&amp;quot;: &amp;quot;alt+j&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;command&amp;quot;: &amp;quot;workbench.action.navigateDown&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;  },
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h4 id=&quot;move-an-editor&quot;&gt;Move an Editor&lt;&#x2F;h4&gt;
+&lt;p&gt;Use &lt;code&gt;Ctrl + h&#x2F;j&#x2F;k&#x2F;l&lt;&#x2F;code&gt; to move an editor. If an editor group exists in the move location, it will turn into a tab in the group. If there is no group, a new split will be created.&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#383838;color:#e6e1dc;&quot;&gt;&lt;code&gt;&lt;span&gt;  {
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;key&amp;quot;: &amp;quot;ctrl+k&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;command&amp;quot;: &amp;quot;workbench.action.moveEditorToAboveGroup&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;when&amp;quot;: &amp;quot;editorFocus &amp;amp;&amp;amp; !inQuickOpen &amp;amp;&amp;amp; !listFocus &amp;amp;&amp;amp; focusedView != &amp;#39;workbench.view.search&amp;#39;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;  },
+&lt;&#x2F;span&gt;&lt;span&gt;  {
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;key&amp;quot;: &amp;quot;ctrl+j&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;command&amp;quot;: &amp;quot;workbench.action.moveEditorToBelowGroup&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;when&amp;quot;: &amp;quot;editorFocus &amp;amp;&amp;amp; !inQuickOpen &amp;amp;&amp;amp; !listFocus &amp;amp;&amp;amp; focusedView != &amp;#39;workbench.view.search&amp;#39;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;  },
+&lt;&#x2F;span&gt;&lt;span&gt;  {
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;key&amp;quot;: &amp;quot;ctrl+h&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;command&amp;quot;: &amp;quot;workbench.action.moveEditorToLeftGroup&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;when&amp;quot;: &amp;quot;editorFocus &amp;amp;&amp;amp; !inQuickOpen &amp;amp;&amp;amp; !listFocus &amp;amp;&amp;amp; focusedView != &amp;#39;workbench.view.search&amp;#39;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;  },
+&lt;&#x2F;span&gt;&lt;span&gt;  {
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;key&amp;quot;: &amp;quot;ctrl+l&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;command&amp;quot;: &amp;quot;workbench.action.moveEditorToRightGroup&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;when&amp;quot;: &amp;quot;editorFocus &amp;amp;&amp;amp; !inQuickOpen &amp;amp;&amp;amp; !listFocus &amp;amp;&amp;amp; focusedView != &amp;#39;workbench.view.search&amp;#39;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;  },
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h4 id=&quot;switch-tabs&quot;&gt;Switch Tabs&lt;&#x2F;h4&gt;
+&lt;p&gt;Change tabs with &lt;code&gt;Shift + h&#x2F;j&#x2F;k&#x2F;l&lt;&#x2F;code&gt; in &lt;code&gt;NORMAL&lt;&#x2F;code&gt; mode.&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#383838;color:#e6e1dc;&quot;&gt;&lt;code&gt;&lt;span&gt;  {
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;key&amp;quot;: &amp;quot;shift+j&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;command&amp;quot;: &amp;quot;workbench.action.nextEditorInGroup&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;when&amp;quot;: &amp;quot;editorFocus &amp;amp;&amp;amp; neovim.mode == &amp;#39;normal&amp;#39;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;  },
+&lt;&#x2F;span&gt;&lt;span&gt;  {
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;key&amp;quot;: &amp;quot;shift+k&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;command&amp;quot;: &amp;quot;workbench.action.previousEditorInGroup&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;when&amp;quot;: &amp;quot;editorFocus &amp;amp;&amp;amp; neovim.mode == &amp;#39;normal&amp;#39;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;  },
+&lt;&#x2F;span&gt;&lt;span&gt;  {
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;key&amp;quot;: &amp;quot;shift+h&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;command&amp;quot;: &amp;quot;workbench.action.previousEditorInGroup&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;when&amp;quot;: &amp;quot;editorFocus &amp;amp;&amp;amp; neovim.mode == &amp;#39;normal&amp;#39;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;  },
+&lt;&#x2F;span&gt;&lt;span&gt;  {
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;key&amp;quot;: &amp;quot;shift+l&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;command&amp;quot;: &amp;quot;workbench.action.nextEditorInGroup&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;when&amp;quot;: &amp;quot;editorFocus &amp;amp;&amp;amp; neovim.mode == &amp;#39;normal&amp;#39;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;  },
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h4 id=&quot;move-tab&quot;&gt;Move Tab&lt;&#x2F;h4&gt;
+&lt;p&gt;Move tab ordering within its editor group with &lt;code&gt;Ctrl + Shift + h&#x2F;j&#x2F;k&#x2F;l&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#383838;color:#e6e1dc;&quot;&gt;&lt;code&gt;&lt;span&gt;  {
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;key&amp;quot;: &amp;quot;ctrl+shift+j&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;command&amp;quot;: &amp;quot;-workbench.action.search.toggleQueryDetails&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;when&amp;quot;: &amp;quot;inSearchEditor || searchViewletFocus&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;  },
+&lt;&#x2F;span&gt;&lt;span&gt;    {
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;key&amp;quot;: &amp;quot;ctrl+shift+k&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;command&amp;quot;: &amp;quot;search.action.focusPreviousSearchResult&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;when&amp;quot;: &amp;quot;hasSearchResult &amp;amp;&amp;amp; activeViewlet == &amp;#39;workbench.view.search&amp;#39;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;  },
+&lt;&#x2F;span&gt;&lt;span&gt;    {
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;key&amp;quot;: &amp;quot;ctrl+shift+h&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;command&amp;quot;: &amp;quot;workbench.action.moveEditorLeftInGroup&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;when&amp;quot;: &amp;quot;editorFocus &amp;amp;&amp;amp; neovim.mode == &amp;#39;normal&amp;#39;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;  },
+&lt;&#x2F;span&gt;&lt;span&gt;    {
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;key&amp;quot;: &amp;quot;ctrl+shift+l&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;command&amp;quot;: &amp;quot;workbench.action.moveEditorRightInGroup&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;when&amp;quot;: &amp;quot;editorFocus &amp;amp;&amp;amp; neovim.mode == &amp;#39;normal&amp;#39;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;  },
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h4 id=&quot;toggle-terminal&quot;&gt;Toggle Terminal&lt;&#x2F;h4&gt;
+&lt;p&gt;Press &lt;code&gt;Ctrl + ]&lt;&#x2F;code&gt; to toggle terminal visibility.&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#383838;color:#e6e1dc;&quot;&gt;&lt;code&gt;&lt;span&gt;  {
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;key&amp;quot;: &amp;quot;ctrl+]&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;command&amp;quot;: &amp;quot;workbench.action.terminal.toggleTerminal&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;  },
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h4 id=&quot;toggle-terminal-maximization&quot;&gt;Toggle Terminal Maximization&lt;&#x2F;h4&gt;
+&lt;p&gt;Press &lt;code&gt;Ctrl + f&lt;&#x2F;code&gt; to maximize terminal pane when focused.&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#383838;color:#e6e1dc;&quot;&gt;&lt;code&gt;&lt;span&gt;  {
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;key&amp;quot;: &amp;quot;ctrl+f&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;command&amp;quot;: &amp;quot;workbench.action.toggleMaximizedPanel&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;when&amp;quot;: &amp;quot;terminalFocus&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;  },
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h4 id=&quot;terminal-key-passthrough&quot;&gt;Terminal Key Passthrough&lt;&#x2F;h4&gt;
+&lt;p&gt;Pass-through certain keybinds to the terminal to ensure they aren&#x27;t grabbed by other keybinds.&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#383838;color:#e6e1dc;&quot;&gt;&lt;code&gt;&lt;span&gt;  {
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;key&amp;quot;: &amp;quot;ctrl+e&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;command&amp;quot;: &amp;quot;ctrl+e&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;when&amp;quot;: &amp;quot;terminalFocus&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;  },
+&lt;&#x2F;span&gt;&lt;span&gt;  {
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;key&amp;quot;: &amp;quot;ctrl+t&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;command&amp;quot;: &amp;quot;ctrl+t&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;when&amp;quot;: &amp;quot;terminalFocus&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;  },
+&lt;&#x2F;span&gt;&lt;span&gt;  {
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;key&amp;quot;: &amp;quot;ctrl+j&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;command&amp;quot;: &amp;quot;ctrl+j&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;when&amp;quot;: &amp;quot;terminalFocus&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;  },
+&lt;&#x2F;span&gt;&lt;span&gt;  {
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;key&amp;quot;: &amp;quot;ctrl+k&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;command&amp;quot;: &amp;quot;ctrl+k&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;when&amp;quot;: &amp;quot;terminalFocus&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;  },
+&lt;&#x2F;span&gt;&lt;span&gt;  {
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;key&amp;quot;: &amp;quot;ctrl+r&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;command&amp;quot;: &amp;quot;ctrl+r&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;when&amp;quot;: &amp;quot;terminalFocus&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;  },
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h4 id=&quot;toggle-sidebar&quot;&gt;Toggle Sidebar&lt;&#x2F;h4&gt;
+&lt;p&gt;Press &lt;code&gt;Ctrl + b&lt;&#x2F;code&gt; for three way sidebar toggle.&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;If sidebar is hidden, show and focus it.&lt;&#x2F;li&gt;
+&lt;li&gt;If sidebar is visible and not focused, focus it.&lt;&#x2F;li&gt;
+&lt;li&gt;If sidebar is focused, hide it.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre style=&quot;background-color:#383838;color:#e6e1dc;&quot;&gt;&lt;code&gt;&lt;span&gt;  {
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;key&amp;quot;: &amp;quot;ctrl+b&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;command&amp;quot;: &amp;quot;workbench.action.focusSideBar&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;when&amp;quot;: &amp;quot;!sideBarFocus&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;  },
+&lt;&#x2F;span&gt;&lt;span&gt;  {
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;key&amp;quot;: &amp;quot;ctrl+b&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;command&amp;quot;: &amp;quot;workbench.action.toggleSidebarVisibility&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;  },
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h4 id=&quot;list-navigation&quot;&gt;List Navigation&lt;&#x2F;h4&gt;
+&lt;p&gt;Navigate GUI lists with &lt;code&gt;Ctrl + j&#x2F;k&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#383838;color:#e6e1dc;&quot;&gt;&lt;code&gt;&lt;span&gt;  {
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;key&amp;quot;: &amp;quot;ctrl+j&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;command&amp;quot;: &amp;quot;list.focusDown&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;when&amp;quot;: &amp;quot;listFocus &amp;amp;&amp;amp; !inputFocus &amp;amp;&amp;amp; !editorTextFocus&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;  },
+&lt;&#x2F;span&gt;&lt;span&gt;  {
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;key&amp;quot;: &amp;quot;ctrl+k&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;command&amp;quot;: &amp;quot;list.focusUp&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;when&amp;quot;: &amp;quot;listFocus &amp;amp;&amp;amp; !inputFocus &amp;amp;&amp;amp; !editorTextFocus&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;  },
+&lt;&#x2F;span&gt;&lt;span&gt;  {
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;key&amp;quot;: &amp;quot;ctrl+j&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;command&amp;quot;: &amp;quot;workbench.action.quickOpenSelectNext&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;when&amp;quot;: &amp;quot;inQuickOpen&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;  },
+&lt;&#x2F;span&gt;&lt;span&gt;  {
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;key&amp;quot;: &amp;quot;ctrl+k&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;command&amp;quot;: &amp;quot;workbench.action.quickOpenSelectPrevious&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;when&amp;quot;: &amp;quot;inQuickOpen&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;  },
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h4 id=&quot;search-result-navigation&quot;&gt;Search Result Navigation&lt;&#x2F;h4&gt;
+&lt;p&gt;When search results are visible in the sidebar, use &lt;code&gt;Ctrl + Shift + j&#x2F;k&lt;&#x2F;code&gt; to go between search results, even when in editor.&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#383838;color:#e6e1dc;&quot;&gt;&lt;code&gt;&lt;span&gt;  {
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;key&amp;quot;: &amp;quot;ctrl+shift+j&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;command&amp;quot;: &amp;quot;search.action.focusNextSearchResult&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;when&amp;quot;: &amp;quot;hasSearchResult &amp;amp;&amp;amp; activeViewlet == &amp;#39;workbench.view.search&amp;#39;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;  },
+&lt;&#x2F;span&gt;&lt;span&gt;  {
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;key&amp;quot;: &amp;quot;ctrl+shift+k&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;command&amp;quot;: &amp;quot;search.action.focusPreviousSearchResult&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;when&amp;quot;: &amp;quot;hasSearchResult &amp;amp;&amp;amp; activeViewlet == &amp;#39;workbench.view.search&amp;#39;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;  },
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h4 id=&quot;editor-quick-open-file&quot;&gt;Editor: Quick Open File&lt;&#x2F;h4&gt;
+&lt;p&gt;When in editor and &lt;code&gt;NORMAL&lt;&#x2F;code&gt; mode, press &lt;code&gt;&#x27;&lt;&#x2F;code&gt; to quick open a file via search.&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#383838;color:#e6e1dc;&quot;&gt;&lt;code&gt;&lt;span&gt;  {
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;key&amp;quot;: &amp;quot;&amp;#39;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;command&amp;quot;: &amp;quot;workbench.action.quickOpen&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;when&amp;quot;: &amp;quot;editorTextFocus &amp;amp;&amp;amp; neovim.init &amp;amp;&amp;amp; !dirtyDiffVisible &amp;amp;&amp;amp; !findWidgetVisible &amp;amp;&amp;amp; !inReferenceSearchEditor &amp;amp;&amp;amp; !markersNavigationVisible &amp;amp;&amp;amp; !notebookCellFocused &amp;amp;&amp;amp; !notificationCenterVisible &amp;amp;&amp;amp; !parameterHintsVisible &amp;amp;&amp;amp; !referenceSearchVisible &amp;amp;&amp;amp; neovim.mode == &amp;#39;normal&amp;#39;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;  }
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h4 id=&quot;editor-sidebar-search&quot;&gt;Editor: Sidebar Search&lt;&#x2F;h4&gt;
+&lt;p&gt;When in editor and &lt;code&gt;NORMAL&lt;&#x2F;code&gt; mode, press &lt;code&gt;|&lt;&#x2F;code&gt; to open search sidebar to search for text within the project.&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#383838;color:#e6e1dc;&quot;&gt;&lt;code&gt;&lt;span&gt;  {
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;key&amp;quot;: &amp;quot;shift+\\&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;command&amp;quot;: &amp;quot;workbench.action.findInFiles&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;when&amp;quot;: &amp;quot;editorTextFocus &amp;amp;&amp;amp; neovim.init &amp;amp;&amp;amp; !dirtyDiffVisible &amp;amp;&amp;amp; !findWidgetVisible &amp;amp;&amp;amp; !inReferenceSearchEditor &amp;amp;&amp;amp; !markersNavigationVisible &amp;amp;&amp;amp; !notebookCellFocused &amp;amp;&amp;amp; !notificationCenterVisible &amp;amp;&amp;amp; !parameterHintsVisible &amp;amp;&amp;amp; !referenceSearchVisible &amp;amp;&amp;amp; neovim.mode == &amp;#39;normal&amp;#39;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;  },
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h4 id=&quot;editor-search-all-workspace-symbols&quot;&gt;Editor: Search All Workspace Symbols&lt;&#x2F;h4&gt;
+&lt;p&gt;When in editor and &lt;code&gt;NORMAL&lt;&#x2F;code&gt; mode, press &lt;code&gt;{&lt;&#x2F;code&gt; to search all symbols in the workspace.&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#383838;color:#e6e1dc;&quot;&gt;&lt;code&gt;&lt;span&gt;  {
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;key&amp;quot;: &amp;quot;shift+[&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;command&amp;quot;: &amp;quot;workbench.action.showAllSymbols&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;when&amp;quot;: &amp;quot;editorTextFocus &amp;amp;&amp;amp; neovim.init &amp;amp;&amp;amp; !dirtyDiffVisible &amp;amp;&amp;amp; !findWidgetVisible &amp;amp;&amp;amp; !inReferenceSearchEditor &amp;amp;&amp;amp; !markersNavigationVisible &amp;amp;&amp;amp; !notebookCellFocused &amp;amp;&amp;amp; !notificationCenterVisible &amp;amp;&amp;amp; !parameterHintsVisible &amp;amp;&amp;amp; !referenceSearchVisible &amp;amp;&amp;amp; neovim.mode == &amp;#39;normal&amp;#39;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;  },
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h4 id=&quot;editor-search-symbols-in-file-outline&quot;&gt;Editor: Search Symbols in File (Outline)&lt;&#x2F;h4&gt;
+&lt;p&gt;When in editor and &lt;code&gt;NORMAL&lt;&#x2F;code&gt; mode, press &lt;code&gt;}&lt;&#x2F;code&gt; to search all symbols in the file.&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#383838;color:#e6e1dc;&quot;&gt;&lt;code&gt;&lt;span&gt;  {
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;key&amp;quot;: &amp;quot;shift+]&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;command&amp;quot;: &amp;quot;workbench.action.gotoSymbol&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;when&amp;quot;: &amp;quot;editorTextFocus &amp;amp;&amp;amp; neovim.init &amp;amp;&amp;amp; !textCompareEditorVIsible &amp;amp;&amp;amp; !dirtyDiffVisible &amp;amp;&amp;amp; !findWidgetVisible &amp;amp;&amp;amp; !inReferenceSearchEditor &amp;amp;&amp;amp; !markersNavigationVisible &amp;amp;&amp;amp; !notebookCellFocused &amp;amp;&amp;amp; !notificationCenterVisible &amp;amp;&amp;amp; !parameterHintsVisible &amp;amp;&amp;amp; !referenceSearchVisible &amp;amp;&amp;amp; neovim.mode == &amp;#39;normal&amp;#39;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;  },
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h4 id=&quot;editor-language-server-keybinds&quot;&gt;Editor: Language Server Keybinds&lt;&#x2F;h4&gt;
+&lt;pre style=&quot;background-color:#383838;color:#e6e1dc;&quot;&gt;&lt;code&gt;&lt;span&gt;if exists(&amp;#39;g:vscode&amp;#39;)
+&lt;&#x2F;span&gt;&lt;span&gt;  nmap &amp;lt;silent&amp;gt; gd :call VSCodeCall(&amp;#39;editor.action.peekDefinition&amp;#39;)&amp;lt;CR&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  nmap &amp;lt;silent&amp;gt; gD :call VSCodeCall(&amp;#39;editor.action.revealDefinition&amp;#39;)&amp;lt;CR&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  nmap &amp;lt;silent&amp;gt; gr :call VSCodeCall(&amp;#39;editor.action.referenceSearch.trigger&amp;#39;)&amp;lt;CR&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  nmap &amp;lt;silent&amp;gt; gR :call VSCodeCall(&amp;#39;references-view.findReferences&amp;#39;)&amp;lt;CR&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  nmap &amp;lt;silent&amp;gt; gy :call VSCodeCall(&amp;#39;editor.action.goToTypeDefinition&amp;#39;)&amp;lt;CR&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  nmap &amp;lt;silent&amp;gt; grn :call VSCodeCall(&amp;#39;editor.action.rename&amp;#39;)&amp;lt;CR&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;fi
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h4 id=&quot;diff-stage-unstage&quot;&gt;Diff: Stage&#x2F;Unstage&lt;&#x2F;h4&gt;
+&lt;p&gt;In a diff view:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Select a hunk and press &lt;code&gt;Alt + s&lt;&#x2F;code&gt; to stage just that hunk.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Select a hunk and press &lt;code&gt;Alt + Shift + s&lt;&#x2F;code&gt; to unstage just that hunk.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Press &lt;code&gt;Ctrl + s&lt;&#x2F;code&gt; to stage the whole file.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre style=&quot;background-color:#383838;color:#e6e1dc;&quot;&gt;&lt;code&gt;&lt;span&gt;  {
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;key&amp;quot;: &amp;quot;alt+s&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;command&amp;quot;: &amp;quot;git.stageSelectedRanges&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;when&amp;quot;: &amp;quot;isInDiffEditor&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;  },
+&lt;&#x2F;span&gt;&lt;span&gt;  {
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;key&amp;quot;: &amp;quot;shift+alt+s&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;command&amp;quot;: &amp;quot;git.unstageSelectedRanges&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;when&amp;quot;: &amp;quot;isInDiffEditor&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;  },
+&lt;&#x2F;span&gt;&lt;span&gt;  {
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;key&amp;quot;: &amp;quot;ctrl+s&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;command&amp;quot;: &amp;quot;git.stage&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;when&amp;quot;: &amp;quot;isInDiffEditor&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;  },
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h4 id=&quot;toggle-split-width&quot;&gt;Toggle Split Width&lt;&#x2F;h4&gt;
+&lt;p&gt;When in a split of two editor groups, press &lt;code&gt;,&lt;&#x2F;code&gt; to toggle between maximizing the width of one split and evenly splitting them.&lt;&#x2F;p&gt;
+&lt;p&gt;When a split is maximized, navigating to the smaller split will cause that one to become maximized instead.&lt;&#x2F;p&gt;
+&lt;p&gt;In &lt;code&gt;init.vim&lt;&#x2F;code&gt;:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#383838;color:#e6e1dc;&quot;&gt;&lt;code&gt;&lt;span&gt;if exists(&amp;#39;g:vscode&amp;#39;)
+&lt;&#x2F;span&gt;&lt;span&gt;  nnoremap , :call VSCodeCall(&amp;#39;workbench.action.toggleEditorWidths&amp;#39;)&amp;lt;CR&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;endif
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h4 id=&quot;toggle-zen-mode&quot;&gt;Toggle Zen Mode&lt;&#x2F;h4&gt;
+&lt;p&gt;Press &lt;code&gt;.&lt;&#x2F;code&gt; to toggle &lt;a href=&quot;https:&#x2F;&#x2F;code.visualstudio.com&#x2F;docs&#x2F;getstarted&#x2F;userinterface#_zen-mode&quot;&gt;Zen Mode&lt;&#x2F;a&gt;. Zen Mode hides unnecessary UI elements and bars, only showing editors. The sidebar and terminal can still be invoked with keybinds in this mode.&lt;&#x2F;p&gt;
+&lt;p&gt;In &lt;code&gt;init.vim&lt;&#x2F;code&gt;:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#383838;color:#e6e1dc;&quot;&gt;&lt;code&gt;&lt;span&gt;if exists(&amp;#39;g:vscode&amp;#39;)
+&lt;&#x2F;span&gt;&lt;span&gt;  nnoremap . :call VSCodeCall(&amp;#39;workbench.action.toggleZenMode&amp;#39;)&amp;lt;CR&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;endif
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;git-difftool&quot;&gt;Git Difftool&lt;&#x2F;h2&gt;
+&lt;p&gt;VS Code can be used as your difftool, even when remoted into a server.&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#383838;color:#e6e1dc;&quot;&gt;&lt;code&gt;&lt;span&gt;~&#x2F;.gitconfig:
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;[difftool &amp;quot;vscode&amp;quot;]
+&lt;&#x2F;span&gt;&lt;span&gt;  cmd = code --wait --diff $LOCAL $REMOTE
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;You must invoke &lt;code&gt;git difftool&lt;&#x2F;code&gt; from the VS Code terminal for it to work properly.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;make-doc-hover-larger&quot;&gt;Make Doc Hover Larger&lt;&#x2F;h2&gt;
+&lt;p&gt;The mouse hover (also invokable with &lt;code&gt;gh&lt;&#x2F;code&gt;) also shows language server error output, but it&#x27;s not resizable.&lt;&#x2F;p&gt;
+&lt;p&gt;You can use the &lt;a href=&quot;https:&#x2F;&#x2F;marketplace.visualstudio.com&#x2F;items?itemName=be5invis.vscode-custom-css&quot;&gt;Custom CSS and JS Loader&lt;&#x2F;a&gt; extension to make this hover box a big larger with this CSS.&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#383838;color:#e6e1dc;&quot;&gt;&lt;code&gt;&lt;span&gt;.monaco-editor .suggest-widget.docs-side {
+&lt;&#x2F;span&gt;&lt;span&gt;  width: 1000px;
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;.monaco-editor .suggest-widget.docs-side &amp;gt; .details {
+&lt;&#x2F;span&gt;&lt;span&gt;  width: 60%;
+&lt;&#x2F;span&gt;&lt;span&gt;  max-height: 800px !important;
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;.monaco-editor .suggest-widget.docs-side &amp;gt; .tree {
+&lt;&#x2F;span&gt;&lt;span&gt;  width: 30%;
+&lt;&#x2F;span&gt;&lt;span&gt;  float: left;
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;.editor-widget.parameter-hints-widget.visible {
+&lt;&#x2F;span&gt;&lt;span&gt;  max-height: 800px !important;
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;.monaco-editor .parameter-hints-widget &amp;gt; .wrapper {
+&lt;&#x2F;span&gt;&lt;span&gt;  max-width: 1000px;
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;.monaco-editor .monaco-hover {
+&lt;&#x2F;span&gt;&lt;span&gt;  max-width: 2000px !important;
+&lt;&#x2F;span&gt;&lt;span&gt;  max-height: 800px !important;
+&lt;&#x2F;span&gt;&lt;span&gt;  margin: 0;
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;.monaco-editor .monaco-hover-content {
+&lt;&#x2F;span&gt;&lt;span&gt;  max-width: 2000px !important;
+&lt;&#x2F;span&gt;&lt;span&gt;  max-height: 800px !important;
+&lt;&#x2F;span&gt;&lt;span&gt;  margin: 0;
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;get-rid-of-useless-ui-elements&quot;&gt;Get Rid of Useless UI Elements&lt;&#x2F;h2&gt;
+&lt;p&gt;Elements in the sidebar and bottom bar that are annoying can be hidden by right clicking them.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;show-line-numbers-in-zen-mode&quot;&gt;Show Line Numbers in Zen Mode&lt;&#x2F;h2&gt;
+&lt;p&gt;In &lt;code&gt;settings.json&lt;&#x2F;code&gt;:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#383838;color:#e6e1dc;&quot;&gt;&lt;code&gt;&lt;span&gt;    &amp;quot;zenMode.hideLineNumbers&amp;quot;: false,
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;workaround-zsh-shell-breaks-due-to-recursion&quot;&gt;Workaround: Zsh Shell Breaks Due to Recursion&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;microsoft&#x2F;vscode&#x2F;issues&#x2F;165648&quot;&gt;https:&#x2F;&#x2F;github.com&#x2F;microsoft&#x2F;vscode&#x2F;issues&#x2F;165648&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Manually apply this patch to your VS Code: &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;microsoft&#x2F;vscode&#x2F;pull&#x2F;165174&#x2F;files&quot;&gt;https:&#x2F;&#x2F;github.com&#x2F;microsoft&#x2F;vscode&#x2F;pull&#x2F;165174&#x2F;files&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;extension-docs-view&quot;&gt;Extension: Docs View&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;marketplace.visualstudio.com&#x2F;items?itemName=bierner.docs-view&quot;&gt;Docs View&lt;&#x2F;a&gt; is a useful extension that will show hover documentation in the Explorer sidebar panel.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;extension-gitlens&quot;&gt;Extension: GitLens&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;marketplace.visualstudio.com&#x2F;items?itemName=eamodio.gitlens&quot;&gt;GitLens&lt;&#x2F;a&gt; adds a bunch of fancy git features, but I mostly like it because it adds &lt;code&gt;git blame&lt;&#x2F;code&gt; annotations to the current editor line.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;addendum-wayland-sway&quot;&gt;Addendum: Wayland + Sway&lt;&#x2F;h2&gt;
+&lt;p&gt;I&#x27;ve found latency and compositing performanace with VS Code to be significantly better with Sway + Wayland over i3 + picom. If you&#x27;re using Wayland, you need to launch VS Code with the proper flags to launch it with Wayland support.&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#383838;color:#e6e1dc;&quot;&gt;&lt;code&gt;&lt;span&gt;~&#x2F;.local&#x2F;share&#x2F;applications&#x2F;code.desktop:
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;[Desktop Entry]
+&lt;&#x2F;span&gt;&lt;span&gt;Name=Visual Studio Code
+&lt;&#x2F;span&gt;&lt;span&gt;Comment=Code Editing. Redefined.
+&lt;&#x2F;span&gt;&lt;span&gt;GenericName=Text Editor
+&lt;&#x2F;span&gt;&lt;span&gt;Exec=&#x2F;usr&#x2F;share&#x2F;code&#x2F;code --enable-features=UseOzonePlatform --ozone-platform=wayland --unity-launch %F
+&lt;&#x2F;span&gt;&lt;span&gt;Icon=com.visualstudio.code
+&lt;&#x2F;span&gt;&lt;span&gt;Type=Application
+&lt;&#x2F;span&gt;&lt;span&gt;StartupNotify=false
+&lt;&#x2F;span&gt;&lt;span&gt;StartupWMClass=Code
+&lt;&#x2F;span&gt;&lt;span&gt;Categories=TextEditor;Development;IDE;
+&lt;&#x2F;span&gt;&lt;span&gt;MimeType=text&#x2F;plain;inode&#x2F;directory;application&#x2F;x-code-workspace;
+&lt;&#x2F;span&gt;&lt;span&gt;Actions=new-empty-window;
+&lt;&#x2F;span&gt;&lt;span&gt;Keywords=vscode;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;[Desktop Action new-empty-window]
+&lt;&#x2F;span&gt;&lt;span&gt;Name=New Empty Window
+&lt;&#x2F;span&gt;&lt;span&gt;Exec=&#x2F;usr&#x2F;share&#x2F;code&#x2F;code --enable-features=UseOzonePlatform --ozone-platform=wayland --new-window %F
+&lt;&#x2F;span&gt;&lt;span&gt;Icon=com.visualstudio.code
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</description>
+      </item>
+      <item>
+          <title>Infrared Camera Flash</title>
+          <pubDate>Thu, 22 Jul 2021 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://tokilabs.co/projects/ir-flash/</link>
+          <guid>https://tokilabs.co/projects/ir-flash/</guid>
+          <description xml:base="https://tokilabs.co/projects/ir-flash/">&lt;h2 id=&quot;ir-led-camera-flash&quot;&gt;IR LED camera flash&lt;&#x2F;h2&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;flash.040d65acdf7737b9.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;pcb.1641e1b31dea3ee7.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;sample-1.cea1f03e13d8b526.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;sample-2.0cc845edbdc90ece.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;sample-3.8c2879e17347a448.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+</description>
+      </item>
+      <item>
+          <title>RB67 Instax</title>
+          <pubDate>Wed, 01 Jul 2020 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://tokilabs.co/projects/instax/</link>
+          <guid>https://tokilabs.co/projects/instax/</guid>
+          <description xml:base="https://tokilabs.co/projects/instax/">&lt;h2 id=&quot;instax-mini-back-for-mamiya-rb67&quot;&gt;Instax Mini back for Mamiya RB67&lt;&#x2F;h2&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;instax.62d4ff2915b358eb.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;instax_shots.c7722f02f888dbe3.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;back.f7221f9a34082a97.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;front.fd92bb9460a39eae.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+</description>
+      </item>
+      <item>
+          <title>Shimarin PCB</title>
+          <pubDate>Sat, 25 Apr 2020 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://tokilabs.co/art/pcb/</link>
+          <guid>https://tokilabs.co/art/pcb/</guid>
+          <description xml:base="https://tokilabs.co/art/pcb/">
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;rin.5cf46e70a759b1dd.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+</description>
+      </item>
+      <item>
+          <title>Therapy Light</title>
+          <pubDate>Mon, 22 Jul 2019 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://tokilabs.co/projects/therapylight/</link>
+          <guid>https://tokilabs.co/projects/therapylight/</guid>
+          <description xml:base="https://tokilabs.co/projects/therapylight/">
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;therapylight.5492aef1e8b46c5f.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+&lt;h2 id=&quot;background&quot;&gt;Background&lt;&#x2F;h2&gt;
+&lt;p&gt;I suffer from Delayed Phase Sleep Disorder (DPSD), which basically means a day in my body’s circadian rhythm is significantly longer than 24 hours. This results in me going to sleep later and later until eventually it just cycles around and repeats all over again.&lt;&#x2F;p&gt;
+&lt;p&gt;I started looking into therapy lights to try and help align my sleep schedule. Most therapy lights are typically designed for Seasonal Affective Disorder (SAD), a mood disorder caused by reduced sunlight in the winter months. The lights come in a few types:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Full Spectrum&lt;&#x2F;strong&gt;: Designed to replace sunlight by using lights across many different wavelengths&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Blue Light&lt;&#x2F;strong&gt;: Targets specific blue wavelengths for SAD. Studies show that you need less total light output than a full spectrum light when treating SAD. Basically the opposite of f.lux.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Green Light&lt;&#x2F;strong&gt;: Same idea as blue light, but potentially less harmful for your eyes. These only started appearing in the last 10 years or so.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Since I was trying to fix my sleep, I decided to go with green light. Blue light can eye damage, such as macular degeneration, and that seems a bit scary when you’re going for 10,000 lux in a therapy light.&lt;&#x2F;p&gt;
+&lt;p&gt;I saw this paper in Nature that shows the melaopsin receptors in your eyes is highly receptive to 510 nm green light, while not being terrible for your eyes. Melanopsin are the photopigments in your eyes that suppress melatonin in your body, so that’s what you want to target for circadian rhythm.&lt;&#x2F;p&gt;
+&lt;p&gt;Here are some graphs from the paper:&lt;&#x2F;p&gt;
+&lt;p&gt;
+
+
+
+&lt;img src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;graph1.b5fbf25838735e96.webp&quot; &#x2F;&gt;
+ 
+
+
+
+&lt;img src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;graph2.214463cdb5b2bb3a.webp&quot; &#x2F;&gt;
+&lt;&#x2F;p&gt;
+&lt;p&gt;I also saw this product, the Re:Timer, which seemed to match what I want. However, $200 seemed a little steep for some green lights, and you had to wear it on your face whenever you wanted to use it.&lt;&#x2F;p&gt;
+&lt;p&gt;Instead, I decided to make my own light that would mount above my bed and wake me up every morning to get me out of bed and align my sleep cycles. I also wanted it to be compatible with my existing Philips Hue system, since I already use the Hue app to schedule lights to turn on in the morning.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;electronics&quot;&gt;Electronics&lt;&#x2F;h2&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;breadboard.6522b9f9d1909ffb.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+&lt;p&gt;To start with, I used the Mesh Bee from Seeed Studio. This uses an NXP chipset that supports the ZigBee Pro protocol, the same as Hue bulbs. I then flashed this binary from PeeVeeOne to have it act as a Hue bulb.&lt;&#x2F;p&gt;
+&lt;p&gt;For the LED driver, I used this module from Aliexpress. These boards take a PWM control signal and drive a bunch of series LEDs in constant current mode. 100% duty cycle is actually fully off on this board, while the Mesh Bee firmware is configured the opposite way. I tried to modify the firmware source, but the NXP SDK had changed in the meantime and there was some weird GUI based configurator that I couldn’t figure out, so I ended up just sticking a hex inverter between the Mesh Bee and the driver.&lt;&#x2F;p&gt;
+&lt;p&gt;For the LEDs themselves, I got these 510 nm bead LEDs from Aliexpress and wired them all up in series straight to the driver board. They’re rated at 3W each, with 10 LEDs, for a total of 30W.&lt;&#x2F;p&gt;
+&lt;p&gt;Finally, for power, I cut the tip off an old HP 36V power brick and soldered that to the driver board. I then used the D24V5F3 3.3V buck converter from Pololu to power the Mesh Bee and the inverter.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;enclosure&quot;&gt;Enclosure&lt;&#x2F;h2&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;enclosure.7efd036e1fadebd0.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+&lt;p&gt;I designed the enclosure to mount above my bed in OpenSCAD and laser cut it in plywood. I also laser cut a diffuser for the lights with some frosted 3mm acrylic. The whole build is pretty hacked together right now, but it does the job. I was also a bit concerned about eye strain, so I covered it with kapton tape, as some online sources seemed to suggest that kapton tape will absorb blue light.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;results&quot;&gt;Results&lt;&#x2F;h2&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;final.73df8d9b51741844.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+&lt;p&gt;Pretty good! I can’t look directly at the lights, or they’ll leave trails in my vision for minutes after. I was able to schedule the lights in the Hue app and they woke me up in the morning. I also felt more energetic after lying under them for several minutes.&lt;&#x2F;p&gt;
+&lt;p&gt;I also bought a used Extech lux meter and measured the lux output at eye level. It was reading about 466 lux. Commercial therapy lights typically target a melanopic lux of 1500 lux or more, where melanopic lux is the light that will actually be absorbed by melanopsin. Melanopic lux is calculated as a multiple of the actual lux output, so outdoor light might have a M&#x2F;P value of 0.5, while just green light is more like 2.0. For example, here are the measurements of the Re:Timer on f.luxometer (which is an awesome website, by the way!) Since my lights are also 510 nm, assuming a M&#x2F;P value of 2.0, I’m getting 932 melanopic lux!&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>USB to SATA Adapter From a Shucked EasyStore</title>
+          <pubDate>Tue, 25 Jun 2019 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://tokilabs.co/tech/wd-shuck/</link>
+          <guid>https://tokilabs.co/tech/wd-shuck/</guid>
+          <description xml:base="https://tokilabs.co/tech/wd-shuck/">&lt;p&gt;After shucking the HDD out of a WD EasyStore, I was left with the USB to SATA PCB. SATA hard drives take both 5V and 12V to drive the motor inside, and the PCB takes a 12V barrel jack input that it then steps down 5V. I wanted to use these adapters with SSDs, which don’t need the 12V rail, but since the 5V rail is derived from the barrel jack input, I still needed to plug in the power supply to use it.&lt;&#x2F;p&gt;
+&lt;p&gt;By jumping the 5V from the USB input to the SATA 5V pin, I was able to bypass the power circuitry and use SSDs without the power supply plugged in.&lt;&#x2F;p&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;pcb.73c57fda60639be5.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+</description>
+      </item>
+      <item>
+          <title>PiAQM</title>
+          <pubDate>Fri, 01 Mar 2019 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://tokilabs.co/projects/piaqm/</link>
+          <guid>https://tokilabs.co/projects/piaqm/</guid>
+          <description xml:base="https://tokilabs.co/projects/piaqm/">&lt;h2 id=&quot;air-quality-monitor-hat-for-raspbery-pi-zero&quot;&gt;Air quality monitor HAT for Raspbery Pi Zero&lt;&#x2F;h2&gt;
+&lt;div class=&quot;blockbutton&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;Hylian&#x2F;PiAQM&quot;&gt;&lt;button&gt;GitHub&lt;&#x2F;button&gt;&lt;&#x2F;a&gt;&lt;&#x2F;div&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;piaqm.5ce57104d96d4ad9.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+</description>
+      </item>
+      <item>
+          <title>Note</title>
+          <pubDate>Mon, 01 May 2017 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://tokilabs.co/projects/note/</link>
+          <guid>https://tokilabs.co/projects/note/</guid>
+          <description xml:base="https://tokilabs.co/projects/note/">&lt;h2 id=&quot;sound-voltex-controller-designed-with-pcbmode&quot;&gt;Sound Voltex controller designed with &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;boldport&#x2F;pcbmode&quot;&gt;PCBmodE&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;note.944719fdadd8a7dc.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;pcb-render.86eb2a60e379d2b0.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;schematic.cf7d8f215b58032e.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+</description>
+      </item>
+      <item>
+          <title>PebblePay</title>
+          <pubDate>Fri, 01 Jan 2016 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://tokilabs.co/projects/pebblepay/</link>
+          <guid>https://tokilabs.co/projects/pebblepay/</guid>
+          <description xml:base="https://tokilabs.co/projects/pebblepay/">&lt;h2 id=&quot;magspoof-for-pebble-hackathon-project&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;samyk&#x2F;magspoof&quot;&gt;MagSpoof&lt;&#x2F;a&gt; for Pebble, hackathon project&lt;&#x2F;h2&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;pebblepay.213858924816b46c.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+</description>
+      </item>
+      <item>
+          <title>Hack.lu 2014 CTF: Gunslinger Joe&#x27;s Gold Stash</title>
+          <pubDate>Thu, 23 Oct 2014 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://tokilabs.co/dev/hacklu/</link>
+          <guid>https://tokilabs.co/dev/hacklu/</guid>
+          <description xml:base="https://tokilabs.co/dev/hacklu/">&lt;pre style=&quot;background-color:#383838;color:#e6e1dc;&quot;&gt;&lt;code&gt;&lt;span&gt;Category: Reversing 
+&lt;&#x2F;span&gt;&lt;span&gt;Points: 200 
+&lt;&#x2F;span&gt;&lt;span&gt;Author: cutz 
+&lt;&#x2F;span&gt;&lt;span&gt;Description: Silly Gunslinger Joe has learned from his mistakes with his private terminal and now tries to remember passwords. But he&amp;#39;s gotten more paranoid and chose to develope an additional method: protect all his private stuff with a secure locking mechanism that no one would be able to figure out! He&amp;#39;s so confident with this new method that he even started using it to protect all his precious gold. So … we better steal all of it!
+&lt;&#x2F;span&gt;&lt;span&gt;SSH: joes_gold@wildwildweb.fluxfingers.net  PORT: 1415 
+&lt;&#x2F;span&gt;&lt;span&gt;PASSWORD: 1gs67uendsx71xmma8    
+&lt;&#x2F;span&gt;&lt;span&gt;Note: If your username&#x2F;password combination is not getting accepted, then the challenge is working as expected.
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The first thing we see when logging in to the server is that there is a file named FLAG, and an executable named gold_stash. Executing gold_stash prompts us for a username and password. By running &lt;code&gt;ls -l&lt;&#x2F;code&gt;, we see that FLAG is readable by root only and setuid is set for gold_stash, meaning it runs as root user.&lt;&#x2F;p&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;1.04fa7f945c8b6877.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+&lt;p&gt;Opening the executable up in IDA, we find a very straight-forward program that checks the username and password against two plaintext strings and pops a shell by calling &lt;code&gt;execve&lt;&#x2F;code&gt; on &lt;code&gt;&#x2F;bin&#x2F;sh&lt;&#x2F;code&gt; if the strings match.&lt;&#x2F;p&gt;
+&lt;p&gt;Since the username and password are in plaintext, we can just pull them straight out. The username is &lt;code&gt;Joe&lt;&#x2F;code&gt; and the password is &lt;code&gt;omg_joe_is_so_rich&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;2.c16e4146d95e5c19.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+&lt;p&gt;However, using this username&#x2F;password combination still results in a failed authentication. We notice that in gdb on the challenge server and on a local machine, it does pop a shell as intended.&lt;&#x2F;p&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;3.5a6f35735ba7f570.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+&lt;p&gt;Looking through the disassembly for gold_stash, we don&#x27;t notice anything particularly interesting. All the memory is allocated and initialized, and there isn&#x27;t any way for data to leak in, causing the check to fail.&lt;&#x2F;p&gt;
+&lt;p&gt;Thus, we can reason that the thing that is causing the check to fail is external to the executable and unique to the root user on the challenge machine only. The external glibc libraries are a good suspect.&lt;&#x2F;p&gt;
+&lt;p&gt;We run &lt;code&gt;locate joe&lt;&#x2F;code&gt; in the root folder to find any files with substring &lt;code&gt;joe&lt;&#x2F;code&gt;, and find an interesting kernel module called &lt;code&gt;joe.ko&lt;&#x2F;code&gt; at &lt;code&gt;&#x2F;lib&#x2F;modules&#x2F;3.13.0-36-generic&#x2F;kernel&#x2F;joe&#x2F;joe.ko&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;4.6c649f44719abadf.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+&lt;p&gt;Disassembling the module in IDA confirms that it is relevant to the challenge.&lt;&#x2F;p&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;5.487379f0a1655fb3.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+&lt;p&gt;Inside the module, there is a function called &lt;code&gt;fuqstring&lt;&#x2F;code&gt; which is very similar to some of the code in the main &lt;code&gt;joe&lt;&#x2F;code&gt; function. This function iterates over an array in memory, and for every element, it subtracts 4 and then XOR&#x27;s it with an element from the array &lt;code&gt;byte_2DD&lt;&#x2F;code&gt;. We see that it iterates over 18 elements, which is the length of the password string.&lt;&#x2F;p&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;6.6fc37c12dcb476df.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+&lt;p&gt;The array &lt;code&gt;byte_2DD&lt;&#x2F;code&gt; is the character array &lt;code&gt;123456789012445678&lt;&#x2F;code&gt;. So, we just calculate the inverse of &lt;code&gt;(a ^ (b-4))&lt;&#x2F;code&gt;, which is &lt;code&gt;(a ^ b)+4&lt;&#x2F;code&gt;, for every character in the string.&lt;&#x2F;p&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;7.55df12495836eb6d.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+&lt;pre style=&quot;background-color:#383838;color:#e6e1dc;&quot;&gt;&lt;code&gt;&lt;span&gt;#include &amp;lt;stdio.h&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;void main()
+&lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;    char* a;
+&lt;&#x2F;span&gt;&lt;span&gt;    char* b;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    a = &amp;quot;123456789012445678&amp;quot;;
+&lt;&#x2F;span&gt;&lt;span&gt;    b = &amp;quot;omg_joe_is_so_rich&amp;quot;;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    for(int i = 0; i &amp;lt; 18; i++)
+&lt;&#x2F;span&gt;&lt;span&gt;        printf(&amp;quot;%c&amp;quot;, (a[i] ^ b[i])+4);
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    printf(&amp;quot;\n&amp;quot;);
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;8.85d6e83ae2f0af7f.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+&lt;p&gt;Using this password pops us a shell, and we can read the file.&lt;&#x2F;p&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;9.b2c27b8e03dd7a14.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+</description>
+      </item>
+      <item>
+          <title>BoosterBot</title>
+          <pubDate>Fri, 01 Aug 2014 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://tokilabs.co/projects/boosterbot/</link>
+          <guid>https://tokilabs.co/projects/boosterbot/</guid>
+          <description xml:base="https://tokilabs.co/projects/boosterbot/">
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;boosterbot.cd0dd0fdb448f256.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+</description>
+      </item>
+      <item>
+          <title>Arducard</title>
+          <pubDate>Sat, 01 Mar 2014 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://tokilabs.co/projects/arducard/</link>
+          <guid>https://tokilabs.co/projects/arducard/</guid>
+          <description xml:base="https://tokilabs.co/projects/arducard/">
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;arducard-back.34bc6e4aee9e80c4.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+
+
+
+
+
+&lt;img loading=&quot;lazy&quot; src=&quot;https:&#x2F;&#x2F;tokilabs.co&#x2F;processed_images&#x2F;arducard-front.68977cb7c1d96ab1.webp&quot; class=&quot;resized&quot; &#x2F;&gt;
+</description>
+      </item>
+    </channel>
+</rss>

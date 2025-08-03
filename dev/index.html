@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+      <title> tokilabs | dev </title>
+      <link rel="stylesheet" href="https://tokilabs.co/main.css">
+      <link rel="icon" type="image/png" rel="noopener" target="_blank" href="/favicon.png">
+      
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="https://tokilabs.co/rss.xml">
+      
+    </head>
+
+    <body>
+      <header>
+      
+  <ul id="breadcrumbs">
+    
+      
+        <li><a href="https:&#x2F;&#x2F;tokilabs.co&#x2F;">tokilabs</a>&nbsp;&#8594;&nbsp; </li>
+      
+      <li>dev</li>
+  </ul>
+
+      </header>
+
+      <nav>
+      
+  
+  
+  <ul id="bger">
+  
+    
+      
+      <li><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAB3RJTUUH5AUDFDoqfmnPqQAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAC6SURBVEjH7ZTBCcIwFIa/lO6hA7iA6BCO4AZe/xHeCF49C4I7VOfQk2PUS4QibUzahiL0h0AOj7x87wtx+JhZTWQkLYFnTG1Bj5jZBVjE1LpvAknux+F1CkkvgkazB7DJ0kDSHniZ2RFY5yA4SToAKzO7d5EUoVk3V0fZWdLO11dt4gc58Ll62a1OBr2igJ8tcBuLoO0S1Wdfpt40lTALQTNlYI5ujAbTEaT8riHi2cHs4B8dpM5+coI3MpVSlNj0qyUAAAAASUVORK5CYII=" style="object-position: 0 0px; width: 15px; height: 15px" />&nbsp;<div id="curpage">Beepy + Radxa Zero Notes</div></li>
+      
+  
+      
+        <li><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAB3RJTUUH5AUDFDoqfmnPqQAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAC6SURBVEjH7ZTBCcIwFIa/lO6hA7iA6BCO4AZe/xHeCF49C4I7VOfQk2PUS4QibUzahiL0h0AOj7x87wtx+JhZTWQkLYFnTG1Bj5jZBVjE1LpvAknux+F1CkkvgkazB7DJ0kDSHniZ2RFY5yA4SToAKzO7d5EUoVk3V0fZWdLO11dt4gc58Ll62a1OBr2igJ8tcBuLoO0S1Wdfpt40lTALQTNlYI5ujAbTEaT8riHi2cHs4B8dpM5+coI3MpVSlNj0qyUAAAAASUVORK5CYII=" style="object-position: 0 0px; width: 15px; height: 15px" />&nbsp;<a href="https://tokilabs.co/dev/vscode/">VS Code for Hopeless Vim Users</a></li>
+      
+  
+      
+        <li><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAB3RJTUUH5AUDFDoqfmnPqQAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAC6SURBVEjH7ZTBCcIwFIa/lO6hA7iA6BCO4AZe/xHeCF49C4I7VOfQk2PUS4QibUzahiL0h0AOj7x87wtx+JhZTWQkLYFnTG1Bj5jZBVjE1LpvAknux+F1CkkvgkazB7DJ0kDSHniZ2RFY5yA4SToAKzO7d5EUoVk3V0fZWdLO11dt4gc58Ll62a1OBr2igJ8tcBuLoO0S1Wdfpt40lTALQTNlYI5ujAbTEaT8riHi2cHs4B8dpM5+coI3MpVSlNj0qyUAAAAASUVORK5CYII=" style="object-position: 0 0px; width: 15px; height: 15px" />&nbsp;<a href="https://tokilabs.co/dev/hacklu/">Hack.lu 2014 CTF: Gunslinger Joe&#x27;s Gold Stash</a></li>
+      
+  
+  </ul>
+
+      </nav>
+
+      <main>
+        
+  
+  
+
+  <div id="taxonomies">
+    
+      <date>2024.08.06</date>
+    
+
+    
+  </div>
+
+  <h1>Beepy + Radxa Zero Notes</h1><em></em>
+
+  <article>
+    <p><a href="https://beepy.sqfmi.com/">Beepy</a> is a handheld Linux device, with a Blackberry-like keyboard and monochrome Sharp Memory LCD. It's normally powered by a Raspberry Pi Zero W.</p>
+<p>This document contains my notes for swapping out the Raspberry Pi Zero for a <a href="https://wiki.radxa.com/Zero">Radxa Zero</a> instead.</p>
+<h2 id="why-radxa-zero-over-raspberry-pi-zero">Why Radxa Zero over Raspberry Pi Zero?</h2>
+<p>Raspberry Pi is great, but not ideal for handheld, battery-powered devices. Raspberry Pi doesn't implement suspend to RAM or hibernate, due to various reasons related to the boot chain and Broadcom's closed first stage boot. Additionally, the Pi also doesn't have a good concept of a poweroff state. The Pi draws significant current even in "poweroff", and there is also no way to initiate boot from poweroff outside of cycling the power.</p>
+<p>These limitations are fine for a lot of projects, but isn't a great fit for Beepy, which is trying to be a chat device that can stay idle for days/weeks at a time. To address this, Beepy has a management MCU (RP2040), which performs power management in addition to providing keyboard support. The MCU controls the power rail to the Pi, solving the issue of the Pi's quiescent current draw in poweroff. The MCU also sequences power on based on the power key, or an RTC-based timer. The concept is to optimize the Pi's Linux boot times, and have the MCU periodically boot it to quickly check for messages before powering off again. Since the display is a Sharp Memory LCD, notifications and alerts can remain on the screen, even in this soft shutdown state.</p>
+<p>Still, it would be great if we could just... have working suspend and hibernate instead of dealing with all this. The Radxa Zero uses an Amlogic SoC that supports suspend and hibernate, and the goal of this project is to see if we can get acceptable suspend power draw with it.</p>
+<p>None of this stuff is really polished, but it should generally work for day-to-day use. Suspend power still needs to be investigated and optimized, but worst case, you can just enter shutdown and be at feature parity with the Raspberry Pi Zero. :)</p>
+<h2 id="buying">Buying</h2>
+<h3 id="radxa-zero">Radxa Zero</h3>
+<p>You want a SKU that doesn't come with the headers pre-soldered, so it can mate with the Beepy pogo pins.</p>
+<p>I purchased mine from <a href="https://shop.allnetchina.cn/products/copy-of-radxa-zero?variant=39440872308838">Allnet</a>, an official Radxa distributor.</p>
+<p>I wasn't able to get eMMC boot working with Armbian, so YMMV if you want the larger eMMC models.</p>
+<h3 id="antenna">Antenna</h3>
+<p>All the SKUs without headers seem to also only have external antenna. Any small 2.4/5 GHz flex antenna with a U.FL connector should work. I bought <a href="https://www.digikey.com/en/products/detail/antenova/SRF2W012-100/5959788">this one</a> off Digi-Key.</p>
+<h2 id="os-setup">OS Setup</h2>
+<div class="blockbutton"><a href="https://www.armbian.com/radxa-zero/"><button>Armbian for Radxa Zero</button></a></div>
+<p>I'm running Armbian 23.11 Bookworm. I haven't tested on later releases, so use a newer major release at your own risk.</p>
+<p>If you have an eMMC model, follow the instructions to erase the eMMC to enable microSD boot.</p>
+<p>Flash the system image to the microSD card and boot as usual.</p>
+<p>You won't have Beepy keyboard or display support at this point, so a micro-HDMI cable and USB-C hub will come in handy here. Once you have Wi-Fi and SSH set up, you can just SSH in for subsequent boots.</p>
+<h2 id="install-kernel-modules">Install Kernel Modules</h2>
+<p>There are two kernel modules to install, for display and keyboard support. These are forked from the Beepy drivers.
+The main changes are to provide Radxa Zero Device Tree configs and modify the Makefile to build and install on Armbian.</p>
+<p>The following steps should be performed on your Radxa Zero.</p>
+<h3 id="dependencies">Dependencies</h3>
+<pre style="background-color:#383838;color:#e6e1dc;"><code><span>apt install linux-headers-current-meson64
+</span></code></pre>
+<h3 id="display-driver">Display Driver</h3>
+<div class="blockbutton"><a href="https://github.com/Hylian/sharp-drm-driver"><button>GitHub</button></a></div>
+<pre style="background-color:#383838;color:#e6e1dc;"><code><span>git clone https://github.com/Hylian/sharp-drm-driver.git
+</span><span>cd sharp-drm-driver
+</span><span>make
+</span><span>make install
+</span></code></pre>
+<h4 id="troubleshooting">Troubleshooting</h4>
+<p>Once the driver is loaded, you should see a framebuffer device show up at <code>/dev/fb0</code>. Writing to this device should update the screen (e.g. <code>cat /dev/random &gt; /dev/fb0</code>).</p>
+<p>If you aren't seeing the TTY show up on the display, your <a href="https://www.kernel.org/doc/Documentation/fb/fbcon.txt">fbcon mapping</a> may be incorrect. The Makefile install target adds a <a href="https://github.com/Hylian/sharp-drm-driver/blob/radxa-zero/Makefile#L21">fbcon boot arg</a> to <code>/boot/armbianEnv.txt</code>, with an fbcon mapping that worked for me. Try modifying <code>/boot/armbianEnv.txt</code> with a different mapping and reboot. If you only see console messages without a TTY appearing, you are probably in this state.</p>
+<h3 id="keyboard-driver">Keyboard Driver</h3>
+<div class="blockbutton"><a href="https://github.com/Hylian/beepberry-keyboard-driver"><button>GitHub</button></a></div>
+<pre style="background-color:#383838;color:#e6e1dc;"><code><span>git clone https://github.com/Hylian/beepberry-keyboard-driver.git
+</span><span>cd beepberry-keyboard-driver
+</span><span>make
+</span><span>make install
+</span></code></pre>
+<h3 id="finishing-up">Finishing up</h3>
+<p>Reboot your device.</p>
+<h3 id="developing">Developing</h3>
+<p>One-liner to rsync and install:</p>
+<pre style="background-color:#383838;color:#e6e1dc;"><code><span>rsync -a ~/dev/beepy/beepberry-keyboard-driver root@radxa-wifi.local:~/ &amp;&amp; ssh root@radxa-wifi.local &quot;cd ~/beepberry-keyboard-driver &amp;&amp; make &amp;&amp; make install &amp;&amp; rmmod beepy_kbd &amp;&amp; modprobe beepy_kbd&quot;
+</span></code></pre>
+<h2 id="quirks-and-tweaks">Quirks and Tweaks</h2>
+<h3 id="my-beepy-randomly-suspends-while-typing">My Beepy randomly suspends while typing!</h3>
+<p>This may happen when you try to type <code>-</code> (<code>Alt + i</code>). This is because the Beepy MCU firmware emits keycode 142 for that key, which then gets mapped to <code>minus</code> in the <a href="https://github.com/Hylian/beepberry-keyboard-driver/blob/radxa-zero/beepy-kbd.map#L67">keyboard map</a>. Keycode 142 collides with <a href="https://github.com/torvalds/linux/blob/master/include/uapi/linux/input-event-codes.h#L220"><code>KEY_SLEEP</code></a>.</p>
+<h4 id="fix">Fix</h4>
+<p>Configure <code>logind</code> to ignore the sleep key.</p>
+<ul>
+<li><code>vim /etc/systemd/logind.conf</code></li>
+<li>Set <code>HandleSuspendKey=ignore</code></li>
+</ul>
+<h3 id="how-do-i-suspend">How do I suspend?</h3>
+<p>The <code>systemctl suspend</code> command will put the Radxa into suspend. You should see the cursor stop blinking, and the system will resume upon any keypress. You can also check <code>dmesg</code> to confirm that it entered suspend.</p>
+<h3 id="can-i-remap-the-power-key-to-suspend">Can I remap the power key to suspend?</h3>
+<p>Yes, you can modify the keyboard driver. Change <a href="https://github.com/Hylian/beepberry-keyboard-driver/blob/170beef94a83ef5653dc92469f4a20bb6d8fe6b3/src/input_fw.c#L29">this</a> line to instead invoke <code>systemctl suspend</code>. Then configure the kernel module to <a href="https://github.com/Hylian/beepberry-keyboard-driver/blob/170beef94a83ef5653dc92469f4a20bb6d8fe6b3/src/params_iface.c#L315">handle poweroff in-driver</a>. The power button long press event from firmware should now invoke suspend.</p>
+<p>Shutting down from shell should still work fine, as when the keyboard driver is unloaded during poweroff, it informs the MCU. The MCU should enter deep sleep and power on the Radxa like normal on the next power button press.</p>
+<h3 id="how-do-i-measure-battery-state-of-charge">How do I measure battery state of charge?</h3>
+<p>These sysfs exports are available via the keyboard driver:</p>
+<p><code>/sys/firmware/beepy/battery_raw</code></p>
+<p><code>/sys/firmware/beepy/battery_volts</code></p>
+<p><code>/sys/firmware/beepy/battery_percent</code></p>
+<p>Note that the model used for battery percentage is pretty rough, and may not be accurate.</p>
+<h2 id="optimizing-power">Optimizing Power</h2>
+<ul>
+<li>
+<p>I only have a USB power meter, which works OK with the battery unplugged, but it's still capturing power supply losses. Power meter into the battery terminals would be better, and separate shunt resistors to the Radxa and RP2040 would be ideal. I put in a feature request to SQFMI to add shunt resistor jumpers in the next revision.</p>
+</li>
+<li>
+<p><em>TODO:</em> In suspend, DRAM still needs to self-refresh. We should characterize quiescent power draw.</p>
+</li>
+<li>
+<p><em>TODO:</em> Investigate Radxa/Amlogic suspend sequence and see what clocks and peripherals stay up. Can we gate any of them?</p>
+</li>
+<li>
+<p><em>TODO:</em> Investigate if wireless chipset stays up during suspend. If it does, we should block Wi-Fi and Bluetooth with <code>rfkill</code> before suspending.</p>
+</li>
+<li>
+<p><em>TODO:</em> The MCU still stays active when Radxa suspends. The MCU will consume around 20mA @ 5V in this state, which isn't ideal. When in shutdown, the MCU enters deep sleep, consuming much less power, and only wakes on a wakeup timer or power button interrupt. We should implement similar handling for the suspend case, entering suspend+deep sleep via power key tap. After that, we can measure the actual power draw in suspend.</p>
+</li>
+</ul>
+<h3 id="power-measurements">Power Measurements</h3>
+<p>(08/24): Measured with a USB power meter, battery unplugged.</p>
+<table><thead><tr><th>Radxa</th><th>RP2040</th><th>Watts</th></tr></thead><tbody>
+<tr><td>Active</td><td>Active</td><td>0.8W</td></tr>
+<tr><td>Suspend</td><td>Active</td><td>0.45W</td></tr>
+<tr><td>Suspend</td><td>Deep Sleep</td><td>TODO</td></tr>
+<tr><td>Poweroff</td><td>Deep Sleep</td><td>0.05W</td></tr>
+</tbody></table>
+<p>According to the measurements in the RP2040 <a href="https://github.com/ardangelo/beepberry-rp2040">repo</a>, MCU active draws 0.125W, so Radxa in suspend should be contributing 0.275W power draw.</p>
+<p>That means in suspend, we'll draw: (Radxa_suspend + RP2040_deepsleep) = (275mW + 25mW) = 300mW</p>
+<p>Beepy battery is 7.4Wh, so total suspend time should be: (7.4Wh/300mW) = 24.67 hours</p>
+
+  </article>
+
+      </main>
+
+    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ee1115978a4845d983e048f906758abd"}'></script><!-- End Cloudflare Web Analytics -->
+    </body>
+</html>
