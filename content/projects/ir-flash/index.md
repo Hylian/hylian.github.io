@@ -4,16 +4,14 @@ date=2021-07-22
 transparent = true
 +++
 
-![Flash](flash.jpg)
+## IR LED camera flash 
 
-An LED camera flash for infrared film photography.
+{{ resized(img="flash.jpg") }}
 
-![PCB](pcb.jpg)
+{{ resized(img="pcb.jpg") }}
 
-## Sample Images
+{{ resized(img="sample-1.jpg") }}
 
-![Sample 1](sample-1.jpg)
+{{ resized(img="sample-2.jpg") }}
 
-![Sample 2](sample-2.jpg)
-
-![Sample 3](sample-3.jpg)
+{{ resized(img="sample-3.jpg") }}

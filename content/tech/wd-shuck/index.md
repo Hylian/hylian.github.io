@@ -8,4 +8,4 @@ After shucking the HDD out of a WD EasyStore, I was left with the USB to SATA PC
 
 By jumping the 5V from the USB input to the SATA 5V pin, I was able to bypass the power circuitry and use SSDs without the power supply plugged in.
 
-![PCB](pcb.png)
+{{ resized(img="pcb.png") }}

@@ -1,24 +1,13 @@
 +++
-title="Tokilabs Note"
+title="Note"
 date=2017-05-01
 transparent=true
 +++
 
-![Note](note.jpg)
+## Sound Voltex controller designed with [PCBmodE](https://github.com/boldport/pcbmode)
 
-A small controller for the game Sound Voltex.
+{{ resized(img="note.jpg") }}
 
-The PCB was designed with Boldport's [PCBmodE](https://github.com/boldport/pcbmode).
+{{ resized(img="pcb-render.png") }}
 
-## Features
- * ATmega32U4
- * RGB button backlighing using Adafruit Neopixels
- * Rotary encoders
- * Sanwa arcade buttons
- * Laser-cut acrylic enclosure
- * Rubber feet inserts
- * 160 x 92 mm
-
-![PCB](pcb-render.png)
-
-![Schematic](schematic.png)
+{{ resized(img="schematic.png") }}
